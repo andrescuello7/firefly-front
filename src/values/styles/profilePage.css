@@ -1,0 +1,102 @@
+.bodyProfile {
+  padding: 2% 5% 10% 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 12%;
+}
+.profile {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+.imgProfile {
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  margin-right: 2%;
+  margin-left: 0%;
+}
+.FormProfile {
+  margin-top: 5%;
+  color: rgb(117, 116, 116);
+}
+.formInput {
+  margin-top: 5%;
+}
+.titleProfile {
+  width: 100%;
+  text-align: left;
+  font-size: 30px;
+  font-family: "Indie Flower", cursive;
+  font-family: "Lobster", cursive;
+}
+.descriptionRegister {
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.inputFormProfile {
+  border-radius: 10px;
+  border: rgba(128, 128, 128, 0.233) solid 1px;
+  background-color: none;
+  padding: 10px;
+  height: 60px;
+}
+.FormProfileBootstrap{
+  margin-top: 1%;
+  display: flex;
+  width: 100%;
+}
+.buttonProfile{
+  margin-top: 8%;
+  width: 100%;
+  height: 50px;
+}
+@media (max-width: 780px) {
+  .titleProfile {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Indie Flower", cursive;
+    font-family: "Lobster", cursive;
+  }
+  .register {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .FormProfile {
+    margin-top: 10%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 3%;
+  }
+  .bodyProfile {
+    margin-left: 15%;
+    padding: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .FormProfileBootstrap{
+    display: flex;
+    flex-direction: column;
+  }
+  .buttonProfile{
+    margin-top: 8%;
+    width: 95%;
+    height: 50px;
+  }
+  .imgProfile {
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+    margin-left: 4%;
+  }
+}
