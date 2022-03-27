@@ -1,0 +1,30 @@
+.imageAdmin {
+  border-radius: 40%;
+  border: solid rgb(12, 190, 12) 2px;
+}
+.statusAdmin {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0% 2%;
+}
+.adminForm {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0% 0%;
+}
+
+@media (max-width: 780px) {
+  .statusPage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh;
+    padding: 0% 2%;
+  }
+}

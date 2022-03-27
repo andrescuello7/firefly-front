@@ -11,6 +11,7 @@ import LoginPage from './ui/screens/loginPage';
 import RegisterPage from './ui/screens/registerPage';
 import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
+import AdminPage from './ui/screens/adminPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/time" element={<DateTimePage />} />
           <Route path="/status" element={<StatusPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
   );

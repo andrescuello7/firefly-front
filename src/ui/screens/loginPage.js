@@ -2,30 +2,11 @@ import "../../values/styles/loginPage.css";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+import ControllerVariables from "../../values/api";
 import Controller from "../screen-controller/loginPageController";
 
 const LoginPage = () => {
-    const [input, setInput] = useState({});
-    const [validation, setValidation] = useState(false);
-
-    const HandleChange = (e) => {
-        const { name, value } = e.target;
-        const changedInput = { ...input, [name]: value };
-        setInput(changedInput);
-    };
-
-    const HandleSubmit = async (e) => {
-        e.preventDefault();
-        window.location.href = "/";
-        // try {
-        //   const { data } = await axios.post("auth", input);
-        //   localStorage.setItem("token", data);
-        //   window.location.href = "/";
-        // } catch (error) {
-        //   console.log(error);
-        //   setValidation(true);
-        // }
-    };
+    const { HandleChange, HandleSubmit, validation } = Controller();
 
     return (
         <div>
@@ -35,7 +16,7 @@ const LoginPage = () => {
                         <div className="w-100">
                             <p className="text-center PortadaTituloForm">
                                 <b>
-                                Luciernagas
+                                    Luciernagas
                                 </b>
                             </p>
                         </div>

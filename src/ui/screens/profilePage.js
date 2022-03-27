@@ -51,7 +51,7 @@ const ProfilePage = () => {
                                     className="w-100 inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="text"
-                                    name="name"
+                                    name="user"
                                     placeholder="Nombre y Apellido"
                                 />
                             </Form.Group>
