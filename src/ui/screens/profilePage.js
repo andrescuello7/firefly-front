@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="text"
                                     name="user"
@@ -45,7 +45,7 @@ const ProfilePage = () => {
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="date"
                                     name="date"
@@ -59,7 +59,7 @@ const ProfilePage = () => {
                         <div className="FormProfileBootstrap">
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="text"
                                     name="locate"
@@ -68,7 +68,7 @@ const ProfilePage = () => {
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="text"
                                     name="school"
@@ -77,7 +77,7 @@ const ProfilePage = () => {
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="text"
                                     name="health"
@@ -91,29 +91,28 @@ const ProfilePage = () => {
                         <div className="FormProfileBootstrap">
                             <Form.Group controlId="formBasicEmail" className="m-2 w-100">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="email"
                                     name="email"
                                     placeholder="Email"
                                 />
                             </Form.Group>
-                            <div className="d-flex">
+                            <label class="custom-file-input m-2">
                                 <input
                                     id="file-input"
                                     name="photo"
                                     accept="image/png, image/jpeg"
                                     type="file"
-                                    class="custom-file-input"
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
                                     onChange={onChangeImg}
                                 />
-                            </div>
+                            </label>
 
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
-                                    className="w-100 inputFormProfile"
+                                    className="inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="password"
                                     // name="password"
@@ -121,12 +120,10 @@ const ProfilePage = () => {
                                 />
                             </Form.Group>
                         </div>
-                        <div className="text-center">
-                            <Button variant="primary" className="buttonProfile" onClick={handleShow} type="submit">
-                                <b>Guardar</b>
-                            </Button>
-                        </div>
-                        <Modal show={show} onHide={handleClose}>
+                        <Button variant="primary" className="buttonProfile" onClick={handleShow} type="submit">
+                            <b>Guardar</b>
+                        </Button>
+                        <Modal className="modalProfileBody" show={show} onHide={handleClose}>
                             <Modal.Header className="modalProfile" closeButton>
                                 <i className="mt-2">Perfecto se actualizaron sus datos!</i>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" className="bi bi-clipboard2-check-fill" viewBox="0 0 16 16">
