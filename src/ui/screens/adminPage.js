@@ -1,32 +1,53 @@
 import Controller from '../screen-controller/adminPageController';
 import MenuOpcion from '../components/menuOptions';
-import { Table, Button, ProgressBar } from 'react-bootstrap'
+import { Table, Sonnet, Tabs, Tab } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 
 const AdminPage = () => {
-    const { ProgressMap, Progress } = Controller()
+    const { ProgressMap, ProgressProfileMap } = Controller()
     return (
         <div>
             <MenuOpcion className="menu" />
             <p className='titleProgress'>Progreso Semanal</p>
             <div className='statusAdmin'>
-                <div className='adminForm'>
-                    <Table hover size="sm">
-                        <thead>
-                            <tr>
-                                <th>Foto</th>
-                                <th>Nombre</th>
-                                <th>Edad</th>
-                                <th>Pasatiempo</th>
-                                <th>Progreso</th>
-                                <th className=''>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {ProgressMap}
-                        </tbody>
-                    </Table>
-                </div>
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
+                    <Tab eventKey="home" title="Datos">
+                        <div className='adminForm'>
+                            <Table hover size="sm">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Edad</th>
+                                        <th>Progreso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ProgressMap}
+                                </tbody>
+                            </Table>
+                        </div>
+                    </Tab>
+                    <Tab eventKey="profile" title="Personal">
+                        <div className='adminForm'>
+                            <Table hover size="sm">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Nombre</th>
+                                        <th>Locate</th>
+                                        <th>Gustos</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ProgressProfileMap}
+                                </tbody>
+                            </Table>
+                        </div>
+                    </Tab>
+                </Tabs>
             </div>
         </div>
     );

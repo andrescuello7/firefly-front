@@ -1,32 +1,20 @@
 import "../../values/styles/profilePage.css";
-import { Form, Button, Placeholder } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import axios from "axios";
 import MenuOpcion from '../components/menuOptions';
-import FutterComponent from '../components/futterComponent';
+import ProfilePageController from "../screen-controller/profilePageController";
 
 const ProfilePage = () => {
-    const [input, setInput] = useState({});
-    const [validation, setValidation] = useState(false);
+    const [show, setShow] = useState(false);
 
-    const HandleChange = (e) => {
-        const { name, value } = e.target;
-        const changedInput = { ...input, [name]: value };
-        setInput(changedInput);
-    };
-
-    const HandleSubmit = async (e) => {
-        e.preventDefault();
-        window.location.href = "/login";
-        // try {
-        //   const { data } = await axios.post("auth", input);
-        //   localStorage.setItem("token", data);
-        //   window.location.href = "/";
-        // } catch (error) {
-        //   console.log(error);
-        //   setValidation(true);
-        // }
-    };
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const {
+        validation,
+        userModel,
+        HandleChange,
+        PutHandleSubmit,
+        onChangeImg } = ProfilePageController();
     return (
         <div className='body'>
             <MenuOpcion />
@@ -35,12 +23,12 @@ const ProfilePage = () => {
                     <div className="text-center w-100">
                         <div className="d-flex justify-content-between">
                             <div className="d-flex w-100 align-items-center">
-                                <img className="imgProfile" src="https://ca.slack-edge.com/TAY2BPG0M-U02JQP4C9RC-8fd520f75ca8-48" />
+                                <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                                 <p className="titleProfile">Mi perfil</p>
                             </div>
                         </div>
                     </div>
-                    <Form onSubmit={HandleSubmit} className="FormProfile">
+                    <Form onSubmit={PutHandleSubmit} className="FormProfile">
                         <div className="text-primary">
                             <b>Datos Escenciales</b>
                         </div>
@@ -110,28 +98,44 @@ const ProfilePage = () => {
                                     placeholder="Email"
                                 />
                             </Form.Group>
+                            <div className="d-flex">
+                                <input
+                                    id="file-input"
+                                    name="photo"
+                                    accept="image/png, image/jpeg"
+                                    type="file"
+                                    class="custom-file-input"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onChange={onChangeImg}
+                                />
+                            </div>
+
                             <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                 <input
                                     className="w-100 inputFormProfile"
                                     onChange={(e) => HandleChange(e)}
                                     type="password"
-                                    name="password"
+                                    // name="password"
                                     placeholder="Password"
                                 />
                             </Form.Group>
                         </div>
-
-                        {validation === true && (
-                            <div className="ml-2 text-danger">
-                                <p>No se puede iniciar sesion, intenta nuevamente!</p>
-                            </div>
-                        )}
+                        <div className="text-center">
+                            <Button variant="primary" className="buttonProfile" onClick={handleShow} type="submit">
+                                <b>Guardar</b>
+                            </Button>
+                        </div>
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header className="modalProfile" closeButton>
+                                <i className="mt-2">Perfecto se actualizaron sus datos!</i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" className="bi bi-clipboard2-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z" />
+                                    <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5Zm6.769 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708Z" />
+                                </svg>
+                            </Modal.Header>
+                        </Modal>
                     </Form>
-                    <div className="text-center">
-                        <Button variant="primary" className="buttonProfile" type="submit">
-                            <b>Guardar</b>
-                        </Button>
-                    </div>
                 </div>
             </div>
         </div>

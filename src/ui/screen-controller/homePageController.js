@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from '../../data-access/requestAccess';
+import UserModel from '../../models/userModel';
 
 const HomePageController = () => {
-    const { getReadUser } = RecuestAccess();
+    const { getUser } = RecuestAccess();
+    const { setUserModel, userModel } = UserModel();
+
     const [menu, setMenu] = useState(false);
     const [img, setImg] = useState(false);
+
     const handleLogOut = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("admin");
         window.location.href = "/login";
     };
 
     useEffect(() => {
-        getUser()
-    }, [])
-
-    const getUser = async (e) => {
+        getUserMethod()
+    }, [userModel.length === 0])
+    
+    const getUserMethod = async (e) => {
         try {
-            let response = await getReadUser();
-            // console.log(response)
+            let response = await getUser();
+            setUserModel(response)
+            if (response.user.admin != null) {
+                localStorage.setItem("admin", response.user.admin);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -27,6 +35,7 @@ const HomePageController = () => {
         setMenu(!menu)
         setImg(!img)
     }
+    
     return {
         handleLogOut,
         burgerButton,

@@ -43,10 +43,18 @@
   border-radius: 30px;
   color: white;
 }
+.optionsMenuAdmin {
+  margin: 0px;
+  padding: 0%;
+  display: block;
+}
 @media (max-width: 780px) {
   .menu {
     width: 70%;
     position: relative;
+  }
+  .optionsMenuAdmin {
+    display: none;
   }
   .menuTrue {
     display: flex;
