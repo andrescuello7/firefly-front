@@ -5,22 +5,23 @@
   min-height: 900px;
 }
 .menuTrue {
-  background-color: #f3ededdc;
+  /* background-color: #ffffff; */
+  background-color: #f9f9f9;
   position: fixed;
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
   width: 300px;
-  min-height: 900px;
+  min-height: 950px;
 }
 .imagenLogo {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 .menuFalse {
-  /* background-color: #f9f9f9; */
-  background-color: #f3ededdc;
+  /* background-color: #ffffff; */
+  background-color: #f9f9f9;
   position: fixed;
   display: flex;
   justify-content: start;

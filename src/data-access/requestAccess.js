@@ -40,6 +40,7 @@ const RecuestAccess = () => {
                 return data
             } catch (error) {
                 console.log(error);
+                window.location.href = "/login";
             }
         } else {
             window.location.href = "/login";
