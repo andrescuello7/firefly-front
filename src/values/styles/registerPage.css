@@ -2,18 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url(https://wallpaperaccess.com/full/1713248.jpg);
+  background-color: #f9f9f9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 .background {
   position: absolute;
 }
 .register {
+  background-color: #f9f9f9;
+  /* background: url(../images/register.png); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   border: 1px rgba(65, 65, 65, 0.5) solid;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 2%;
   margin: 2%;
   width: 30%;
-  min-height: 50vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,18 +38,47 @@
   margin-top: 5%;
 }
 .titleRegister {
+  text-shadow: 1px 1px #353638;
   font-size: 40px;
   font-family: "Indie Flower", cursive;
   font-family: "Lobster", cursive;
   font-family: "Palette Mosaic", cursive;
+  font-family: "Permanent Marker", cursive;
 }
 .descriptionRegister {
   font-size: 20px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Palette Mosaic", cursive;
+  font-family: "Lobster", cursive;
+  font-family: "Indie Flower", cursive;
 }
 .buttonRegister {
   width: 100%;
+  font-family: "Palette Mosaic", cursive;
+  font-family: "Lobster", cursive;
+  font-family: "Indie Flower", cursive;
 }
+
+.formInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputFormRegister {
+  margin-top: 15px;
+  width: 100%;
+  font-size: 20px;
+  font-family: "Palette Mosaic", cursive;
+  font-family: "Lobster", cursive;
+  font-family: "Indie Flower", cursive;
+  border-radius: 10px;
+  border: rgba(128, 128, 128, 0.233) solid 2px;
+  background-color: none;
+  padding: 10px;
+  height: 60px;
+}
+
 @media (max-width: 780px) {
   .register {
     margin-top: 2rem;
@@ -68,6 +107,15 @@
     font-size: 15px;
   }
   .buttonRegister {
-    width: 80%;
+    width: 90%;
+  }
+  .inputFormRegister {
+    margin-top: 20px;
+    width: 90%;
+    border-radius: 10px;
+    border: rgba(128, 128, 128, 0.233) solid 1px;
+    background-color: none;
+    padding: 10px;
+    height: 40px;
   }
 }

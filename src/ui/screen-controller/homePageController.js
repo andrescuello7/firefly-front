@@ -6,8 +6,8 @@ const HomePageController = () => {
     const { getUser } = RecuestAccess();
     const { setUserModel, userModel } = UserModel();
 
-    const [menu, setMenu] = useState(false);
-    const [img, setImg] = useState(false);
+    const [menu, setMenu] = useState(true);
+    const [img, setImg] = useState(true);
 
     const handleLogOut = () => {
         localStorage.removeItem("token");
@@ -18,7 +18,7 @@ const HomePageController = () => {
     useEffect(() => {
         getUserMethod()
     }, [userModel.length === 0])
-    
+
     const getUserMethod = async (e) => {
         try {
             let response = await getUser();
@@ -35,7 +35,7 @@ const HomePageController = () => {
         setMenu(!menu)
         setImg(!img)
     }
-    
+
     return {
         handleLogOut,
         burgerButton,

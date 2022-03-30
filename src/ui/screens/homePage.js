@@ -1,12 +1,12 @@
 import "../../values/styles/homePage.css";
 import Controller from '../screen-controller/homePageController';
 import MenuOpcion from '../components/menuOptions';
-import { Card, Button, Nav } from 'react-bootstrap'
+import { Card, Carousel, Nav } from 'react-bootstrap'
 
 const HomePage = () => {
     return (
         <div className='body'>
-            <MenuOpcion/>
+            <MenuOpcion />
             <div className='homePage'>
                 <div className="homePageAbout">
                     <div className="w-100 d-flex flex-column mx-2">

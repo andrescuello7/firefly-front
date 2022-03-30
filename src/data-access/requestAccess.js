@@ -1,12 +1,8 @@
 import ControllerVariables from "../../src/values/api";
 import axios from "axios";
-import { useState } from "react";
-import { getBase64, beforeUpload } from '../../src/network/photo';
 
 const RecuestAccess = () => {
     const { api, cloudinary, token, headers } = ControllerVariables();
-    const [photo, setPhoto] = useState();
-    const [base64, setBase64] = useState();
 
     //Submit of register
     const SubmitRegister = async (input) => {
@@ -36,13 +32,17 @@ const RecuestAccess = () => {
 
     //Method Get of user | read date
     const getUser = async (e) => {
-        try {
-            const { data } = await axios.get(api + "auth", {
-                headers,
-            });
-            return data
-        } catch (error) {
-            console.log(error);
+        if (token !== null) {
+            try {
+                const { data } = await axios.get(api + "auth", {
+                    headers,
+                });
+                return data
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            window.location.href = "/login";
         }
     };
 
@@ -64,7 +64,7 @@ const RecuestAccess = () => {
         const formData = new FormData();
         formData.append("file", pic);
         formData.append("upload_preset", "wkuf5yo4");
-        fetch("https://api.cloudinary.com/v1_1/five-drive/upload", {
+        fetch(cloudinary, {
             method: "POST",
             body: formData,
         })

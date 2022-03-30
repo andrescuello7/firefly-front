@@ -5,6 +5,10 @@
 }
 .body {
   background-color: #f9f9f9;
+  /* background: url(../images/home.png); */
+  background-size: cover;
+  background-attachment: local;
+  background-repeat: no-repeat;
   display: flex;
 }
 .imagesHomeAbout {
