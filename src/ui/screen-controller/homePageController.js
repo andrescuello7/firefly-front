@@ -6,8 +6,8 @@ const HomePageController = () => {
     const { getUser } = RecuestAccess();
     const { setUserModel, userModel } = UserModel();
 
-    const [menu, setMenu] = useState(true);
-    const [img, setImg] = useState(true);
+    const [menu, setMenu] = useState(false);
+    const [img, setImg] = useState(false);
 
     const handleLogOut = () => {
         localStorage.removeItem("token");
