@@ -1,6 +1,6 @@
 /* Menu */
 .menu {
-  position: absolute;
+  position: relative;
   width: 300px;
   min-height: 900px;
 }
@@ -56,11 +56,9 @@
 }
 .TituloMenuDate {
   /* color: rgba(247, 146, 14, 0.945); */
-  text-shadow: 1px 1px #353638;
+  text-shadow: 2px 2px #a7a8aa;
   font-size: 30px;
   font-family: "Indie Flower", cursive;
-  font-family: "Lobster", cursive;
-  font-family: "Palette Mosaic", cursive;
   font-family: "Permanent Marker", cursive;
 }
 @media (max-width: 780px) {
@@ -80,11 +78,12 @@
     min-height: 900px;
   }
   .menuFalse {
+    position: relative;
     display: flex;
     justify-content: start;
     align-items: center;
-    flex-direction: column;
-    width: 20%;
+    /* flex-direction: column; */
+    width: 15%;
     min-height: 900px;
   }
   .menuOpcion:hover {
@@ -96,5 +95,9 @@
     background-color: #379ff8 !important;
     border-radius: 30px;
     color: white;
+  }
+  .TituloMenuDate {
+    font-size: 22px;
+    /* font-family: "Indie Flower", cursive; */
   }
 }

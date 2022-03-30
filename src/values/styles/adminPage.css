@@ -8,20 +8,61 @@
   padding: 0% 10%;
 }
 .adminForm {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   min-height: 100vh;
   padding: 0% 0%;
 }
-
+.tableAdmin {
+  width: 100%;
+}
+.textAdmin {
+  font-size: 15px;
+}
+.buttonAdmin{
+  display: block;
+}
 @media (max-width: 780px) {
+  .imageAdmin {
+    width: 20px;
+    height: 20px;
+    border-radius: 40%;
+  }
   .statusPage {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: end;
     min-height: 90vh;
-    padding: 0% 2%;
+    padding: 0% 0%;
+  }
+  .statusAdmin {
+    display: flex;
+    /* align-items: flex-end; */
+    flex-direction: column;
+    padding: 0% 0%;
+  }
+  .adminForm {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+  .adminFromTableOptions{
+    width: 100%;
+  }
+  .buttonAdmin{
+    padding: 10%;
+    width: 25px;
+    text-align: center;
+    font-size: 6px;
+  }
+  .textAdmin {
+    font-size: 8px;
+  }
+  .tableAdmin {
+    /* arriba */
+    /* width: 80%; */
   }
 }

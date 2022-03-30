@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(https://wallpaperaccess.com/full/1713248.jpg);
+  background: url(../images/backgroundRegister.png);
   background-color: #f9f9f9;
   background-repeat: no-repeat;
   background-size: cover;
@@ -80,10 +80,15 @@
 }
 
 @media (max-width: 780px) {
+  .bodyRegister {
+    display: flex;
+    align-items: flex-start;
+    min-height: 92vh;
+  }
   .register {
     margin-top: 2rem;
     width: 100%;
-    min-height: 90vh;
+    height: 90%;
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -101,7 +106,7 @@
     margin-top: 5%;
   }
   .titleRegister {
-    font-size: 35px;
+    font-size: 30px;
   }
   .descriptionRegister {
     font-size: 15px;
@@ -110,12 +115,12 @@
     width: 90%;
   }
   .inputFormRegister {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 90%;
     border-radius: 10px;
     border: rgba(128, 128, 128, 0.233) solid 1px;
     background-color: none;
     padding: 10px;
-    height: 40px;
+    height: 35px;
   }
 }

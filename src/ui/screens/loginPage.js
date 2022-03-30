@@ -14,11 +14,18 @@ const LoginPage = () => {
                 <div className="login">
                     <Form onSubmit={HandleSubmit} className="FormLogin card">
                         <div className="w-100">
-                            <p className="text-center PortadaTituloForm">
-                                <b>
-                                    Luciernagas
-                                </b>
-                            </p>
+                            <div className='d-flex justify-content-center'>
+                                <p className='titleRegister text-warning'>L</p>
+                                <p className='titleRegister text-danger'>u</p>
+                                <p className='titleRegister text-primary'>c</p>
+                                <p className='titleRegister text-success'>i</p>
+                                <p className='titleRegister text-warning'>e</p>
+                                <p className='titleRegister text-danger'>r</p>
+                                <p className='titleRegister text-primary'>n</p>
+                                <p className='titleRegister text-success'>a</p>
+                                <p className='titleRegister text-warning'>g</p>
+                                <p className='titleRegister text-danger'>a</p>
+                            </div>
                         </div>
                         <hr className="bg-light" />
                         <div className="mt-5"></div>

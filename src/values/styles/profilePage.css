@@ -83,7 +83,7 @@
     padding: 10px 3%;
   }
   .bodyProfile {
-    margin-left: 15%;
+    margin-left: 0%;
     padding: 5%;
     width: 100%;
     display: flex;
@@ -102,10 +102,10 @@
     border-radius: 20px;
     width: 60px;
     height: 60px;
-    margin-left: 4%;
+    margin-left: 2%;
   }
   .inputFormProfile {
-    width: 90%;
+    width: 95%;
     border-radius: 10px;
     border: rgba(128, 128, 128, 0.233) solid 1px;
     background-color: none;
@@ -165,7 +165,7 @@ input[type="file"] {
 }
 @media (max-width: 780px) {
   .custom-file-input::before {
-    width: 90%;
+    width: 100%;
     height: 40px;
   }
 }

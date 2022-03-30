@@ -15,7 +15,7 @@ import {
 const DateTimePage = () => {
     const [selectedDate, handleDateChange] = useState(new Date());
     return (
-        <div className='body'>
+        <div className='d-flex'>
             <MenuOpcion className="menu" />
             <div className='dateTime'>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>

@@ -77,7 +77,7 @@ const RegisterPage = () => {
                     )}
                     <div className="mt-5 buttonRegister">
                         <Button variant="outline-primary" className="w-100" type="submit">
-                            <b>Iniciar Session</b>
+                            <b>Registrarte</b>
                         </Button>
                     </div>
                     <div className="mt-2"></div>

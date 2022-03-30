@@ -29,13 +29,12 @@
 }
 @media (max-width: 780px) {
   .dateTime {
-    margin-left: 20%;
-    margin-right: 10%;
-    width: 80%;
-    min-height: 90vh;
+    margin-top: 20%;
+    width: 100%;
+    /* min-height: 0vh; */
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
   }
   .dateTimePicker {
     border: 1px solid rgba(70, 68, 68, 0.363);

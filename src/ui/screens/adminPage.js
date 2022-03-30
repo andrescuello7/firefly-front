@@ -6,21 +6,21 @@ import '../../values/styles/adminPage.css'
 const AdminPage = () => {
     const { ProgressMap, ProgressProfileMap } = Controller()
     return (
-        <div>
+        <div className='d-flex'>
             <MenuOpcion className="menu" />
-            <p className='titleProgress'>Progreso Semanal</p>
             <div className='statusAdmin'>
-                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
+                <p className='titleProgress'>Progreso Semanal</p>
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3 tableAdmin">
                     <Tab eventKey="home" title="Datos">
                         <div className='adminForm'>
-                            <Table hover size="sm">
+                            <Table hover size="sm" className='adminFromTableOptions'>
                                 <thead>
                                     <tr>
-                                        <th>Foto</th>
-                                        <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Edad</th>
-                                        <th>Progreso</th>
+                                        <th className='textAdmin'>Foto</th>
+                                        <th className='textAdmin'>Nombre</th>
+                                        <th className='textAdmin'>Email</th>
+                                        <th className='textAdmin'>Edad</th>
+                                        <th className='textAdmin'>Progreso</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,14 +31,14 @@ const AdminPage = () => {
                     </Tab>
                     <Tab eventKey="profile" title="Personal">
                         <div className='adminForm'>
-                            <Table hover size="sm">
+                            <Table hover size="sm" className='adminFromTableOptions'>
                                 <thead>
                                     <tr>
-                                        <th>Foto</th>
-                                        <th>Nombre</th>
-                                        <th>Locate</th>
-                                        <th>Gustos</th>
-                                        <th>Opciones</th>
+                                        <th className='textAdmin'>Foto</th>
+                                        <th className='textAdmin'>Nombre</th>
+                                        <th className='textAdmin'>Locate</th>
+                                        <th className='textAdmin'>Gustos</th>
+                                        <th className='textAdmin'>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
