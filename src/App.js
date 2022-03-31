@@ -12,6 +12,7 @@ import RegisterPage from './ui/screens/registerPage';
 import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
 import AdminPage from './ui/screens/adminPage';
+import MenuOpcion from './ui/components/menuOptions';
 
 function App() {
   return (

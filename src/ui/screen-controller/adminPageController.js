@@ -4,17 +4,33 @@ import UsersModel from '../../models/usersModel';
 import { Spinner, Button, ProgressBar } from 'react-bootstrap'
 
 const AdminPageController = () => {
-    const { setUsersModel, usersModel, email, id, likes, locate, user, years } = UsersModel()
-    const { getReadUser } = RecuestAccess();
+    const [input, setInput] = useState({});
+    const { setUsersModel, usersModel } = UsersModel()
+    const { getReadUser, getUser, PostAdminPhoto, putUserPhoto } = RecuestAccess();
 
     useEffect(() => {
         getAdminDateOfUsers()
     }, [usersModel.length === 0])
 
+    const HandleChange = (e) => {
+        const { name, value } = e.target;
+        const changedInput = { ...input, [name]: value };
+        setInput(changedInput);
+    };
+
     const getAdminDateOfUsers = async (e) => {
         try {
             let response = await getReadUser();
             setUsersModel(response)
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const PostHandleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await PostAdminPhoto(e, input);
         } catch (error) {
             console.log(error);
         }
@@ -32,6 +48,7 @@ const AdminPageController = () => {
             </tr>
         );
     }
+
     const ProgressMap =
         (usersModel.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
@@ -40,6 +57,7 @@ const AdminPageController = () => {
         )) || usersModel.map((data, i) =>
             <Progress progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
         );
+
     //Component for Table Profile
     const ProgressProfile = ({ image, name, locate, gustos }) => {
         return (
@@ -61,6 +79,7 @@ const AdminPageController = () => {
             </tr>
         );
     }
+
     const ProgressProfileMap =
         (usersModel.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
@@ -71,6 +90,8 @@ const AdminPageController = () => {
         );
 
     return {
+        HandleChange,
+        PostHandleSubmit,
         ProgressProfileMap,
         ProgressProfile,
         ProgressMap,

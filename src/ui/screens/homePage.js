@@ -1,9 +1,9 @@
 import "../../values/styles/homePage.css";
 import Controller from '../screen-controller/homePageController';
 import MenuOpcion from '../components/menuOptions';
-import { Card, Carousel, Nav } from 'react-bootstrap'
 
 const HomePage = () => {
+    const { photoHomeMap } = Controller()
     return (
         <div className='body'>
             <MenuOpcion />
@@ -19,6 +19,11 @@ const HomePage = () => {
                         </p>
                     </div>
                     <img className="imagesHomeAbout" src="https://animationexplainers.com/wp-content/uploads/2021/07/p10-bg2.png" />
+                </div>
+                <div className="cardImage">
+                    <div className="w-100 d-flex justify-content-around flex-wrap">
+                        {photoHomeMap}
+                    </div>
                 </div>
             </div>
         </div>

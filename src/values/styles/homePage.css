@@ -50,6 +50,14 @@
   color: rgba(51, 50, 50, 0.726);
   text-align: start;
 }
+.cardImage{
+  padding-top: 50px;
+  border-top: 1px rgba(161, 157, 157, 0.596) solid;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 780px) {
   .body {
     width: 100%;
@@ -76,18 +84,21 @@
     text-align: start;
   }
   .homePageAbout {
-    padding-left: 5%;
+    padding-left: 0%;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
   .homePage {
-    padding-left: 0%;
+    padding-left: 13%;
     min-height: 100vh;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+  }
+  .cardImage{
+    padding-top: 10px;
   }
 }

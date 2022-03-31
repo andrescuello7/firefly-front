@@ -82,13 +82,57 @@ const RecuestAccess = () => {
             .then((response) => console.log(response.data),
         );
     };
+
+    //Method Get of photo | read date
+    const getPhoto = async (e) => {
+        try {
+            const { data } = await axios.get(api + "home", {
+                headers,
+            });
+            return data
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
+    //Photo Profile
+    const PostAdminPhoto = async (e, input) => {
+        const pic = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", pic);
+        formData.append("upload_preset", "wkuf5yo4");
+        fetch(cloudinary, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                axios.post(api +
+                    'home',
+                    {
+                        photo: res.url,
+                        title: input.title,
+                        description: input.description
+                    },
+                    {
+                        headers,
+                    }
+                )
+            )
+            .then((response) => console.log(response.data),
+        );
+    };
+
     return {
         putUser,
         getUser,
+        getPhoto,
+        SubmitLogin,
         getReadUser,
         putUserPhoto,
         SubmitRegister,
-        SubmitLogin
+        PostAdminPhoto,
     }
 }
 export default RecuestAccess;

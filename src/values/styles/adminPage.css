@@ -21,10 +21,16 @@
 .textAdmin {
   font-size: 15px;
 }
-.buttonAdmin{
+.buttonAdmin {
   display: block;
 }
+.stateOfMenu{
+  width: 100%;
+}
 @media (max-width: 780px) {
+  .stateOfMenu{
+    width: 80%;
+  }
   .imageAdmin {
     width: 20px;
     height: 20px;
@@ -38,8 +44,10 @@
     padding: 0% 0%;
   }
   .statusAdmin {
+    width: 100%;
     display: flex;
-    /* align-items: flex-end; */
+    align-items: flex-end;
+    justify-content: end;
     flex-direction: column;
     padding: 0% 0%;
   }
@@ -49,10 +57,10 @@
     flex-direction: column;
     width: 100%;
   }
-  .adminFromTableOptions{
+  .adminFromTableOptions {
     width: 100%;
   }
-  .buttonAdmin{
+  .buttonAdmin {
     padding: 10%;
     width: 25px;
     text-align: center;
@@ -64,5 +72,48 @@
   .tableAdmin {
     /* arriba */
     /* width: 80%; */
+  }
+
+  /* Photo Css */
+}
+
+/* Photo Css */
+.custom-file {
+  color: rgb(82, 83, 83);
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  content: "Photo";
+  font-size: 1rem;
+  outline: none;
+  border-radius: 10px;
+  border: rgba(128, 128, 128, 0.233) solid 1px;
+  background-color: none;
+  padding: 10px;
+  height: 60px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.custom-file:hover::before {
+  transition-duration: 0.4s;
+  background: rgba(60, 64, 68, 0.247);
+  color: rgb(82, 83, 83);
+  border-color: rgba(12, 190, 182, 0);
+}
+.custom-file:active {
+  outline: 0;
+}
+.custom-file:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.titulo {
+  display: flex;
+  font-family: "Trade Winds", cursive;
+}
+
+@media (max-width: 780px) {
+  .custom-file {
+    width: 90%;
   }
 }
