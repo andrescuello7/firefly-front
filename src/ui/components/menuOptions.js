@@ -56,7 +56,7 @@ const OptionsMenuComponent = () => {
             <div className='mt-5'></div>
             <OptionsMenu route={'/'} title={"Inicio"} show={menu} select={true} icon={require('../../values/icons/home.png')} />
             <OptionsMenu route={'/profile'} title={"Perfil"} show={menu} icon={require('../../values/icons/profile2.png')} />
-            <OptionsMenu route={'/status'} title={"Comunicacion"} show={menu} icon={require('../../values/icons/profile.png')} />
+            <OptionsMenu route={'/status'} title={"Ranking"} show={menu} icon={require('../../values/icons/profile.png')} />
             <OptionsMenu route={'/time'} title={"Caledario"} show={menu} icon={require('../../values/icons/calentar.png')} />
             {admin ?
                 <OptionsMenu route={'/admin'} title={"Admin"} show={menu} icon={require('../../values/icons/admin.png')} />
