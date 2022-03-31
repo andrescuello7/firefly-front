@@ -46,7 +46,12 @@ const StatusPageController = () => {
                 <Spinner animation="grow" />
             </div>
         )) || usersModel.map((data, i) =>
-            <Progress progress={data.years} name={data.user} image={data.photo} key={i} />
+            <Progress
+                progress={data.years}
+                name={data.user}
+                image={data.photo}
+                key={i}
+            />
         );
 
     return {
