@@ -68,10 +68,10 @@ const AdminPageController = () => {
                 <td className='textAdmin'>{gustos}</td>
                 <td className='textAdmin'>
                     <td className='d-flex justify-content-around'>
-                        <Button className='btn btn-success buttonAdmin'>
+                        <Button variant='outline-info' className='buttonAdmin'>
                             info
                         </Button>
-                        <Button className='btn btn-primary buttonAdmin'>
+                        <Button variant='outline-danger' className='buttonAdmin'>
                             editar
                         </Button>
                     </td>
