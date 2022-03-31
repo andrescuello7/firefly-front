@@ -35,8 +35,8 @@
 }
 @media (max-width: 780px) {
   .imagePostComponent {
-    height: 100px;
-    padding-right: 20px;
+    height: 80px;
+    padding-right: 10px;
   }
   .cardPostComponent {
     margin: 2% 0%;
@@ -56,11 +56,15 @@
   .modalHeaderPostComponent {
     background-color: rgba(12, 23, 32, 0.918);
   }
+  .titlePostComponent {
+    font-size: 10px;
+    font-family: "Indie Flower", cursive;
+  }
   .imageModalPostComponent {
     width: 100%;
   }
   .descriptionPostComponent {
-    font-size: 10px;
+    font-size: 9px;
     font-family: "Indie Flower", cursive;
   }
 }

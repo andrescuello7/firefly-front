@@ -15,7 +15,7 @@ const PostComponent = ({ image, title, description }) => {
                     <div>
                         <img className="imagePostComponent" src={image} onClick={handleShow} />
                     </div>
-                    <div className='mx-2'>
+                    <div>
                         <b className='titlePostComponent'>{title}</b>
                         <p className='descriptionPostComponent'>{description}</p>
                     </div>

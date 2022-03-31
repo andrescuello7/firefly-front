@@ -4,7 +4,7 @@ import { Table, Form, Tabs, Tab, Button } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 
 const AdminPage = () => {
-    const { ProgressMap, ProgressProfileMap, HandleChange, PostHandleSubmit } = Controller()
+    const { ProgressMap, PostsMap, ProgressProfileMap, HandleChange, PostHandleSubmit } = Controller()
     return (
         <div className='d-flex'>
             <MenuOpcion className="menu" />
@@ -12,7 +12,7 @@ const AdminPage = () => {
                 <div className='stateOfMenu'>
                     <p className='titleProgress'>Progreso Semanal</p>
                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3 tableAdmin">
-                        <Tab eventKey="home" title="Datos">
+                        <Tab eventKey="home" title="Date">
                             <div className='adminForm'>
                                 <Table hover size="sm" className='adminFromTableOptions'>
                                     <thead>
@@ -30,7 +30,7 @@ const AdminPage = () => {
                                 </Table>
                             </div>
                         </Tab>
-                        <Tab eventKey="profile" title="Personal">
+                        <Tab eventKey="profile" title="People">
                             <div className='adminForm'>
                                 <Table hover size="sm" className='adminFromTableOptions'>
                                     <thead>
@@ -48,7 +48,7 @@ const AdminPage = () => {
                                 </Table>
                             </div>
                         </Tab>
-                        <Tab eventKey="images" title="Imagenes">
+                        <Tab eventKey="images" title="Image">
                             <div className='adminForm'>
                                 <Form
                                     // onSubmit={PostHandleSubmit}
@@ -69,7 +69,7 @@ const AdminPage = () => {
                                             name="description"
                                             placeholder="Descripcion"
                                         />
-                                        <label class="custom-file mt-2">
+                                        <label className="custom-file mt-2">
                                             <input
                                                 id="file-input"
                                                 name="photo"
@@ -87,6 +87,23 @@ const AdminPage = () => {
                                         </Button>
                                     </div>
                                 </Form>
+                            </div>
+                        </Tab>
+                        <Tab eventKey="post" title="Post">
+                            <div className='adminForm'>
+                                <Table hover size="sm" className='adminFromTableOptions'>
+                                    <thead>
+                                        <tr>
+                                            <th className='textAdmin'>Foto</th>
+                                            <th className='textAdmin'>Titulo</th>
+                                            <th className='textAdmin'>Descripcion</th>
+                                            <th className='textAdmin'>Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {PostsMap}
+                                    </tbody>
+                                </Table>
                             </div>
                         </Tab>
                     </Tabs>

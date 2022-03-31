@@ -5,11 +5,13 @@ import { Spinner, Button, ProgressBar } from 'react-bootstrap'
 
 const AdminPageController = () => {
     const [input, setInput] = useState({});
-    const { setUsersModel, usersModel } = UsersModel()
-    const { getReadUser, getUser, PostAdminPhoto, putUserPhoto } = RecuestAccess();
+    const { setUsersModel, usersModel } = UsersModel();
+    const [images, setImages] = useState([]);
+    const { getReadUser, getPhoto, PostAdminPhoto, putUserPhoto } = RecuestAccess();
 
     useEffect(() => {
         getAdminDateOfUsers()
+        getPhotoMethod()
     }, [usersModel.length === 0])
 
     const HandleChange = (e) => {
@@ -31,6 +33,15 @@ const AdminPageController = () => {
         e.preventDefault()
         try {
             await PostAdminPhoto(e, input);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const getPhotoMethod = async (e) => {
+        try {
+            let response = await getPhoto();
+            setImages(response);
         } catch (error) {
             console.log(error);
         }
@@ -71,7 +82,7 @@ const AdminPageController = () => {
                         <Button variant='outline-info' className='buttonAdmin'>
                             info
                         </Button>
-                        <Button variant='outline-danger' className='buttonAdmin'>
+                        <Button variant='outline-success' className='buttonAdmin'>
                             editar
                         </Button>
                     </td>
@@ -89,13 +100,47 @@ const AdminPageController = () => {
             <ProgressProfile image={usersModel[i].photo} name={usersModel[i].user} locate={usersModel[i].locate} gustos={usersModel[i].likes} key={i} />
         );
 
+    //Component for Table Images and Post
+    const GetPostsImages = ({ image, title, description }) => {
+        return (
+            <tr>
+                <td><img className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} /></td>
+                <td className='textAdmin'>{title}</td>
+                <td className='textAdmin'>{description}</td>
+                <td className='textAdmin'>
+                    <td className='d-flex justify-content-around'>
+                        <Button variant='outline-danger' className='buttonAdmin'>
+                            delete
+                        </Button>
+                    </td>
+                </td>
+            </tr>
+        );
+    }
+
+    const PostsMap =
+        (usersModel.length === 0 && (
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Spinner animation="grow" />
+            </div>
+        )) || images.map((data, i) =>
+            <GetPostsImages
+                image={data.photo}
+                description={data.description}
+                title={data.title}
+                key={i}
+            />
+        );
+
     return {
         HandleChange,
         PostHandleSubmit,
         ProgressProfileMap,
+        GetPostsImages,
         ProgressProfile,
         ProgressMap,
         usersModel,
+        PostsMap,
         Progress
     };
 }

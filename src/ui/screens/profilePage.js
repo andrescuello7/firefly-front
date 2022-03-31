@@ -10,7 +10,6 @@ const ProfilePage = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const {
-        validation,
         userModel,
         HandleChange,
         PutHandleSubmit,
@@ -98,7 +97,7 @@ const ProfilePage = () => {
                                     placeholder="Email"
                                 />
                             </Form.Group>
-                            <label class="custom-file-input m-2">
+                            <label className="custom-file-input m-2">
                                 <input
                                     id="file-input"
                                     name="photo"
