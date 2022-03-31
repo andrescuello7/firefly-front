@@ -55,15 +55,19 @@ const OptionsMenuComponent = () => {
             </div>
             <div className='mt-5'></div>
             <OptionsMenu route={'/'} title={"Inicio"} show={menu} select={true} icon={require('../../values/icons/home.png')} />
+            <OptionsMenu route={'/profile'} title={"Perfil"} show={menu} icon={require('../../values/icons/profile2.png')} />
+            <OptionsMenu route={'/status'} title={"Comunicacion"} show={menu} icon={require('../../values/icons/profile.png')} />
+            <OptionsMenu route={'/time'} title={"Caledario"} show={menu} icon={require('../../values/icons/calentar.png')} />
             {admin ?
                 <OptionsMenu route={'/admin'} title={"Admin"} show={menu} icon={require('../../values/icons/admin.png')} />
                 :
                 <div></div>
             }
-            <OptionsMenu route={'/profile'} title={"Perfil"} show={menu} icon={require('../../values/icons/profile.png')} />
-            <OptionsMenu route={'/time'} title={"Caledario"} show={menu} icon={require('../../values/icons/calentar.png')} />
-            {/* <OptionsMenu route={'/status'} title={"Comunicacion"} show={menu} icon={require('../../values/icons/home2.png')} /> */}
-            <OptionsMenu route={'/register'} title={"Register"} show={menu} icon={require('../../values/icons/register.png')} />
+            {token === null ?
+                <OptionsMenu route={'/register'} title={"Register"} show={menu} icon={require('../../values/icons/register.png')} />
+                :
+                <div></div>
+            }
             <OptionsMenu route={'/login'} title={"Salir"} script={handleLogOut} show={menu} icon={require('../../values/icons/login.png')} />
         </div>
     );
