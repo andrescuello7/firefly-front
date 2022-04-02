@@ -48,7 +48,7 @@ const OptionsMenuComponent = () => {
                         </svg>
                     </a>
                     <div className={img ? 'd-none' : 'd-block'} >
-                        <img className='mt-2' src='https://app.uaaloo.com/assets/img/logo-sm.svg' />
+                        <img className='iconMenuOfFirefly' src={require('../../values/images/luciernaga.png')} />
                         {/* <p className='TituloMenuDate'>Luciernaga</p> */}
                     </div>
                 </div>

@@ -5,17 +5,14 @@
 }
 .body {
   background-color: #f9f9f9;
-  /* background: url(../images/home.png); */
   background-size: cover;
   background-attachment: local;
   background-repeat: no-repeat;
-  display: flex;
 }
 .imagesHomeAbout {
   padding-left: 50px;
   padding-right: 20px;
-  width: 50%;
-  border-radius: 30%;
+  height: 350px;
 }
 .imagesHome {
   display: flex;
@@ -39,12 +36,14 @@
 }
 .titleHomeAbout {
   width: 500px;
-  font-size: 40px;
-  /* font-family: "Palette Mosaic", cursive; */
+  font-size: 35px;
+  font-family: "Indie Flower", cursive;
+  font-family: "Permanent Marker", cursive;
   text-align: start;
   color: rgb(65, 63, 63);
 }
 .descriptionHomeAbout {
+  font-family: "Indie Flower", cursive;
   width: 700px;
   font-size: 20px;
   color: rgba(51, 50, 50, 0.726);
@@ -52,7 +51,6 @@
 }
 .cardImage{
   padding-top: 50px;
-  border-top: 1px rgba(161, 157, 157, 0.596) solid;
   width: 95%;
   display: flex;
   justify-content: center;
@@ -63,16 +61,14 @@
     width: 100%;
   }
   .imagesHomeAbout {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 300px;
-    border-radius: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 150px;
   }
   .titleHomeAbout {
     font-size: 25px;
     width: 80%;
     margin: 3% 5%;
-    /* font-family: "Palette Mosaic", cursive; */
     text-align: start;
     color: rgb(65, 63, 63);
   }

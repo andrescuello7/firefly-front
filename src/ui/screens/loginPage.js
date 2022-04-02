@@ -93,8 +93,8 @@ const LoginPage = () => {
                         )}
                         <div className="mt-2"></div>
                         <div className="w-100 d-flex justify-content-center">
-                            <Button variant="primary" className="buttonLogin" type="submit">
-                                <b>Sing In</b>
+                            <Button variant="outline-dark" className="buttonLogin" type="submit">
+                                <b>iniciar sesion</b>
                             </Button>
                         </div>
                         <div className="mt-2"></div>

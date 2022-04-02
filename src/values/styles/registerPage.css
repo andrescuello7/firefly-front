@@ -14,7 +14,6 @@
 }
 .register {
   background-color: #f9f9f9;
-  /* background: url(../images/register.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -38,7 +37,6 @@
   margin-top: 5%;
 }
 .titleRegister {
-  text-shadow: 1px 1px #353638;
   font-size: 40px;
   font-family: "Indie Flower", cursive;
   font-family: "Lobster", cursive;

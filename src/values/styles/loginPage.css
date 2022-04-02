@@ -2,7 +2,6 @@
   min-height: 570px;
   background-size: cover;
   background-repeat: no-repeat;
-  /* text-shadow: 10px 10px 10px #000000; */
 }
 .login {
   margin: 0% 0px;
@@ -22,7 +21,7 @@
   padding: 100px 3%;
 }
 .buttonLogin {
-  width: 100%;
+  width: 90%;
 }
 .About {
   width: 100%;
@@ -70,6 +69,7 @@
     padding: 110px 3%;
   }
   .buttonLogin {
-    width: 80%;
+    width: 90%;
+    margin-left: 10px;
   }
 }

@@ -76,7 +76,7 @@ const RegisterPage = () => {
                         </div>
                     )}
                     <div className="mt-5 buttonRegister">
-                        <Button variant="outline-primary" className="w-100" type="submit">
+                        <Button variant="outline-dark" className="w-100" type="submit">
                             <b>Registrarte</b>
                         </Button>
                     </div>

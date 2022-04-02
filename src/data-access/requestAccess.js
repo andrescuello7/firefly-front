@@ -2,7 +2,7 @@ import ControllerVariables from "../../src/values/api";
 import axios from "axios";
 
 const RecuestAccess = () => {
-    const { api, cloudinary, token, headers } = ControllerVariables();
+    const { api, cloudinary, token, headers, idBanner } = ControllerVariables();
 
     //Submit of register
     const SubmitRegister = async (input) => {
@@ -124,13 +124,55 @@ const RecuestAccess = () => {
         );
     };
 
+    //Photo Profile
+    const PutAdminBanner = async (e, input) => {
+        const pic = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", pic);
+        formData.append("upload_preset", "wkuf5yo4");
+        fetch(cloudinary, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                axios.put(api +
+                    'home/banner/' + idBanner,
+                    {
+                        photo: res.url,
+                        title: input.title,
+                        description: input.description
+                    },
+                    {
+                        headers,
+                    }
+                )
+            )
+            .then((response) => console.log(response.data),
+        );
+    };
+
+    //Method Get of photo | read date
+    const getBanner = async (e) => {
+        try {
+            const { data } = await axios.get(api + "home/banner", {
+                headers,
+            });
+            return data
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return {
         putUser,
         getUser,
         getPhoto,
+        getBanner,
         SubmitLogin,
         getReadUser,
         putUserPhoto,
+        PutAdminBanner,
         SubmitRegister,
         PostAdminPhoto,
     }

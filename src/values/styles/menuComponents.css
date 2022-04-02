@@ -5,8 +5,7 @@
   min-height: 900px;
 }
 .menuTrue {
-  /* background-color: #ffffff; */
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   position: fixed;
   display: flex;
   justify-content: start;
@@ -20,8 +19,7 @@
   height: 40px;
 }
 .menuFalse {
-  /* background-color: #ffffff; */
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   position: fixed;
   display: flex;
   justify-content: start;
@@ -55,11 +53,12 @@
   display: block;
 }
 .TituloMenuDate {
-  /* color: rgba(247, 146, 14, 0.945); */
-  text-shadow: 2px 2px #a7a8aa;
   font-size: 30px;
   font-family: "Indie Flower", cursive;
   font-family: "Permanent Marker", cursive;
+}
+.iconMenuOfFirefly{
+  width: 30px;
 }
 @media (max-width: 780px) {
   .menu {
