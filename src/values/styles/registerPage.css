@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(../images/backgroundRegister.png);
+  background: url(../images/background.jpeg);
   background-color: #f9f9f9;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,16 +13,13 @@
   position: absolute;
 }
 .register {
-  background-color: #f9f9f9;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #37280ada;
   border: 1px rgba(65, 65, 65, 0.5) solid;
-  border-radius: 10px;
-  padding: 2%;
+  border-radius: 50px;
+  padding: 4%;
   margin: 2%;
-  width: 30%;
-  min-height: 80vh;
+  width: 50%;
+  /* min-height: 80vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,61 +61,59 @@
 }
 
 .inputFormRegister {
-  margin-top: 15px;
+  margin: 2% 0%;
   width: 100%;
-  font-size: 20px;
-  font-family: "Palette Mosaic", cursive;
-  font-family: "Lobster", cursive;
-  font-family: "Indie Flower", cursive;
   border-radius: 10px;
-  border: rgba(128, 128, 128, 0.233) solid 2px;
+  background-color: #ffffff25;
+  border: none;
   background-color: none;
   padding: 10px;
-  height: 60px;
+  height: 50px;
+  color: rgb(255, 255, 255);
+}
+.titleRegister {
+  width: 100%;
+  text-align: left;
+  color: #fbfffc;
+  font: normal normal 700 30px/80px Nunito;
+  font-family: 'Nunito', ExtraBoldf;
 }
 
 @media (max-width: 780px) {
+  .titleRegister {
+    width: 100%;
+    text-align: left;
+    color: #fbfffc;
+    font: normal normal 700 25px/40px Nunito;
+    font-family: 'Nunito', ExtraBoldf;
+  }
+  
   .bodyRegister {
     display: flex;
     align-items: flex-start;
-    min-height: 92vh;
+    min-height: 90vh;
   }
   .register {
-    margin-top: 2rem;
+    border-radius: 30px;
+    padding: 7%;
     width: 100%;
-    height: 90%;
     display: flex;
     justify-content: start;
     flex-direction: column;
   }
   .FormRegister {
-    min-height: 300px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 0px 3%;
   }
   .formInput {
     margin-top: 5%;
-  }
-  .titleRegister {
-    font-size: 30px;
   }
   .descriptionRegister {
     font-size: 15px;
   }
   .buttonRegister {
     width: 90%;
-  }
-  .inputFormRegister {
-    margin-top: 10px;
-    width: 90%;
-    border-radius: 10px;
-    border: rgba(128, 128, 128, 0.233) solid 1px;
-    background-color: none;
-    padding: 10px;
-    height: 35px;
   }
 }

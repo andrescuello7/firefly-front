@@ -1,70 +1,164 @@
-/* Body Page */
-* {
-  padding: 0%;
-  margin: 0%;
-}
 .body {
   background-color: #f9f9f9;
   background-size: cover;
   background-attachment: local;
   background-repeat: no-repeat;
 }
+
+.bodyhome {
+  width: 100%;
+  background: url(../images/background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 .imagesHomeAbout {
   padding-left: 50px;
   padding-right: 20px;
   height: 350px;
 }
+
 .imagesHome {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-attachment: local;
 }
-/* Home Page */
+
 .homePage {
-  padding-left: 12%;
-  min-height: 900px;
+  padding-left: 10%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  align-items: center;
 }
+
 .homePageAbout {
-  margin: 4% 5%;
   display: flex;
   justify-content: center;
 }
-.titleHomeAbout {
-  width: 500px;
-  font-size: 35px;
-  font-family: "Indie Flower", cursive;
-  font-family: "Permanent Marker", cursive;
-  text-align: start;
-  color: rgb(65, 63, 63);
+
+.displayButtonBanner {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
 }
-.descriptionHomeAbout {
-  font-family: "Indie Flower", cursive;
-  width: 700px;
+
+.buttonBanner {
+  background: #16c03ea8 0% 0%;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  /* font-family: 'Nunito', ExtraBoldf; */
+  font-family: "Comic Sans MS", ExtraBoldf;
+  font: normal normal 600;
   font-size: 20px;
-  color: rgba(51, 50, 50, 0.726);
+  width: 40%;
+}
+
+.buttonBanner:hover {
+  background: #16c03e8a 0% 0%;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  /* font-family: 'Nunito', ExtraBoldf; */
+  font-family: "Comic Sans MS", ExtraBoldf;
+  font: normal normal 600;
+  font-size: 20px;
+  width: 40%;
+}
+
+.buttonBannerVideo {
+  background: #ffffff00 0% 0%;
+  border: #16c03ea8 solid 2px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #16c03ea8;
+  font-family: "Nunito", ExtraBoldf;
+  font: normal normal 600 20px Nunito;
+  width: 40%;
+}
+
+.buttonBannerVideo:hover {
+  background: #00000010 0% 0%;
+  border: #16c03ea8 solid 2px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #16c03ea8;
+  font-family: "Nunito", ExtraBoldf;
+  font: normal normal 600 20px Nunito;
+  width: 40%;
+}
+
+.bannerWhite {
+  padding-top: 4%;
+  min-height: 100vh;
+  opacity: 1;
+  background: radial-gradient(
+    ellipse farthest-corner at 300px 0px,
+    rgb(255, 255, 255) 50%,
+    #fff 0%,
+    rgba(198, 13, 13, 0) 0%
+  );
+}
+
+.titleHomeAbout {
+  width: 40%;
+  /* font-size: 60px; */
+  text-align: start;
+  color: #16c03e;
+  font: normal normal 1000 60px/80px Nunito;
+  font-family: "Nunito", ExtraBoldf;
+}
+
+.descriptionHomeAbout {
+  font-family: "Comic Sans MS", ExtraBoldf;
+  width: 550px;
+  font-size: 25px;
+  color: rgba(15, 15, 15, 0.726);
   text-align: start;
 }
-.cardImage{
+
+.cardImage {
   padding-top: 50px;
   width: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 780px) {
   .body {
     width: 100%;
   }
+
+  .bodyhome {
+    background: url(../images/background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+  }
+  .bannerWhite {
+    padding-top: 0%;
+    min-height: 0vh;
+    opacity: 1;
+    background: radial-gradient(
+      ellipse farthest-corner at 200px 100px,
+      rgba(255, 255, 255, 0.837) 75%,
+      #fff 0%,
+      rgba(198, 13, 13, 0) 0%
+    );
+  }
+
   .imagesHomeAbout {
     padding-left: 20px;
     padding-right: 20px;
     height: 150px;
+    display: none;
   }
+
   .titleHomeAbout {
     font-size: 25px;
     width: 80%;
@@ -72,6 +166,7 @@
     text-align: start;
     color: rgb(65, 63, 63);
   }
+
   .descriptionHomeAbout {
     margin-left: 5%;
     font-size: 12px;
@@ -79,6 +174,7 @@
     color: rgba(51, 50, 50, 0.726);
     text-align: start;
   }
+
   .homePageAbout {
     padding-left: 0%;
     width: 100%;
@@ -86,15 +182,77 @@
     justify-content: center;
     flex-direction: column;
   }
+
   .homePage {
-    padding-left: 13%;
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
   }
-  .cardImage{
+
+  .cardImage {
     padding-top: 10px;
+    width: 100%;
+  }
+
+  .displayButtonBanner {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .titleHomeAbout {
+    width: 60%;
+    color: #16c03e;
+    font: normal normal 1000 25px Nunito;
+  }
+
+  .descriptionHomeAbout {
+    font-family: "Comic Sans MS", ExtraBoldf;
+    font-size: 15px;
+    color: rgb(17, 16, 16);
+    text-align: start;
+  }
+
+  .buttonBanner {
+    padding: 10px 0px;
+    border-radius: 10px;
+    color: white;
+    font-family: "Comic Sans MS", ExtraBoldf;
+    font: normal normal 600;
+    font-size: 12px;
+    width: 40%;
+  }
+
+  .buttonBanner:hover {
+    padding: 10px 0px;
+    border-radius: 10px;
+    color: white;
+    font-family: "Comic Sans MS", ExtraBoldf;
+    font: normal normal 600;
+    font-size: 12px;
+    width: 40%;
+  }
+
+  .buttonBannerVideo {
+    padding: 10px 0px;
+    background-color: rgba(7, 7, 7, 0.001);
+    border-radius: 10px;
+    color: #16c03ea8;
+    font-family: "Nunito", ExtraBoldf;
+    font: normal normal 600 20px Nunito;
+    font-size: 12px;
+    width: 40%;
+  }
+
+  .buttonBannerVideo:hover {
+    padding: 10px 0px;
+    border-radius: 10px;
+    color: #16c03ea8;
+    font-family: "Nunito", ExtraBoldf;
+    font: normal normal 600;
+    font-size: 12px;
+    width: 40%;
   }
 }

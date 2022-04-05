@@ -13,20 +13,59 @@ import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
 import AdminPage from './ui/screens/adminPage';
 import MenuOpcion from './ui/components/menuOptions';
+import NavbarOpcion from './ui/components/navbarComponent';
 
 function App() {
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/time" element={<DateTimePage />} />
-          <Route path="/status" element={<StatusPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter className="App">
+      <div className="displayPhone">
+        <NavbarOpcion />
+      </div>
+      <Routes>
+        <Route path="/" element={
+          <div>
+            <div className='displayDestopk'>
+              <MenuOpcion />
+            </div>
+            <HomePage />
+          </div>
+        } />
+        <Route path="/profile" element={
+          <div>
+            <div className='displayDestopk'>
+              <MenuOpcion />
+            </div>
+            <ProfilePage />
+          </div>
+        } />
+        <Route path="/time" element={
+          <div>
+            <div className='displayDestopk'>
+              <MenuOpcion />
+            </div>
+            <DateTimePage />
+          </div>
+        } />
+        <Route path="/status" element={
+          <div>
+            <div className='displayDestopk'>
+              <MenuOpcion />
+            </div>
+            <StatusPage />
+          </div>
+        } />
+        <Route path="/admin" element={
+          <div>
+            <div className='displayDestopk'>
+              <MenuOpcion />
+            </div>
+            <AdminPage />
+          </div>
+        } />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;

@@ -9,105 +9,37 @@ const LoginPage = () => {
     const { HandleChange, HandleSubmit, validation } = Controller();
 
     return (
-        <div>
-            <div className="FondoDeForm">
-                <div className="login">
-                    <Form onSubmit={HandleSubmit} className="FormLogin card">
-                        <div className="w-100">
-                            <div className='d-flex justify-content-center'>
-                                <p className='titleRegister text-warning'>L</p>
-                                <p className='titleRegister text-danger'>u</p>
-                                <p className='titleRegister text-primary'>c</p>
-                                <p className='titleRegister text-success'>i</p>
-                                <p className='titleRegister text-warning'>e</p>
-                                <p className='titleRegister text-danger'>r</p>
-                                <p className='titleRegister text-primary'>n</p>
-                                <p className='titleRegister text-success'>a</p>
-                                <p className='titleRegister text-warning'>g</p>
-                                <p className='titleRegister text-danger'>a</p>
-                            </div>
-                        </div>
-                        <hr className="bg-light" />
-                        <div className="mt-5"></div>
-
-                        <Form.Group controlId="formBasicEmail">
-                            <div className="d-flex">
-                                <div className="text-dark mt-2 mx-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="30"
-                                        height="30"
-                                        fill="currentColor"
-                                        className="bi bi-person-square"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <input
-                                        className="form-control"
-                                        onChange={(e) => HandleChange(e)}
-                                        type="email"
-                                        name="email"
-                                        placeholder="Email"
-                                    />
-                                </div>
-                            </div>
-                        </Form.Group>
-                        <div className="mt-2"></div>
-                        <div className="mt-2"></div>
-                        <div className="mt-2"></div>
-
-                        <Form.Group controlId="formBasicPassword">
-                            <div className="d-flex">
-                                <div className="text-dark mx-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="30"
-                                        height="30"
-                                        fill="currentColor"
-                                        className="bi bi-lock-fill"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
-                                    </svg>
-                                </div>
-                                <div className="mt-5"></div>
-                                <div>
-                                    <input
-                                        className="form-control"
-                                        onChange={(e) => HandleChange(e)}
-                                        type="password"
-                                        name="password"
-                                        placeholder="Password"
-                                    />
-                                </div>
-                            </div>
-                        </Form.Group>
-                        {validation === true && (
-                            <div className="ml-2 text-danger">
-                                <p>No se puede iniciar sesion, intenta nuevamente!</p>
-                            </div>
-                        )}
-                        <div className="mt-2"></div>
-                        <div className="w-100 d-flex justify-content-center">
-                            <Button variant="outline-dark" className="buttonLogin" type="submit">
-                                <b>iniciar sesion</b>
-                            </Button>
-                        </div>
-                        <div className="mt-2"></div>
-                        <div className="text-center">
-                            <a style={{ border: 'none' }} href="/register">No tienes cuenta?, create una cuenta</a>
-                        </div>
-                    </Form>
-                    <div className="About">
-                        <div className="AboutImgen">
-                        </div>
+        <div className="FondoDeForm">
+            <Form onSubmit={HandleSubmit} className="login">
+                <Form.Group controlId="formBasicEmail" className="FormLogin">
+                    <p className='titleLogin'>Sing In</p>
+                    <input
+                        className="inputFormLogin"
+                        onChange={(e) => HandleChange(e)}
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                    />
+                    <input
+                        className="inputFormLogin"
+                        onChange={(e) => HandleChange(e)}
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                    />
+                    <Button className="w-100 inputFormButton" type="submit">
+                        <b>iniciar sesion</b>
+                    </Button>
+                </Form.Group>
+                {validation === true && (
+                    <div className="ml-2 text-danger">
+                        <p>No se puede iniciar sesion, intenta nuevamente!</p>
                     </div>
-                </div>
-            </div>
+                )}
+                {/* <div className="w-100 text-center">
+                    <a className="text-light" style={{ border: 'none' }} href="/register">No tienes cuenta?, create una cuenta</a>
+                </div> */}
+            </Form>
         </div>
     );
 };

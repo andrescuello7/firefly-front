@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from "../../data-access/requestAccess";
 import UsersModel from '../../models/usersModel';
-import { Spinner, Button, ProgressBar } from 'react-bootstrap'
+import { Spinner, Button, Card, ProgressBar } from 'react-bootstrap'
 
 const AdminPageController = () => {
     const [input, setInput] = useState({});
@@ -64,8 +64,31 @@ const AdminPageController = () => {
                 <td className='textAdmin'>{name}</td>
                 <td className='textAdmin'>{email}</td>
                 <td className='textAdmin'>{edad} años</td>
-                <td><ProgressBar className="progressBar" animated now={progress} /></td>
+                <td>
+                    <ProgressBar
+                        className="progressBar"
+                        striped variant="success"
+                        animated now={progress} />
+                </td>
             </tr>
+        );
+    }
+
+    const ProgressCard = ({ progress, name, edad, email, image }) => {
+        return (
+            <Card className='cardFormHomeAdmin'>
+                <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <Card.Body>
+                    <Card.Text className='textAdmin'>nombre: {name}</Card.Text>
+                    <Card.Text className='textAdmin'>edad: {edad}</Card.Text>
+                    <Card.Text className='textAdmin'>email: {email}</Card.Text>
+                    <ProgressBar
+                        className="progressBar"
+                        striped variant="success"
+                        animated now={progress}
+                    />
+                </Card.Body>
+            </Card>
         );
     }
 
@@ -75,7 +98,7 @@ const AdminPageController = () => {
                 <Spinner animation="grow" />
             </div>
         )) || usersModel.map((data, i) =>
-            <Progress progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
+            <ProgressCard progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
         );
 
     //Component for Table Profile
@@ -112,18 +135,18 @@ const AdminPageController = () => {
     //Component for Table Images and Post
     const GetPostsImages = ({ image, title, description }) => {
         return (
-            <tr>
-                <td><img className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} /></td>
-                <td className='textAdmin'>{title}</td>
-                <td className='textAdmin'>{description}</td>
-                <td className='textAdmin'>
-                    <td className='d-flex justify-content-around'>
-                        <Button variant='outline-danger' className='buttonAdmin'>
-                            delete
-                        </Button>
-                    </td>
-                </td>
-            </tr>
+            <Card className='cardFormHomeAdmin'>
+                <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <Card.Body>
+                </Card.Body>
+                <Card.Header className='w-100'>
+                    <Card.Text className='textAdmin'><b>{title}</b></Card.Text>
+                    {/* <Card.Text className='textAdmin'>description: {description}</Card.Text> */}
+                    <Button variant='danger' className='w-100'>
+                        delete
+                    </Button>
+                </Card.Header>
+            </Card>
         );
     }
 
@@ -145,6 +168,7 @@ const AdminPageController = () => {
         HandleChange,
         PostHandleSubmit,
         ProgressProfileMap,
+        ProgressCard,
         PutBannerSubmit,
         GetPostsImages,
         ProgressProfile,

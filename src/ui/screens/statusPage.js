@@ -7,15 +7,15 @@ const StatusPage = () => {
     //Component for Table
     const { ProgressMap } = Controller();
     return (
-        <div>
-            <MenuOpcion className="menu" />
+        <div className='w-100'>
             <p className='titleProgress'>Progreso Semanal</p>
             <div className='rankingPage'>
-                <Table hover size="sm" className=" tableAdmin">
+                <Table hover size="sm" className="tableStatus">
                     <thead>
                         <tr>
-                            <th className='textAdmin'>Foto</th>
-                            <th className='textAdmin'>Nombre</th>
+                            <th className='textAdmin text-center'>Foto</th>
+                            <th className='textAdmin text-center'>Nombre</th>
+                            <th className='textAdmin text-center'>Edad</th>
                             <th className='textAdmin'>Progreso</th>
                         </tr>
                     </thead>

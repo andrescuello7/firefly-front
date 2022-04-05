@@ -1,57 +1,98 @@
 .FondoDeForm {
-  min-height: 570px;
+  width: 100%;
+  min-height: 100vh;
+  background: url(../images/background.jpeg);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: local;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .login {
-  margin: 0% 0px;
-  width: 100%;
-  min-height:  100vh;
+  height: 60vh;
+  border-radius: 50px;
+  width: 50%;
+  padding: 2%;
+  background-color: #37280ada;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .FormLogin {
-  color: rgb(29, 28, 28);
-  width: 28%;
-  padding: 200px 3%;
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.inputFormLogin {
+  margin: 2% 0%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffffff25;
+  border: none;
+  background-color: none;
+  padding: 10px;
+  height: 50px;
+  color: rgb(255, 255, 255);
+}
+.inputFormButton {
+  margin: 2% 0%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffffff00;
+  border: 2px solid #16C03E;
+  background-color: none;
+  padding: 10px;
+  height: 50px;
+  color: #16C03E;
+}
+.inputFormButton:hover {
+  background-color: #00000027;
+  border: 2px solid #16c03eca;
 }
 .FormRegister {
   color: rgb(117, 116, 116);
   width: 28%;
   padding: 100px 3%;
 }
-.buttonLogin {
-  width: 90%;
+
+.titleLogin {
+  width: 100%;
+  text-align: left;
+  color: #f8fffa;
+  font: normal normal 700 40px/80px Nunito;
+  font-family: 'Nunito', ExtraBoldf;
 }
+
 .About {
   width: 100%;
 }
-.FondoDeForm {
-  min-height:  100vh;
-  background: url(../images/login.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: local;
-}
+
 .PortadaTituloForm {
   font-size: 50px;
   font-family: 'Palette Mosaic', cursive;
   font-family: 'Lobster', cursive;
   font-family: 'Indie Flower', cursive;
 }
+
 @media (max-width: 780px) {
   .FondoDeForm {
     height: 100%;
     background: aliceblue;
     padding-top: 0%;
   }
+
   .login {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
+
   .FormLogin {
     min-height: 600px;
     display: flex;
@@ -60,6 +101,7 @@
     width: 100%;
     padding: 0px 3%;
   }
+
   .FormRegister {
     min-height: 400px;
     display: flex;
@@ -68,6 +110,7 @@
     width: 100%;
     padding: 110px 3%;
   }
+
   .buttonLogin {
     width: 90%;
     margin-left: 10px;

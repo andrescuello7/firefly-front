@@ -1,0 +1,19 @@
+.navbarBody {
+    position: sticky;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+.navbarItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagenLogoNavbar {
+    width: 30px;
+    margin-right: 10px;
+    height: 30px;
+}
+
+@media (max-width: 780px) {}

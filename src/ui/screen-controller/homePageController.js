@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from '../../data-access/requestAccess';
 import UserModel from '../../models/userModel';
-import { Spinner, Card } from 'react-bootstrap'
+import { Spinner } from 'react-bootstrap'
 import PostComponent from '../components/postComponent';
 
 const HomePageController = () => {
@@ -79,9 +79,9 @@ const HomePageController = () => {
             <div className="homePageAbout">
                 <div className="w-100 d-flex flex-column mx-2">
                     {title !== null ?
-                        <p className="titleHomeAbout">
+                        <b className="titleHomeAbout">
                             {title}
-                        </p>
+                        </b>
                         :
                         <p className="titleHomeAbout">
                             Desarrolle más rápidamente.
@@ -119,6 +119,7 @@ const HomePageController = () => {
         getPhotoMethod,
         handleLogOut,
         bannerHomeMap,
+        BannerComponent,
         burgerButton,
         photoHomeMap,
         banner,

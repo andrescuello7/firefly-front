@@ -1,11 +1,6 @@
-.imageAdmin {
-  width: 50px;
-  height: 50px;
-  border-radius: 40%;
-}
 .statusAdmin {
   width: 100%;
-  padding: 0% 10%;
+  padding: 0% 5%;
 }
 .adminForm {
   /* width: 100%; */
@@ -19,17 +14,29 @@
   width: 100%;
 }
 .textAdmin {
-  font-size: 15px;
+  font-size: 14px;
 }
 .buttonAdmin {
   display: block;
 }
-.stateOfMenu{
+.stateOfMenu {
   width: 100%;
 }
+.cardFormHomeAdmin {
+  border: 1px solid #04040469;
+  margin: 1%;
+  width: 300px;
+  height: 450px;
+}
+.imageAdmin {
+  padding: 2%;
+  width: 95%;
+  height: 280px;
+  border-radius: 10px;
+}
 @media (max-width: 780px) {
-  .stateOfMenu{
-    width: 84%;
+  .stateOfMenu {
+    width: 100%;
   }
   .imageAdmin {
     width: 20px;
@@ -67,16 +74,38 @@
     font-size: 6px;
   }
   .textAdmin {
-    font-size: 8px;
+    font-size: 10px;
   }
-  .tableAdmin {
-    /* arriba */
-    /* width: 80%; */
+  .cardFormHomeAdmin {
+    margin: 1%;
+    width: 45%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    padding: 2% 0%;
   }
-
+  .imageAdmin {
+    width: 90%;
+    height: 150px;
+    border-radius: 10px;
+  }
   /* Photo Css */
 }
-
+.nav-link {
+  color: #16c03ee7;
+}
+.inputFormAdmin {
+  margin: 2% 0%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffffff25;
+  border: 1px solid rgb(213, 207, 207);
+  background-color: none;
+  padding: 10px;
+  height: 50px;
+  color: rgb(14, 13, 13);
+}
 /* Photo Css */
 .custom-file {
   color: rgb(82, 83, 83);
@@ -99,7 +128,7 @@
   transition-duration: 0.4s;
   background: rgba(60, 64, 68, 0.247);
   color: rgb(82, 83, 83);
-  border-color: rgba(12, 190, 182, 0);
+  border-color: rgba(16, 17, 17, 0.85);
 }
 .custom-file:active {
   outline: 0;
@@ -114,6 +143,6 @@
 
 @media (max-width: 780px) {
   .custom-file {
-    width: 90%;
+    width: 100%;
   }
 }

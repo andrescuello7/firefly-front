@@ -1,0 +1,27 @@
+.App {
+  background: url(../src/values/images/background.jpeg);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Body Page */
+* {
+  padding: 0%;
+  background-color: #1b171700;
+  margin: 0%;
+}
+.displayPhone {
+  display: none;
+}
+.displayDestopk {
+  display: flex;
+}
+
+@media (max-width: 780px) {
+  .displayPhone {
+    display: block;
+  }
+  .displayDestopk {
+    display: none;
+  }
+}

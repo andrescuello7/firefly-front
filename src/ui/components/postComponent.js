@@ -11,19 +11,20 @@ const PostComponent = ({ image, title, description }) => {
     return (
         <div className='mx-2'>
             <div className="cardPostComponent">
-                <div className='mx-2 d-flex'>
-                    <div>
-                        <img className="imagePostComponent" src={image} onClick={handleShow} />
-                    </div>
-                    <div>
-                        <b className='titlePostComponent'>{title}</b>
-                        <p className='descriptionPostComponent'>{description}</p>
-                    </div>
-                </div>
+                <img className="imagePostComponent mt-2" src={image} onClick={handleShow} />
+                <b className='titlePostComponent mt-2'>{title}</b>
             </div>
             <Modal className='modalPostComponent' show={show} onHide={handleClose}>
-                <Modal.Header className='modalHeaderPostComponent'>
+                <Modal.Body>
                     <img className='imageModalPostComponent' src={image} />
+                </Modal.Body>
+                <Modal.Header className='modalHeaderPostComponent'>
+                    <div className='mx-2 d-flex'>
+                        <div>
+                            <b className='titlePostComponent'>{title}</b>
+                            <p className='descriptionPostComponent'>{description}</p>
+                        </div>
+                    </div>
                 </Modal.Header>
             </Modal>
         </div>

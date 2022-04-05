@@ -23,17 +23,19 @@ const StatusPageController = () => {
     const Progress = ({ progress, name, edad, email, image }) => {
         return (
             <tr>
-                <td>
+                <td className='text-center'>
                     <img
-                        className='imageAdmin'
+                        className='imageStatus'
                         src={image ? `${image}`
                             :
                             "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                 </td>
-                <td className='textAdmin'>{name}</td>
+                <td className='textAdmin text-center'>{name}</td>
+                <td className='textAdmin text-center'>{edad}</td>
                 <td>
                     <ProgressBar
                         className="progressBar"
+                        striped variant="success"
                         animated now={progress} />
                 </td>
             </tr>
@@ -49,6 +51,7 @@ const StatusPageController = () => {
             <Progress
                 progress={data.years}
                 name={data.user}
+                edad={data.years}
                 image={data.photo}
                 key={i}
             />
