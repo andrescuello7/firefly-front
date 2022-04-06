@@ -18,14 +18,14 @@ import NavbarOpcion from './ui/components/navbarComponent';
 function App() {
   return (
     <BrowserRouter className="App">
-      <div className="displayPhone">
-        <NavbarOpcion />
-      </div>
       <Routes>
         <Route path="/" element={
           <div>
             <div className='displayDestopk'>
               <MenuOpcion />
+            </div>
+            <div className="displayPhone">
+              <NavbarOpcion />
             </div>
             <HomePage />
           </div>
@@ -35,6 +35,9 @@ function App() {
             <div className='displayDestopk'>
               <MenuOpcion />
             </div>
+            <div className="displayPhone">
+              <NavbarOpcion />
+            </div>
             <ProfilePage />
           </div>
         } />
@@ -42,6 +45,9 @@ function App() {
           <div>
             <div className='displayDestopk'>
               <MenuOpcion />
+            </div>
+            <div className="displayPhone">
+              <NavbarOpcion />
             </div>
             <DateTimePage />
           </div>
@@ -51,6 +57,9 @@ function App() {
             <div className='displayDestopk'>
               <MenuOpcion />
             </div>
+            <div className="displayPhone">
+              <NavbarOpcion />
+            </div>
             <StatusPage />
           </div>
         } />
@@ -58,6 +67,9 @@ function App() {
           <div>
             <div className='displayDestopk'>
               <MenuOpcion />
+            </div>
+            <div className="displayPhone">
+              <NavbarOpcion />
             </div>
             <AdminPage />
           </div>

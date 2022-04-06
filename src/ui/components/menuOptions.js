@@ -14,7 +14,6 @@ const OptionsMenuComponent = () => {
             <Link to={route} className='menuOpcion' onClick={script}>
                 <div className={show ? 'w-100 d-flex justify-content-left mx-2 p-2' : 'w-100 d-flex justify-content-center p-2'}>
                     <div>
-                        {/* <img className='imagenLogo' src={icon} /> */}
                         {icon}
                     </div>
                     <div className={show == false ? 'mx-2 px-2 d-none' : 'mx-2 px-2 d-block'}>
@@ -37,9 +36,6 @@ const OptionsMenuComponent = () => {
                             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
                     </a>
-                    {/* <div className={img ? 'd-none' : 'd-block'} onClick={() => burgerButton()} >
-                        <img className='iconMenuOfFirefly' src={require('../../values/icons/firefly.png')} />
-                    </div> */}
                 </div>
             </div>
             <div className='mt-5'></div>
@@ -76,17 +72,7 @@ const OptionsMenuComponent = () => {
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                 </svg>
             } />
-            {token === null ?
-                <OptionsMenu route={'/register'} title={"Register"} show={menu} icon={
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-down-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M7.364 12.5a.5.5 0 0 0 .5.5H14.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 14.5 0h-10A1.5 1.5 0 0 0 3 1.5v6.636a.5.5 0 1 0 1 0V1.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H7.864a.5.5 0 0 0-.5.5z" />
-                        <path fill-rule="evenodd" d="M0 15.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H1.707l8.147-8.146a.5.5 0 0 0-.708-.708L1 14.293V10.5a.5.5 0 0 0-1 0v5z" />
-                    </svg>
-                } />
-                :
-                <div></div>
-            }
-            <OptionsMenu route={'/login'} title={"Salir"} show={menu} icon={
+            <OptionsMenu route={'/login'} title={"Salir"} script={handleLogOut} show={menu} icon={
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-down-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M7.364 12.5a.5.5 0 0 0 .5.5H14.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 14.5 0h-10A1.5 1.5 0 0 0 3 1.5v6.636a.5.5 0 1 0 1 0V1.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H7.864a.5.5 0 0 0-.5.5z" />
                     <path fill-rule="evenodd" d="M0 15.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H1.707l8.147-8.146a.5.5 0 0 0-.708-.708L1 14.293V10.5a.5.5 0 0 0-1 0v5z" />
