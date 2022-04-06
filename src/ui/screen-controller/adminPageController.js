@@ -79,9 +79,9 @@ const AdminPageController = () => {
             <Card className='cardFormHomeAdmin'>
                 <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                 <Card.Body>
-                    <Card.Text className='textAdmin'>nombre: {name}</Card.Text>
-                    <Card.Text className='textAdmin'>edad: {edad}</Card.Text>
-                    <Card.Text className='textAdmin'>email: {email}</Card.Text>
+                    <Card.Text className='textAdmin'>Nombre: {name}</Card.Text>
+                    <Card.Text className='textAdmin'>Edad: {edad}</Card.Text>
+                    <Card.Text className='textAdmin'>Email: {email}</Card.Text>
                     <ProgressBar
                         className="progressBar"
                         striped variant="success"
@@ -137,13 +137,10 @@ const AdminPageController = () => {
         return (
             <Card className='cardFormHomeAdmin'>
                 <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                <Card.Body>
-                </Card.Body>
                 <Card.Header className='w-100'>
-                    <Card.Text className='textAdmin'><b>{title}</b></Card.Text>
-                    {/* <Card.Text className='textAdmin'>description: {description}</Card.Text> */}
-                    <Button variant='danger' className='w-100'>
-                        delete
+                    <Card.Text className='textAdmin'><p>{title}</p></Card.Text>
+                    <Button variant='outline-danger' className='w-100'>
+                        Eliminar
                     </Button>
                 </Card.Header>
             </Card>

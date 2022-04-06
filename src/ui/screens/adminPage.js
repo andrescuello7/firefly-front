@@ -48,7 +48,7 @@ const AdminPage = () => {
                         <div className='adminForm'>
                             <Form
                                 // onSubmit={PostHandleSubmit}
-                                className="FormRegister"
+                                className="FormAdmin"
                             >
                                 <Form.Group controlId="formBasicEmail" className="formInput">
                                     <input
@@ -62,6 +62,7 @@ const AdminPage = () => {
                                         className="inputFormAdmin"
                                         onChange={(e) => HandleChange(e)}
                                         type="text"
+                                        maxLength={250}
                                         name="description"
                                         placeholder="Descripcion de Posteo"
                                     />
@@ -88,7 +89,7 @@ const AdminPage = () => {
                     <Tab eventKey="banner" title="Banner">
                         <div className='adminForm'>
                             <Form
-                                className="FormRegister"
+                                className="FormAdmin"
                             >
                                 <Form.Group controlId="formBasicEmail" className="formInput">
                                     <input

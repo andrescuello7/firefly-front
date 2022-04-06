@@ -50,7 +50,6 @@
   padding: 15px;
   border-radius: 10px;
   color: white;
-  /* font-family: 'Nunito', ExtraBoldf; */
   font-family: "Comic Sans MS", ExtraBoldf;
   font: normal normal 600;
   font-size: 20px;
@@ -63,7 +62,6 @@
   padding: 15px;
   border-radius: 10px;
   color: white;
-  /* font-family: 'Nunito', ExtraBoldf; */
   font-family: "Comic Sans MS", ExtraBoldf;
   font: normal normal 600;
   font-size: 20px;
@@ -106,7 +104,6 @@
 
 .titleHomeAbout {
   width: 40%;
-  /* font-size: 60px; */
   text-align: start;
   color: #16c03e;
   font: normal normal 1000 60px/80px Nunito;
@@ -133,7 +130,6 @@
   .body {
     width: 100%;
   }
-
   .bodyhome {
     background: url(../images/background.jpeg);
     background-repeat: no-repeat;
@@ -151,30 +147,26 @@
       rgba(198, 13, 13, 0) 0%
     );
   }
-
   .imagesHomeAbout {
     padding-left: 20px;
     padding-right: 20px;
     height: 150px;
     display: none;
   }
-
   .titleHomeAbout {
     font-size: 25px;
     width: 80%;
-    margin: 3% 5%;
+    margin: 3% 0%;
     text-align: start;
     color: rgb(65, 63, 63);
   }
-
   .descriptionHomeAbout {
-    margin-left: 5%;
-    font-size: 12px;
+    margin-left: 0%;
+    font-size: 18px;
     width: 80%;
     color: rgba(51, 50, 50, 0.726);
     text-align: start;
   }
-
   .homePageAbout {
     padding-left: 0%;
     width: 100%;
@@ -182,15 +174,12 @@
     justify-content: center;
     flex-direction: column;
   }
-
   .homePage {
     min-height: 70vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
   }
-
   .cardImage {
     padding-top: 10px;
     width: 100%;
@@ -208,13 +197,6 @@
     font: normal normal 1000 25px Nunito;
   }
 
-  .descriptionHomeAbout {
-    font-family: "Comic Sans MS", ExtraBoldf;
-    font-size: 15px;
-    color: rgb(17, 16, 16);
-    text-align: start;
-  }
-
   .buttonBanner {
     padding: 10px 0px;
     border-radius: 10px;
@@ -222,7 +204,7 @@
     font-family: "Comic Sans MS", ExtraBoldf;
     font: normal normal 600;
     font-size: 12px;
-    width: 40%;
+    width: 45%;
   }
 
   .buttonBanner:hover {
@@ -232,7 +214,7 @@
     font-family: "Comic Sans MS", ExtraBoldf;
     font: normal normal 600;
     font-size: 12px;
-    width: 40%;
+    width: 45%;
   }
 
   .buttonBannerVideo {
@@ -243,7 +225,7 @@
     font-family: "Nunito", ExtraBoldf;
     font: normal normal 600 20px Nunito;
     font-size: 12px;
-    width: 40%;
+    width: 45%;
   }
 
   .buttonBannerVideo:hover {
@@ -253,6 +235,6 @@
     font-family: "Nunito", ExtraBoldf;
     font: normal normal 600;
     font-size: 12px;
-    width: 40%;
+    width: 45%;
   }
 }

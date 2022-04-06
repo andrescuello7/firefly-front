@@ -10,8 +10,7 @@
   position: static;
 }
 .tableStatus{
-  border: 1px solid rgba(0, 0, 0, 0.097);
-  width: 85%;
+  width: 90%;
 }
 .titleProgress {
   width: 100%;
@@ -29,6 +28,9 @@
   height: 60px;
 }
 @media (max-width: 780px) {
+  .tableStatus{
+    width: 100%;
+  }
   .rankingPage {
     display: flex;
     justify-content: center;

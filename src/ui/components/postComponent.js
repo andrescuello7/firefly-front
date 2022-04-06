@@ -9,23 +9,16 @@ const PostComponent = ({ image, title, description }) => {
     const handleShow = () => setShow(true);
 
     return (
-        <div className='mx-2'>
+        <div className='m-4'>
             <div className="cardPostComponent">
-                <img className="imagePostComponent mt-2" src={image} onClick={handleShow} />
-                <b className='titlePostComponent mt-2'>{title}</b>
+                <img className="imagePostComponent" src={image} onClick={handleShow} />
             </div>
             <Modal className='modalPostComponent' show={show} onHide={handleClose}>
-                <Modal.Body>
-                    <img className='imageModalPostComponent' src={image} />
-                </Modal.Body>
-                <Modal.Header className='modalHeaderPostComponent'>
-                    <div className='mx-2 d-flex'>
-                        <div>
-                            <b className='titlePostComponent'>{title}</b>
-                            <p className='descriptionPostComponent'>{description}</p>
-                        </div>
-                    </div>
-                </Modal.Header>
+                <img className='imageModalPostComponent' src={image} />
+                <div className='m-4 text-center'>
+                    <p className='titlePostComponent'>{title}</p>
+                    <p className='descriptionPostComponent'>{description}</p>
+                </div>
             </Modal>
         </div>
     );

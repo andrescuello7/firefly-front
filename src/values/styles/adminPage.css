@@ -3,15 +3,19 @@
   padding: 0% 5%;
 }
 .adminForm {
-  /* width: 100%; */
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   padding: 0% 0%;
 }
 .tableAdmin {
   width: 100%;
+}
+.FormAdmin{
+  width: 50%;
+  height: 90vh;
 }
 .textAdmin {
   font-size: 14px;
@@ -23,14 +27,13 @@
   width: 100%;
 }
 .cardFormHomeAdmin {
-  border: 1px solid #04040469;
+  /* border: 1px solid #04040469; */
   margin: 1%;
   width: 300px;
-  height: 450px;
 }
 .imageAdmin {
   padding: 2%;
-  width: 95%;
+  width: 100%;
   height: 280px;
   border-radius: 10px;
 }

@@ -18,7 +18,7 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="cardImage">
-                <div className="mx-4 w-100 d-flex justify-content-left flex-wrap">
+                <div className="mx-4 w-100 d-flex justify-content-around flex-wrap">
                     {photoHomeMap}
                 </div>
             </div>

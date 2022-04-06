@@ -13,13 +13,12 @@
   position: absolute;
 }
 .register {
-  background-color: #37280ada;
-  border: 1px rgba(65, 65, 65, 0.5) solid;
-  border-radius: 50px;
-  padding: 4%;
+  background-color: #f3f1eeda;
+  border-radius: 20px;
+  padding: 2%;
   margin: 2%;
-  width: 50%;
-  /* min-height: 80vh; */
+  width: 50vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,9 +62,8 @@
 .inputFormRegister {
   margin: 2% 0%;
   width: 100%;
-  border-radius: 10px;
-  background-color: #ffffff25;
   border: none;
+  border-bottom: 2px solid rgba(38, 36, 36, 0.261);
   background-color: none;
   padding: 10px;
   height: 50px;
@@ -74,7 +72,7 @@
 .titleRegister {
   width: 100%;
   text-align: left;
-  color: #fbfffc;
+  color: #595656;
   font: normal normal 700 30px/80px Nunito;
   font-family: 'Nunito', ExtraBoldf;
 }
@@ -83,22 +81,22 @@
   .titleRegister {
     width: 100%;
     text-align: left;
-    color: #fbfffc;
     font: normal normal 700 25px/40px Nunito;
     font-family: 'Nunito', ExtraBoldf;
   }
   
   .bodyRegister {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     min-height: 90vh;
   }
   .register {
-    border-radius: 30px;
+    height: 60vh;
+    border-radius: 20px;
     padding: 7%;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
   }
   .FormRegister {

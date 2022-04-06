@@ -36,9 +36,9 @@ const LoginPage = () => {
                         <p>No se puede iniciar sesion, intenta nuevamente!</p>
                     </div>
                 )}
-                {/* <div className="w-100 text-center">
-                    <a className="text-light" style={{ border: 'none' }} href="/register">No tienes cuenta?, create una cuenta</a>
-                </div> */}
+                <div className="w-100 text-center">
+                    <a className="text-success" style={{ border: 'none' }} href="/register">No tienes cuenta?, create una cuenta</a>
+                </div>
             </Form>
         </div>
     );

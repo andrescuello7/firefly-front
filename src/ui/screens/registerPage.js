@@ -45,9 +45,9 @@ const RegisterPage = () => {
                         </div>
                     )}
                     <div className="mt-2"></div>
-                    {/* <div className="text-left">
-                        <a className="text-light" href="/login">tienes cuenta? click inicar sesion</a>
-                    </div> */}
+                    <div className="text-left w-100">
+                        <a className="text-success" href="/login">tienes cuenta? click inicar sesion</a>
+                    </div>
                 </Form>
             </div>
         </div>
