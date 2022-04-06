@@ -164,11 +164,25 @@ const RecuestAccess = () => {
         }
     };
 
+    
+    //Method Delete of post
+    const deletePost = async (id) => {
+        try {
+            const { data } = await axios.delete(api + `home/${id}`, {
+                headers,
+            });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return {
         putUser,
         getUser,
         getPhoto,
         getBanner,
+        deletePost,
         SubmitLogin,
         getReadUser,
         putUserPhoto,

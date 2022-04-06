@@ -7,7 +7,7 @@ const AdminPageController = () => {
     const [input, setInput] = useState({});
     const { setUsersModel, usersModel } = UsersModel();
     const [images, setImages] = useState([]);
-    const { getReadUser, getPhoto, PostAdminPhoto, PutAdminBanner } = RecuestAccess();
+    const { getReadUser, getPhoto, PostAdminPhoto, deletePost, PutAdminBanner } = RecuestAccess();
 
     useEffect(() => {
         getAdminDateOfUsers()
@@ -55,6 +55,7 @@ const AdminPageController = () => {
             console.log(error);
         }
     };
+
 
     //Component for Table
     const Progress = ({ progress, name, edad, email, image }) => {
@@ -133,13 +134,21 @@ const AdminPageController = () => {
         );
 
     //Component for Table Images and Post
-    const GetPostsImages = ({ image, title, description }) => {
+    const GetPostsImages = ({ image, title, id }) => {
+        const DeleteSubmit = async (e) => {
+            e.preventDefault()
+            try {
+                await deletePost(id);
+            } catch (error) {
+                console.log(error);
+            }
+        };
         return (
             <Card className='cardFormHomeAdmin'>
                 <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                 <Card.Header className='w-100'>
                     <Card.Text className='textAdmin'><p>{title}</p></Card.Text>
-                    <Button variant='outline-danger' className='w-100'>
+                    <Button variant='outline-danger' onClick={DeleteSubmit} className='w-100'>
                         Eliminar
                     </Button>
                 </Card.Header>
@@ -154,6 +163,7 @@ const AdminPageController = () => {
             </div>
         )) || images.map((data, i) =>
             <GetPostsImages
+                id={data._id}
                 image={data.photo}
                 description={data.description}
                 title={data.title}
