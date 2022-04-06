@@ -7,7 +7,7 @@ const AdminPageController = () => {
     const [input, setInput] = useState({});
     const { setUsersModel, usersModel } = UsersModel();
     const [images, setImages] = useState([]);
-    const { getReadUser, getPhoto, PostAdminPhoto, deletePost, PutAdminBanner } = RecuestAccess();
+    const { getReadUser, getPhoto, PostAdminPhoto, deletePost, PutAdminBanner, PutAdminBannerText } = RecuestAccess();
 
     useEffect(() => {
         getAdminDateOfUsers()
@@ -38,10 +38,13 @@ const AdminPageController = () => {
         }
     };
 
+    //UPDATE WHIT PHOTO
+
     const PutBannerSubmit = async (e) => {
         e.preventDefault()
         try {
-            await PutAdminBanner(e, input);
+           const response = await PutAdminBannerText(e, input);
+           console.log(response)
         } catch (error) {
             console.log(error);
         }

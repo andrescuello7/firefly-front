@@ -152,6 +152,24 @@ const RecuestAccess = () => {
         );
     };
 
+    //Photo Profile
+    const PutAdminBannerText = async (e, input) => {
+        try {
+            const response = await axios.put(api +
+                'home/banner/' + idBanner,
+                {
+                    title: input.title,
+                    description: input.description
+                },
+                {
+                    headers,
+                }
+            )
+            return response;
+        } catch (error) {
+            console.log(error);
+        }
+    };
     //Method Get of photo | read date
     const getBanner = async (e) => {
         try {
@@ -164,7 +182,7 @@ const RecuestAccess = () => {
         }
     };
 
-    
+
     //Method Delete of post
     const deletePost = async (id) => {
         try {
@@ -189,6 +207,7 @@ const RecuestAccess = () => {
         PutAdminBanner,
         SubmitRegister,
         PostAdminPhoto,
+        PutAdminBannerText,
     }
 }
 export default RecuestAccess;

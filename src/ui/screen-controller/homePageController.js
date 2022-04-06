@@ -100,25 +100,11 @@ const HomePageController = () => {
             </div>)
     }
 
-    const bannerHomeMap =
-        (banner.length === 0 && (
-            <div>
-                <Spinner animation="grow" />
-            </div>
-        )) || banner.map((data, i) =>
-            <BannerComponent key={i}
-                image={data.photo}
-                title={data.title}
-                description={data.description}
-            />
-        );
-
 
     return {
         getBannerMethod,
         getPhotoMethod,
         handleLogOut,
-        bannerHomeMap,
         BannerComponent,
         burgerButton,
         photoHomeMap,

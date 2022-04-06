@@ -4,7 +4,13 @@ import { Table, Form, Tabs, Tab, Button } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 
 const AdminPage = () => {
-    const { ProgressMap, ProgressCard, PostsMap, ProgressProfileMap, HandleChange, PostHandleSubmit, PutBannerSubmit } = Controller()
+    const { ProgressMap,
+        PostsMap,
+        HandleChange,
+        ProgressCard,
+        PostHandleSubmit,
+        ProgressProfileMap,
+        PutBannerSubmit } = Controller()
     return (
         <div className='statusAdmin'>
             <div className='stateOfMenu'>
@@ -47,8 +53,10 @@ const AdminPage = () => {
                                         name="title"
                                         placeholder="Titulo de Posteo"
                                     />
-                                    <input
-                                        className="inputFormAdmin"
+                                    <textarea
+                                        cols="47"
+                                        rows="10"
+                                        className="form-control"
                                         onChange={(e) => HandleChange(e)}
                                         type="text"
                                         maxLength={250}
@@ -67,7 +75,7 @@ const AdminPage = () => {
                                         />
                                     </label>
                                 </Form.Group>
-                                <div className="mt-5">
+                                <div className="mt-2">
                                     <Button variant="success" className="w-100" type="submit">
                                         <b>Publicar</b>
                                     </Button>
@@ -80,7 +88,10 @@ const AdminPage = () => {
                             <Form
                                 className="FormAdmin"
                             >
-                                <Form.Group controlId="formBasicEmail" className="formInput">
+                                <Form.Group
+                                    controlId="formBasicEmail"
+                                    className="formInput"
+                                >
                                     <input
                                         className="inputFormAdmin"
                                         onChange={(e) => HandleChange(e)}
@@ -88,14 +99,17 @@ const AdminPage = () => {
                                         name="title"
                                         placeholder="Titulo de Banner"
                                     />
-                                    <input
-                                        className="inputFormAdmin"
+                                    <textarea
+                                        cols="47"
+                                        rows="10"
+                                        className="form-control"
                                         onChange={(e) => HandleChange(e)}
                                         type="text"
                                         name="description"
+                                        maxLength={250}
                                         placeholder="Descripcion de Banner"
                                     />
-                                    <label className="custom-file mt-2">
+                                    {/* <label className="custom-file mt-2">
                                         <input
                                             id="file-input"
                                             name="photo"
@@ -105,10 +119,14 @@ const AdminPage = () => {
                                             data-bs-toggle="modal"
                                             data-bs-target="#exampleModal"
                                         />
-                                    </label>
+                                    </label> */}
                                 </Form.Group>
-                                <div className="mt-5">
-                                    <Button variant="success" className="w-100" type="submit">
+                                <div className="mt-2">
+                                    <Button
+                                        variant="success"
+                                        onClick={PutBannerSubmit}
+                                        className="w-100"
+                                    >
                                         <b>Actualizar</b>
                                     </Button>
                                 </div>

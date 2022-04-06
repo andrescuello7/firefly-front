@@ -8,7 +8,7 @@ import UserModel from '../../models/userModel';
 const NavbarComponent = () => {
     const { token, admin } = Variables();
     const { menu, img, burgerButton, handleLogOut } = Controller();
-    const { userModel } = UserModel(); 
+    const { userModel } = UserModel();
 
     return (
         <Navbar expand="lg" className="navbarBody">
@@ -39,11 +39,15 @@ const NavbarComponent = () => {
                             :
                             <div></div>
                         }
-                        <Nav.Link>
-                            <Link onClick={handleLogOut} className="btn btn-success w-100" to="/login">
-                                Cerrar Sesion
-                            </Link>
-                        </Nav.Link>
+                        {token !== null ?
+                            <Nav.Link>
+                                <Link onClick={handleLogOut} className="btn btn-success w-100" to="/login">
+                                    Cerrar Sesion
+                                </Link>
+                            </Nav.Link>
+                            :
+                            <div></div>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
