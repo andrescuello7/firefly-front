@@ -13,9 +13,11 @@ const NavbarComponent = () => {
     return (
         <Navbar expand="lg" className="navbarBody">
             <Container>
-                <Navbar.Brand href="/">
-                    <img className="imagenLogoNavbar" src={require('../../values/icons/firefly.png')} />
-                    <b>Luciernaga</b>
+                <Navbar.Brand>
+                    <Link className="btn btn-light" to="/">
+                        <img className="imagenLogoNavbar" src={require('../../values/icons/firefly.png')} />
+                        <b>Luciernaga</b>
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-light text-success" />
                 <Navbar.Collapse id="basic-navbar-nav">
