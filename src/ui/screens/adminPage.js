@@ -11,19 +11,8 @@ const AdminPage = () => {
                 <p className='titleProgress'>Progreso Semanal</p>
                 <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="tableAdmin">
                     <Tab eventKey="home" title="Home">
-                        <div className='d-flex w-100 justify-content-around flex-wrap'>
-                            {/* <Table hover size="sm" className='w-100 d-flex'> */}
-                            {/* <thead>
-                                    <tr>
-                                        <th className='textAdmin'>Foto</th>
-                                        <th className='textAdmin'>Nombre</th>
-                                        <th className='textAdmin'>Email</th>
-                                        <th className='textAdmin'>Edad</th>
-                                        <th className='textAdmin'>Progreso</th>
-                                    </tr>
-                                </thead> */}
+                        <div className='d-flex w-100 justify-content-evenly flex-wrap'>
                             {ProgressMap}
-                            {/* </Table> */}
                         </div>
                     </Tab>
                     {/* <Tab eventKey="profile" title="Date">
@@ -78,7 +67,7 @@ const AdminPage = () => {
                                         />
                                     </label>
                                 </Form.Group>
-                                <div className="mt-5 buttonRegister">
+                                <div className="mt-5">
                                     <Button variant="success" className="w-100" type="submit">
                                         <b>Publicar</b>
                                     </Button>
@@ -118,7 +107,7 @@ const AdminPage = () => {
                                         />
                                     </label>
                                 </Form.Group>
-                                <div className="mt-5 buttonRegister">
+                                <div className="mt-5">
                                     <Button variant="success" className="w-100" type="submit">
                                         <b>Actualizar</b>
                                     </Button>
@@ -127,7 +116,7 @@ const AdminPage = () => {
                         </div>
                     </Tab>
                     <Tab eventKey="post" title="Posteos">
-                        <div className='d-flex w-100 justify-content-around flex-wrap'>
+                        <div className='d-flex w-100 flex-wrap'>
                             {PostsMap}
                         </div>
                     </Tab>

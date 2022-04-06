@@ -144,15 +144,12 @@ const AdminPageController = () => {
             }
         };
         return (
-            <Card className='cardFormHomeAdmin'>
-                <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                <Card.Header className='w-100'>
-                    <Card.Text className='textAdmin'><p>{title}</p></Card.Text>
-                    <Button variant='outline-danger' onClick={DeleteSubmit} className='w-100'>
-                        Eliminar
-                    </Button>
-                </Card.Header>
-            </Card>
+            <div className='m-2 d-flex flex-column card'>
+                <img variant="top" className='imageDelete' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <Button variant='danger' onClick={DeleteSubmit} className='w-100'>
+                    Eliminar
+                </Button>
+            </div>
         );
     }
 
