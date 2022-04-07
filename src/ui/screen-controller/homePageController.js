@@ -73,7 +73,6 @@ const HomePageController = () => {
                 description={data.description}
             />
         );
-
     const BannerComponent = ({ title, description, image }) => {
         return (
             <div className="homePageAbout">
