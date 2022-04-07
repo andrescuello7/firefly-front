@@ -112,7 +112,7 @@ const AdminPage = () => {
                     : menuAdmin === 1 ?
                         <div>
                             <div className='w-100'>
-                                <p className='titleAdmin'>Publicar Noticias y hacer posteos</p>
+                                <p className='titleAdmin' onClick={handleShow}>Publicar Noticias y hacer posteos</p>
                             </div>
                             <div className='adminForm'>
                                 <Form
@@ -159,7 +159,7 @@ const AdminPage = () => {
                         : menuAdmin === 2 ?
                             <div>
                                 <div className='w-100'>
-                                    <p className='titleAdmin'>Actualizar el banner</p>
+                                    <p className='titleAdmin' onClick={handleShow}>Actualizar el banner</p>
                                 </div>
                                 <div className='adminForm'>
                                     <Form
@@ -202,7 +202,7 @@ const AdminPage = () => {
                             : menuAdmin === 3 ?
                                 <div>
                                     <div className='w-100'>
-                                        <p className='titleAdmin'>Eliminar posteos</p>
+                                        <p className='titleAdmin' onClick={handleShow}>Eliminar posteos</p>
                                     </div>
                                     <div className='d-flex w-100 flex-wrap'>
                                         {PostsMap}
