@@ -7,7 +7,7 @@ import UserModel from '../../models/userModel';
 
 const NavbarComponent = () => {
     const { token, admin } = Variables();
-    const { menu, img, burgerButton, handleLogOut } = Controller();
+    const { handleLogOut } = Controller();
     const { userModel } = UserModel();
 
     return (

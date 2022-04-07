@@ -5,13 +5,13 @@ import { Spinner, Button, ProgressBar } from 'react-bootstrap'
 
 const StatusPageController = () => {
     const { setUsersModel, usersModel } = UsersModel();
-    const { getReadUser, getPhoto, PostAdminPhoto, putUserPhoto } = RecuestAccess();
+    const { getReadUser } = RecuestAccess();
 
     useEffect(() => {
-        getAdminDateOfUsers()
+        getReadUserController()
     }, [usersModel.length === 0])
 
-    const getAdminDateOfUsers = async (e) => {
+    const getReadUserController = async (e) => {
         try {
             let response = await getReadUser();
             setUsersModel(response)

@@ -1,5 +1,4 @@
 import Controller from '../screen-controller/adminPageController';
-import MenuOpcion from '../components/menuOptions';
 import { Table, Form, Tabs, Tab, Button } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 
@@ -8,7 +7,7 @@ const AdminPage = () => {
         PostsMap,
         HandleChange,
         ProgressCard,
-        PostHandleSubmit,
+        postAdminPhotoController,
         ProgressProfileMap,
         PutBannerSubmit } = Controller()
     return (
@@ -21,28 +20,10 @@ const AdminPage = () => {
                             {ProgressMap}
                         </div>
                     </Tab>
-                    {/* <Tab eventKey="profile" title="Date">
-                        <div className='adminForm'>
-                            <Table hover size="sm" className='adminFromTableOptions'>
-                                <thead>
-                                    <tr>
-                                        <th className='textAdmin'>Foto</th>
-                                        <th className='textAdmin'>Nombre</th>
-                                        <th className='textAdmin'>Locate</th>
-                                        <th className='textAdmin'>Gustos</th>
-                                        <th className='textAdmin'>Opciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {ProgressProfileMap}
-                                </tbody>
-                            </Table>
-                        </div>
-                    </Tab> */}
                     <Tab eventKey="images" title="Image">
                         <div className='adminForm'>
                             <Form
-                                // onSubmit={PostHandleSubmit}
+                                // onSubmit={postAdminPhotoController}
                                 className="FormAdmin"
                             >
                                 <Form.Group controlId="formBasicEmail" className="formInput">
@@ -69,7 +50,7 @@ const AdminPage = () => {
                                             name="photo"
                                             accept="image/png, image/jpeg"
                                             type="file"
-                                            onChange={PostHandleSubmit}
+                                            onChange={postAdminPhotoController}
                                             data-bs-toggle="modal"
                                             data-bs-target="#exampleModal"
                                         />

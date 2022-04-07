@@ -4,7 +4,7 @@ import RecuestAccess from "../../data-access/requestAccess";
 const LoginPageController = () => {
     const [input, setInput] = useState({});
     const [validation, setValidation] = useState(false);
-    const { SubmitLogin } = RecuestAccess();
+    const { postLogin } = RecuestAccess();
 
     const HandleChange = (e) => {
         const { name, value } = e.target;
@@ -15,7 +15,7 @@ const LoginPageController = () => {
     const HandleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await SubmitLogin(input);
+            await postLogin(input);
             setValidation(false)
         } catch (error) {
             console.log(error);

@@ -1,7 +1,6 @@
 import "../../values/styles/profilePage.css";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import MenuOpcion from '../components/menuOptions';
 import ProfilePageController from "../screen-controller/profilePageController";
 
 const ProfilePage = () => {

@@ -1,7 +1,6 @@
 import Controller from '../screen-controller/statusPageController';
-import MenuOpcion from '../components/menuOptions';
 import '../../values/styles/statusPage.css'
-import { ProgressBar, Table } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
 const StatusPage = () => {
     //Component for Table

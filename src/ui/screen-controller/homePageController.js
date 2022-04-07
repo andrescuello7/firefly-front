@@ -21,7 +21,7 @@ const HomePageController = () => {
 
     useEffect(() => {
         getUserMethod()
-        getPhotoMethod()
+        getPhotoController()
         getBannerMethod()
     }, [userModel.length === 0])
 
@@ -37,7 +37,7 @@ const HomePageController = () => {
         }
     };
 
-    const getPhotoMethod = async (e) => {
+    const getPhotoController = async (e) => {
         try {
             let response = await getPhoto();
             setImages(response);
@@ -103,7 +103,7 @@ const HomePageController = () => {
 
     return {
         getBannerMethod,
-        getPhotoMethod,
+        getPhotoController,
         handleLogOut,
         BannerComponent,
         burgerButton,

@@ -12,7 +12,7 @@ import RegisterPage from './ui/screens/registerPage';
 import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
 import AdminPage from './ui/screens/adminPage';
-import MenuOpcion from './ui/components/menuOptions';
+import MenuComponent from './ui/components/menuComponent';
 import NavbarOpcion from './ui/components/navbarComponent';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={
           <div>
             <div className='displayDestopk'>
-              <MenuOpcion />
+              <MenuComponent />
             </div>
             <div className="displayPhone">
               <NavbarOpcion />
@@ -33,7 +33,7 @@ function App() {
         <Route path="/profile" element={
           <div>
             <div className='displayDestopk'>
-              <MenuOpcion />
+              <MenuComponent />
             </div>
             <div className="displayPhone">
               <NavbarOpcion />
@@ -44,7 +44,7 @@ function App() {
         <Route path="/time" element={
           <div>
             <div className='displayDestopk'>
-              <MenuOpcion />
+              <MenuComponent />
             </div>
             <div className="displayPhone">
               <NavbarOpcion />
@@ -55,7 +55,7 @@ function App() {
         <Route path="/status" element={
           <div>
             <div className='displayDestopk'>
-              <MenuOpcion />
+              <MenuComponent />
             </div>
             <div className="displayPhone">
               <NavbarOpcion />
@@ -66,7 +66,7 @@ function App() {
         <Route path="/admin" element={
           <div>
             <div className='displayDestopk'>
-              <MenuOpcion />
+              <MenuComponent />
             </div>
             <div className="displayPhone">
               <NavbarOpcion />

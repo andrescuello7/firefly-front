@@ -1,4 +1,4 @@
-import { Modal, Card } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import '../../values/styles/postComponent.css'
 import { useState } from 'react';
 

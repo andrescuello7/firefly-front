@@ -7,20 +7,23 @@ const AdminPageController = () => {
     const [input, setInput] = useState({});
     const { setUsersModel, usersModel } = UsersModel();
     const [images, setImages] = useState([]);
-    const { getReadUser, getPhoto, PostAdminPhoto, deletePost, PutAdminBanner, PutAdminBannerText } = RecuestAccess();
+    const {
+        getPhoto,
+        getReadUser,
+        postPhotoInAdmin,
+        deletePostInAdmin,
+        putBannerInAdminText, } = RecuestAccess();
 
     useEffect(() => {
-        getAdminDateOfUsers()
-        getPhotoMethod()
+        getReadUserController()
+        getPhotoController()
     }, [usersModel.length === 0])
-
     const HandleChange = (e) => {
         const { name, value } = e.target;
         const changedInput = { ...input, [name]: value };
         setInput(changedInput);
     };
-
-    const getAdminDateOfUsers = async (e) => {
+    const getReadUserController = async (e) => {
         try {
             let response = await getReadUser();
             setUsersModel(response)
@@ -28,29 +31,25 @@ const AdminPageController = () => {
             console.log(error);
         }
     };
-
-    const PostHandleSubmit = async (e) => {
+    const postAdminPhotoController = async (e) => {
         e.preventDefault()
         try {
-            await PostAdminPhoto(e, input);
+            await postPhotoInAdmin(e, input);
         } catch (error) {
             console.log(error);
         }
     };
-
     //UPDATE WHIT PHOTO
-
     const PutBannerSubmit = async (e) => {
         e.preventDefault()
         try {
-           const response = await PutAdminBannerText(e, input);
-           console.log(response)
+            const response = await putBannerInAdminText(e, input);
+            console.log(response)
         } catch (error) {
             console.log(error);
         }
     };
-
-    const getPhotoMethod = async (e) => {
+    const getPhotoController = async (e) => {
         try {
             let response = await getPhoto();
             setImages(response);
@@ -77,7 +76,6 @@ const AdminPageController = () => {
             </tr>
         );
     }
-
     const ProgressCard = ({ progress, name, edad, email, image }) => {
         return (
             <Card className='cardFormHomeAdmin'>
@@ -95,16 +93,6 @@ const AdminPageController = () => {
             </Card>
         );
     }
-
-    const ProgressMap =
-        (usersModel.length === 0 && (
-            <div className="d-flex justify-content-center align-items-center mt-5">
-                <Spinner animation="grow" />
-            </div>
-        )) || usersModel.map((data, i) =>
-            <ProgressCard progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
-        );
-
     //Component for Table Profile
     const ProgressProfile = ({ image, name, locate, gustos }) => {
         return (
@@ -126,22 +114,12 @@ const AdminPageController = () => {
             </tr>
         );
     }
-
-    const ProgressProfileMap =
-        (usersModel.length === 0 && (
-            <div className="d-flex justify-content-center align-items-center mt-5">
-                <Spinner animation="grow" />
-            </div>
-        )) || usersModel.map((data, i) =>
-            <ProgressProfile image={usersModel[i].photo} name={usersModel[i].user} locate={usersModel[i].locate} gustos={usersModel[i].likes} key={i} />
-        );
-
     //Component for Table Images and Post
     const GetPostsImages = ({ image, title, id }) => {
         const DeleteSubmit = async (e) => {
             e.preventDefault()
             try {
-                await deletePost(id);
+                await deletePostInAdmin(id);
             } catch (error) {
                 console.log(error);
             }
@@ -155,7 +133,6 @@ const AdminPageController = () => {
             </div>
         );
     }
-
     const PostsMap =
         (usersModel.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
@@ -170,10 +147,27 @@ const AdminPageController = () => {
                 key={i}
             />
         );
+    const ProgressProfileMap =
+        (usersModel.length === 0 && (
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Spinner animation="grow" />
+            </div>
+        )) || usersModel.map((data, i) =>
+            <ProgressProfile image={usersModel[i].photo} name={usersModel[i].user} locate={usersModel[i].locate} gustos={usersModel[i].likes} key={i} />
+        );
+    const ProgressMap =
+        (usersModel.length === 0 && (
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Spinner animation="grow" />
+            </div>
+        )) || usersModel.map((data, i) =>
+            <ProgressCard progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
+        );
+
 
     return {
         HandleChange,
-        PostHandleSubmit,
+        postAdminPhotoController,
         ProgressProfileMap,
         ProgressCard,
         PutBannerSubmit,

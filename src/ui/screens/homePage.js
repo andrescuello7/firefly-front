@@ -1,8 +1,5 @@
-// import { Button } from "react-bootstrapp";
 import "../../values/styles/homePage.css";
 import Controller from '../screen-controller/homePageController';
-import MenuOpcion from '../components/menuOptions';
-import NavbarOpcion from '../components/navbarComponent';
 
 const HomePage = () => {
     const { photoHomeMap, BannerComponent, banner } = Controller();
