@@ -1,19 +1,29 @@
 .navbarBody {
-    position: sticky;
-    background-color: #f9f9f9;
-    width: 100%;
+  position: sticky;
+  background-color: #f9f9f9;
+  width: 100%;
 }
-
+.navbarFont {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Nunito", ExtraBoldf;
+}
 .navbarItems {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .imagenLogoNavbar {
-    width: 30px;
-    margin-right: 10px;
-    height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  height: 30px;
 }
 
-@media (max-width: 780px) {}
+@media (max-width: 780px) {
+  .navbarFont {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Nunito", ExtraBoldf;
+  }
+}

@@ -21,58 +21,30 @@ function App() {
       <Routes>
         <Route path="/" element={
           <div>
-            <div className='displayDestopk'>
-              <MenuComponent />
-            </div>
-            <div className="displayPhone">
-              <NavbarOpcion />
-            </div>
+            <NavbarOpcion />
             <HomePage />
           </div>
         } />
         <Route path="/profile" element={
           <div>
-            <div className='displayDestopk'>
-              <MenuComponent />
-            </div>
-            <div className="displayPhone">
-              <NavbarOpcion />
-            </div>
+            <NavbarOpcion />
             <ProfilePage />
           </div>
         } />
         <Route path="/time" element={
           <div>
-            <div className='displayDestopk'>
-              <MenuComponent />
-            </div>
-            <div className="displayPhone">
-              <NavbarOpcion />
-            </div>
+            <NavbarOpcion />
             <DateTimePage />
           </div>
         } />
         <Route path="/status" element={
           <div>
-            <div className='displayDestopk'>
-              <MenuComponent />
-            </div>
-            <div className="displayPhone">
-              <NavbarOpcion />
-            </div>
+            <NavbarOpcion />
             <StatusPage />
           </div>
         } />
         <Route path="/admin" element={
-          <div>
-            <div className='displayDestopk'>
-              <MenuComponent />
-            </div>
-            <div className="displayPhone">
-              <NavbarOpcion />
-            </div>
-            <AdminPage />
-          </div>
+          <AdminPage />
         } />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

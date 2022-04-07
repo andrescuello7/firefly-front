@@ -8,8 +8,8 @@ const HomePageController = () => {
     const { getUser, getPhoto, getBanner } = RecuestAccess();
     const { setUserModel, userModel } = UserModel();
 
-    const [menu, setMenu] = useState(false);
-    const [img, setImg] = useState(false);
+    const [menu, setMenu] = useState(true);
+    const [img, setImg] = useState(true);
     const [images, setImages] = useState([]);
     const [banner, setBanner] = useState([]);
 

@@ -17,6 +17,12 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <div className="text-center d-flex flex-column justify-content-center w-100 mt-5">
+                <p className="textHomeInfo">Comunicaciones y avisos</p>
+                <p className="descriptionHomeInfo mx-4">
+                Bienvenidos a boyscouts, donde enseñamos y aprendemos sobre el compañerismo y trabajo en equipo cimentados en la palabra de Dios
+                </p>
+            </div>
             <div className="cardImage">
                 {photoHomeMap}
             </div>

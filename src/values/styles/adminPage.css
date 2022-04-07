@@ -1,19 +1,20 @@
 .statusAdmin {
   width: 100%;
-  padding: 0% 5%;
+  display: flex;
+  /* padding: 0% 10%; */
 }
 .adminForm {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 0% 0%;
 }
 .tableAdmin {
   width: 100%;
 }
-.FormAdmin{
+.FormAdmin {
   width: 50%;
   height: 90vh;
 }
@@ -24,6 +25,7 @@
   display: block;
 }
 .stateOfMenu {
+  /* position: absolute; */
   width: 100%;
 }
 .cardFormHomeAdmin {
@@ -44,6 +46,60 @@
   margin-bottom: 2px;
   border-radius: 5px;
 }
+.titleAdmin {
+  width: 100%;
+  height: 80px;
+  padding-left: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid rgb(208, 198, 198) 1px;
+  color: #16c03ee7;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: "Nunito", ExtraBoldf;
+}
+.menuAdmin {
+  background-color: #0e4f1dde;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  min-height: 100vh;
+}
+.menuOpcionAdmin {
+  width: 220px;
+  margin: 5% 0%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  color: rgb(255, 255, 255);
+}
+.menuOpcionAdmin:hover {
+  width: 220px;
+  margin: 5% 0%;
+  background-color: rgba(127, 255, 212, 0.227);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  color: rgb(255, 255, 255);
+}
+.displayResponsive {
+  display: none;
+}
+.TituloMenuDateAdmin {
+  color: white;
+  font-size: 30px;
+  font: normal normal 1000 30px Nunito;
+  font-family: "Nunito", ExtraBoldf;
+}
 @media (max-width: 780px) {
   .stateOfMenu {
     width: 100%;
@@ -63,10 +119,6 @@
   .statusAdmin {
     width: 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: end;
-    flex-direction: column;
-    padding: 0% 0%;
   }
   .adminForm {
     display: flex;
@@ -74,7 +126,7 @@
     flex-direction: column;
     width: 100%;
   }
-  .FormAdmin{
+  .FormAdmin {
     width: 95%;
     height: 100vh;
   }
@@ -108,7 +160,15 @@
     height: 100px;
     border-radius: 10px;
   }
-  /* Photo Css */
+  .menuAdmin {
+    display: none;
+  }
+  .displayResponsive {
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+  }
 }
 .nav-link {
   color: #16c03ee7;

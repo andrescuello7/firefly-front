@@ -96,7 +96,7 @@
   opacity: 1;
   background: radial-gradient(
     ellipse farthest-corner at 300px 0px,
-    rgb(255, 255, 255) 50%,
+    #f9f9f9 50%,
     #fff 0%,
     rgba(198, 13, 13, 0) 0%
   );
@@ -111,7 +111,8 @@
 }
 
 .descriptionHomeAbout {
-  font-family: "Comic Sans MS", ExtraBoldf;
+  font-weight: 500;
+  font-family: "Nunito", ExtraBoldf;
   width: 550px;
   font-size: 25px;
   color: rgba(15, 15, 15, 0.726);
@@ -119,14 +120,22 @@
 }
 
 .cardImage {
-  padding-top: 50px;
+  padding-top: 20px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
+.textHomeInfo{
+  font-size: 25px;
+  font-weight: 500;
+  font-family: "Nunito", ExtraBoldf;
+}
+.descriptionHomeInfo{
+  font-size: 15px;
+  color: gray;
+}
 @media (max-width: 780px) {
   .body {
     width: 100%;
@@ -143,7 +152,7 @@
     opacity: 1;
     background: radial-gradient(
       ellipse farthest-corner at 200px 100px,
-      rgba(255, 255, 255, 0.837) 75%,
+      #f9f9f9 75%,
       #fff 0%,
       rgba(198, 13, 13, 0) 0%
     );
@@ -164,7 +173,7 @@
   .descriptionHomeAbout {
     margin-left: 0%;
     font-size: 15px;
-    width: 80%;
+    width: 90%;
     color: rgba(51, 50, 50, 0.726);
     text-align: start;
   }
@@ -173,7 +182,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
   }
   .homePage {
     min-height: 70vh;
@@ -193,7 +201,7 @@
   }
 
   .titleHomeAbout {
-    width: 60%;
+    width: 100%;
     color: #16c03e;
     font: normal normal 1000 25px Nunito;
   }
@@ -237,5 +245,14 @@
     font: normal normal 600;
     font-size: 12px;
     width: 45%;
+  }
+  .textHomeInfo{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Nunito", ExtraBoldf;
+  }
+  .descriptionHomeInfo{
+    font-size: 12px;
+    color: gray;
   }
 }

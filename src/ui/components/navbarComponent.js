@@ -11,10 +11,10 @@ const NavbarComponent = () => {
     const { userModel } = UserModel();
 
     return (
-        <Navbar expand="lg" className="navbarBody">
+        <Navbar expand="lg" className="navbarBody sticky-top">
             <Container>
                 <Navbar.Brand>
-                    <Link className="btn btn-light" to="/">
+                    <Link className="btn btn-light navbarFont" to="/">
                         <img className="imagenLogoNavbar" src={require('../../values/icons/firefly.png')} />
                         <b>Luciernaga</b>
                     </Link>
@@ -23,18 +23,18 @@ const NavbarComponent = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="navbarItems">
                         <Nav.Link>
-                            <Link className="btn btn-light" to="/profile">
+                            <Link className="btn btn-light navbarFont" to="/profile">
                                 Perfil
                             </Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className="btn btn-light" to="/status">
+                            <Link className="btn btn-light navbarFont" to="/status">
                                 Estado
                             </Link>
                         </Nav.Link>
                         {admin !== null ?
                             <Nav.Link>
-                                <Link className="btn btn-light" to="/admin">
+                                <Link className="btn btn-light navbarFont" to="/admin">
                                     Administrador
                                 </Link>
                             </Nav.Link>
@@ -43,7 +43,7 @@ const NavbarComponent = () => {
                         }
                         {token !== null ?
                             <Nav.Link>
-                                <Link onClick={handleLogOut} className="btn btn-success w-100" to="/login">
+                                <Link onClick={handleLogOut} className="navbarFont btn btn-success w-100" to="/login">
                                     Cerrar Sesion
                                 </Link>
                             </Nav.Link>

@@ -25,14 +25,14 @@ const MenuComponent = () => {
     }
 
     return (
-        <div className={menu ? "menuTrue" : "menuFalse"}>
+        <div className={menu ? "menuTrue sticky-top" : "menuFalse sticky-top"}>
             <div className='w-100 text-center'>
                 <div className={img ? 'mt-2 w-100  text-center d-flex justify-content-around' : 'mt-2 w-100 d-flex justify-content-between flex-column'}>
                     <div className={img ? 'd-block' : 'd-none'} >
-                        <p className='TituloMenuDate'>Luciernaga</p>
+                        <p className='TituloMenuDate'>Admin</p>
                     </div>
                     <a className='mt-2' onClick={() => burgerButton()}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-list text-success" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-list text-light" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
                     </a>
