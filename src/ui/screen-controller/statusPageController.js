@@ -5,7 +5,7 @@ import { Spinner, Button, ProgressBar } from 'react-bootstrap'
 
 const StatusPageController = () => {
     const { setUsersModel, usersModel } = UsersModel();
-    const { getReadUser } = RecuestAccess();
+    const { getChildInProfile } = RecuestAccess();
 
     useEffect(() => {
         getReadUserController()
@@ -13,14 +13,14 @@ const StatusPageController = () => {
 
     const getReadUserController = async (e) => {
         try {
-            let response = await getReadUser();
-            setUsersModel(response)
+            let { data } = await getChildInProfile();
+            setUsersModel(data)
         } catch (error) {
             console.log(error);
         }
     };
     //Component for Table
-    const Progress = ({ progress, name, edad, email, image }) => {
+    const Progress = ({ progress, name, edad, image }) => {
         return (
             <tr>
                 <td className='text-center'>
@@ -49,7 +49,7 @@ const StatusPageController = () => {
             </div>
         )) || usersModel.map((data, i) =>
             <Progress
-                progress={data.years}
+                progress={data.progress}
                 name={data.user}
                 edad={data.years}
                 image={data.photo}

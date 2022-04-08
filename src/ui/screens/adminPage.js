@@ -1,5 +1,5 @@
 import Controller from '../screen-controller/adminPageController';
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 import { useState } from 'react'
 
@@ -23,11 +23,16 @@ const AdminPage = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { ProgressMap,
+    const {
         PostsMap,
+        ProgressMap,
         HandleChange,
-        postAdminPhotoController,
-        PutBannerSubmit } = Controller()
+        PutBannerSubmit,
+        JobsComponentMap,
+        ProgressMapChild,
+        postAdminJobController,
+        postAdminPhotoController
+    } = Controller()
     return (
         <div className='statusAdmin'>
             <div className='menuAdmin'>
@@ -65,8 +70,25 @@ const AdminPage = () => {
                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                         </svg>
                     } />
-                    <div className='w-100 border border-bottom-0 mb-5'>
+                    <div className='w-100 border border-bottom-0 mb-3'>
                     </div>
+                    <OptionsMenu script={4} title={"Asignar Tareas"} icon={
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-card-list" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                        </svg>
+                    } />
+                    <OptionsMenu script={5} title={"Tareas"} icon={
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-card-checklist" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    } />
+                    <OptionsMenu script={6} title={"Chicos/as"} icon={
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+                        </svg>
+                    } />
                 </div>
             </div>
             <div className='stateOfMenu'>
@@ -98,6 +120,25 @@ const AdminPage = () => {
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                             </svg>
                         } />
+                        <div className='w-100 border border-bottom-0 mb-3'>
+                        </div>
+                        <OptionsMenu script={4} title={"Asignar Tareas"} icon={
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        } />
+                        <OptionsMenu script={5} title={"Tareas"} icon={
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-card-checklist" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        } />
+                        <OptionsMenu script={6} title={"Chicos/as"} icon={
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+                            </svg>
+                        } />
                     </Modal.Body>
                 </Modal>
                 {menuAdmin === 0 ?
@@ -112,7 +153,7 @@ const AdminPage = () => {
                     : menuAdmin === 1 ?
                         <div>
                             <div className='w-100'>
-                                <p className='titleAdmin' onClick={handleShow}>Publicar Noticias y hacer posteos</p>
+                                <p className='titleAdmin' onClick={handleShow}>Hacer Posteos</p>
                             </div>
                             <div className='adminForm'>
                                 <Form
@@ -208,7 +249,143 @@ const AdminPage = () => {
                                         {PostsMap}
                                     </div>
                                 </div>
-                                : <div></div>}
+                                : menuAdmin === 4 ?
+                                    <div>
+                                        <div className='w-100'>
+                                            <p className='titleAdmin' onClick={handleShow}>Hacer Posteos</p>
+                                        </div>
+                                        <div className='adminForm'>
+                                            <Form
+                                                className="FormAdmin"
+                                            >
+                                                <Form.Group controlId="formBasicEmail" className="formInput">
+                                                    <Dropdown className='w-100 m-4'>
+                                                        <Form.Group
+                                                            name="user"
+                                                            onChange={(e) => HandleChange(e)}
+                                                            controlId="formGridState"
+                                                            className="w-100"
+                                                        >
+                                                            <Form.Control name="user" as="select" >
+                                                                <option>Andres</option>
+                                                                <option>Aryana</option>
+                                                                <option>Elias</option>
+                                                                <option>Fererico H</option>
+                                                                <option>Fererico V</option>
+                                                                <option>Jennifer</option>
+                                                                <option>Luciana</option>
+                                                                <option>Nicol</option>
+                                                                <option>Silvina</option>
+                                                                <option>Priscila</option>
+                                                                <option>Varela</option>
+                                                                <option>Viviana</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </Dropdown>
+                                                    <div className='d-flex justify-content-between w-100'>
+                                                        <Form.Group
+                                                            name="inDay"
+                                                            onChange={(e) => HandleChange(e)}
+                                                            controlId="formGridState"
+                                                            className="w-100"
+                                                        >
+                                                            <Form.Control name="inDay" as="select" >
+                                                                <option>Coordinador</option>
+                                                                <option>Destreza</option>
+                                                                <option>Juegos</option>
+                                                                <option>Conocimiento</option>
+                                                                <option>Recreacion</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                        <div className='mx-2'></div>
+                                                        <Form.Group
+                                                            name="inWeek"
+                                                            onChange={(e) => HandleChange(e)}
+                                                            controlId="formGridState"
+                                                            className="w-100"
+                                                        >
+                                                            <Form.Control name="inWeek" as="select">
+                                                                <option>Merchandising</option>
+                                                                <option>Compras</option>
+                                                                <option>Coordinador</option>
+                                                                <option>Scroum Master</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </div>
+                                                    <input
+                                                        className="inputFormAdmin"
+                                                        onChange={(e) => HandleChange(e)}
+                                                        type="text"
+                                                        name="title"
+                                                        placeholder="Tarea"
+                                                    />
+                                                    <input
+                                                        className="inputFormAdmin"
+                                                        onChange={(e) => HandleChange(e)}
+                                                        type="text"
+                                                        name="description"
+                                                        placeholder="Descripcion"
+                                                    />
+                                                </Form.Group>
+                                                <div className="mt-4">
+                                                    <Button variant="success" onClick={postAdminJobController} className="w-100" type="submit">
+                                                        <b>Guardar Tarea</b>
+                                                    </Button>
+                                                </div>
+                                            </Form>
+                                        </div>
+                                    </div>
+                                    : menuAdmin === 5 ?
+                                        <div>
+                                            <div className='w-100'>
+                                                <p className='titleAdmin' onClick={handleShow}>Tareas Asignadas</p>
+                                            </div>
+                                            <div className='adminForm'>
+                                                <div className='w-100'>
+                                                    <Table hover size="sm" className="w-100">
+                                                        <thead>
+                                                            <tr>
+                                                                <th className='textAdmin text-center'>Foto</th>
+                                                                <th className='textAdmin text-center'>Nombre</th>
+                                                                <th className='textAdmin text-center'>Edad</th>
+                                                                <th className='textAdmin text-center'>Genero</th>
+                                                                <th className='textAdmin'>Progreso</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {JobsComponentMap}
+                                                        </tbody>
+                                                    </Table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        : menuAdmin === 6 ?
+                                            <div>
+                                                <div className='w-100'>
+                                                    <p className='titleAdmin' onClick={handleShow}>Chicos y chicas</p>
+                                                </div>
+                                                <div className='adminForm'>
+                                                    <div className='w-100'>
+                                                        <Table hover size="sm" className="w-100">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th className='textAdmin text-center'>Foto</th>
+                                                                    <th className='textAdmin text-center'>Nombre</th>
+                                                                    <th className='textAdmin text-center'>Edad</th>
+                                                                    <th className='textAdmin text-center'>Genero</th>
+                                                                    <th className='textAdmin'>Progreso</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {ProgressMapChild}
+                                                            </tbody>
+                                                        </Table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            :
+                                            <div></div>
+                }
             </div>
         </div>
     );

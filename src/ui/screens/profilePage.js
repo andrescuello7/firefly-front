@@ -1,9 +1,10 @@
 import "../../values/styles/profilePage.css";
-import { Form, Button, Modal } from "react-bootstrap";
+import { Form, Button, Modal, Nav, Dropdown } from "react-bootstrap";
 import { useState } from "react";
 import ProfilePageController from "../screen-controller/profilePageController";
 
 const ProfilePage = () => {
+    const [select, setSelect] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -12,117 +13,284 @@ const ProfilePage = () => {
         userModel,
         HandleChange,
         PutHandleSubmit,
+        postCreateChildProfile,
+        onChangeImgChild,
+        ProgressMapChild,
         onChangeImg } = ProfilePageController();
     return (
-        <div className="bodyProfile">
-            <div className="profile">
-                <div className="titleProfilaDiv">
-                    <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                    <p className="titleProfile">{userModel.length !== 0 ? `${userModel.user.user}` : "Mi perfil"}</p>
-                </div>
-                <Form onSubmit={PutHandleSubmit} className="FormProfile">
-                    <div className="text-success">
-                        <b>Datos Escenciales</b>
+        <div>
+            <div className="bodyProfile">
+                <div className="profile">
+                    <div className="d-flex flex-column">
+                        <div className="titleProfilaDiv">
+                            <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                            <p className="titleProfile">{userModel.length !== 0 ? `${userModel.user.user}` : "Mi perfil"}</p>
+                        </div>
+                        <div>
+                            <Nav justify variant="tabs" className="w-100 mt-4" defaultActiveKey="link-1">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="link-0" onClick={() => setSelect(true)}>Padre</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="link-1" onClick={() => setSelect(false)}>Hijos</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                        </div>
                     </div>
-                    <div className="FormProfileBootstrap">
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="text"
-                                name="user"
-                                placeholder={userModel.length !== 0 ? `${userModel.user.user}` : "Nombre"}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="date"
-                                name="date"
-                            />
-                        </Form.Group>
-                    </div>
-                    <div className="text-success mt-5">
-                        <b>Datos Adicionales</b>
-                    </div>
-                    <div className="FormProfileBootstrap">
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="text"
-                                name="locate"
-                                placeholder={"direccion"}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="text"
-                                name="school"
-                                placeholder={"escuela"}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="text"
-                                name="health"
-                                placeholder={"poblema de salud"}
-                            />
-                        </Form.Group>
-                    </div>
-                    <div className="text-success mt-5">
-                        <b>Cuenta Personal</b>
-                    </div>
-                    <div className="FormProfileBootstrap">
-                        <Form.Group controlId="formBasicEmail" className="m-2 w-100">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="email"
-                                name="email"
-                                placeholder={userModel.length !== 0 ? `${userModel.user.email}` : "escuela"}
-                            />
-                        </Form.Group>
-                        <label className="custom-file-input m-2">
-                            <input
-                                id="file-input"
-                                name="photo"
-                                accept="image/png, image/jpeg"
-                                type="file"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onChange={onChangeImg}
-                            />
-                        </label>
+                    {select ?
+                        <Form onSubmit={PutHandleSubmit} className="FormProfile">
+                            <div className="text-success">
+                                <b>Datos Escenciales de Padre</b>
+                            </div>
+                            <div className="FormProfileBootstrap">
+                                <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                    <input
+                                        className="inputFormProfile"
+                                        onChange={(e) => HandleChange(e)}
+                                        type="text"
+                                        name="user"
+                                        placeholder={userModel.length !== 0 ? `${userModel.user.user}` : "Nombre"}
+                                    />
+                                </Form.Group>
+                                <Dropdown className='w-100 mt-2'>
+                                    <Dropdown.Toggle className='inputFormProfile' variant="outline-success" id="dropdown-basic">
+                                        Padre o Colaborador
+                                    </Dropdown.Toggle>
 
-                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                            <input
-                                className="inputFormProfile"
-                                onChange={(e) => HandleChange(e)}
-                                type="password"
-                                // name="password"
-                                placeholder="contrasena"
-                            />
-                        </Form.Group>
-                    </div>
-                    <Button variant="success" className="buttonProfile" onClick={handleShow} type="submit">
-                        <b>Guardar</b>
-                    </Button>
-                    <Modal className="modalProfileBody" show={show} onHide={handleClose}>
-                        <Modal.Header className="modalProfile" closeButton>
-                            <i className="mt-2">Perfecto se actualizaron sus datos!</i>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" className="bi bi-clipboard2-check-fill" viewBox="0 0 16 16">
-                                <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z" />
-                                <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5Zm6.769 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708Z" />
-                            </svg>
-                        </Modal.Header>
-                    </Modal>
-                </Form>
+                                    <Dropdown.Menu className='w-100'>
+                                        <Dropdown.Item >Padre</Dropdown.Item>
+                                        <Dropdown.Item >Colaborador</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                            <div className="text-success mt-5">
+                                <b>Datos Adicionales</b>
+                            </div>
+                            <div className="FormProfileBootstrap">
+                                <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                    <input
+                                        className="inputFormProfile"
+                                        onChange={(e) => HandleChange(e)}
+                                        type="text"
+                                        name="school"
+                                        placeholder={"escuela"}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                    <button
+                                        name="move"
+                                        onChange={(e) => HandleChange(e)}
+                                        className="btn btn-outline-success w-100 p-3 inputFormProfile"
+                                    >
+                                        Tiene Movilidad
+                                    </button>
+                                </Form.Group>
+                            </div>
+                            <div className="text-success mt-5">
+                                <b>Cuenta Personal</b>
+                            </div>
+                            <div className="FormProfileBootstrap">
+                                <Form.Group controlId="formBasicEmail" className="m-2 w-100">
+                                    <input
+                                        className="inputFormProfile"
+                                        onChange={(e) => HandleChange(e)}
+                                        type="email"
+                                        name="email"
+                                        placeholder={userModel.length !== 0 ? `${userModel.user.email}` : "escuela"}
+                                    />
+                                </Form.Group>
+                                <label className="custom-file-input m-2">
+                                    <input
+                                        id="file-input"
+                                        name="photo"
+                                        accept="image/png, image/jpeg"
+                                        type="file"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onChange={onChangeImg}
+                                    />
+                                </label>
+
+                                <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                    <input
+                                        className="inputFormProfile"
+                                        onChange={(e) => HandleChange(e)}
+                                        type="password"
+                                        // name="password"
+                                        placeholder="contrasena"
+                                    />
+                                </Form.Group>
+                            </div>
+                            <Button variant="success" className="buttonProfile" type="submit">
+                                <b>Guardar</b>
+                            </Button>
+                        </Form>
+                        :
+                        <div className="mt-4">
+                            <button className="btn btn-dark w-100 p-2" onClick={handleShow} >
+                                <b>Crear Hijo</b>
+                            </button>
+
+                            <div>
+                                {ProgressMapChild}
+                            </div>
+
+                            {/* <Form onSubmit={PutHandleSubmit} className="FormProfile">
+                                <div className="text-success">
+                                    <b>Datos Escenciales de Hijo</b>
+                                </div>
+                                <div className="FormProfileBootstrap">
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <input
+                                            className="inputFormProfile"
+                                            onChange={(e) => HandleChange(e)}
+                                            type="text"
+                                            name="user"
+                                            placeholder='Nombre de hijo'
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <Dropdown className='w-100'>
+                                            <Dropdown.Toggle
+                                                type="text"
+                                                name="gender"
+                                                onChange={(e) => HandleChange(e)}
+                                                className='inputFormProfile'
+                                                variant="outline-success"
+                                                id="dropdown-basic">
+                                                Genero
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu className='w-100'>
+                                                <Dropdown.Item >Varon</Dropdown.Item>
+                                                <Dropdown.Item >Mujer</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </Form.Group>
+                                </div>
+                                <div className="text-success mt-5">
+                                    <b>Datos Adicionales</b>
+                                </div>
+                                <div className="FormProfileBootstrap">
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <input
+                                            className="inputFormProfile"
+                                            onChange={(e) => HandleChange(e)}
+                                            type="text"
+                                            name="locate"
+                                            placeholder={"Direccion"}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <input
+                                            className="inputFormProfile"
+                                            onChange={(e) => HandleChange(e)}
+                                            type="text"
+                                            name="school"
+                                            placeholder={"Escuela"}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <input
+                                            className="inputFormProfile"
+                                            onChange={(e) => HandleChange(e)}
+                                            type="text"
+                                            name="health"
+                                            placeholder={"Poblemas de salud?"}
+                                        />
+                                    </Form.Group>
+                                </div>
+                                <div className="text-success mt-5">
+                                    <b>Cuenta Personal</b>
+                                </div>
+                                <div className="FormProfileBootstrap">
+                                    <label className="custom-file-input m-2">
+                                        <input
+                                            id="file-input"
+                                            name="photo"
+                                            accept="image/png, image/jpeg"
+                                            type="file"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
+                                            onChange={onChangeImg}
+                                        />
+                                    </label>
+                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                        <input
+                                            className="inputFormProfile"
+                                            onChange={(e) => HandleChange(e)}
+                                            type="date"
+                                            name="date"
+                                        />
+                                    </Form.Group>
+                                </div>
+                                <Button variant="success" className="buttonProfile" type="submit">
+                                    <b>Guardar</b>
+                                </Button>
+                            </Form> */}
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <p>Crear Usuario de Hijo</p>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <Form>
+                                        <Form.Group className="mb-3">
+                                            <input
+                                                className="inputFormProfile w-100"
+                                                type="text"
+                                                name="user"
+                                                onChange={(e) => HandleChange(e)}
+                                                placeholder="Nombre y Apellido"
+                                            />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3">
+                                            <input
+                                                onChange={(e) => HandleChange(e)}
+                                                className="inputFormProfile w-100"
+                                                type="number"
+                                                name="years"
+                                                placeholder="Edad"
+                                            />
+                                        </Form.Group>
+                                        <Form.Group
+                                            onChange={(e) => HandleChange(e)}
+                                            name="gender"
+                                            controlId="formGridState"
+                                            className="w-100 mb-3"
+                                        >
+                                            <Form.Control
+                                                name="gender"
+                                                as="select"
+                                                className="inputFormProfile"
+                                            >
+                                                <option>Varon</option>
+                                                <option>Mujer</option>
+                                            </Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="w-100">
+                                            <label className="w-100 custom-file-input">
+                                                <input
+                                                    id="file-input"
+                                                    name="photo"
+                                                    accept="image/png, image/jpeg"
+                                                    type="file"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onChange={onChangeImgChild}
+                                                />
+                                            </label>
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="dark" className="w-100" onClick={postCreateChildProfile}>
+                                        <b>Crear usuario</b>
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );

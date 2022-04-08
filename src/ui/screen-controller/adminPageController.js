@@ -5,15 +5,21 @@ import { Spinner, Button, Card, ProgressBar } from 'react-bootstrap'
 
 const AdminPageController = () => {
     const [input, setInput] = useState({});
-    const { setUsersModel, usersModel } = UsersModel();
+    const [usersModel, setUsersModel] = useState([]);
+    const [child, setChild] = useState([]);
+    const [jobs, setJobs] = useState([]);
+    // const { setUsersModel, usersModel } = UsersModel();
     const [images, setImages] = useState([]);
     const {
         getPhoto,
         getReadUser,
+        getJobInAdmin,
+        postJobInAdmin,
         postPhotoInAdmin,
+        getChildInProfile,
         deletePostInAdmin,
-        putBannerInAdminText, } = RecuestAccess();
-
+        putBannerInAdminText,
+    } = RecuestAccess();
     useEffect(() => {
         getReadUserController()
         getPhotoController()
@@ -25,8 +31,21 @@ const AdminPageController = () => {
     };
     const getReadUserController = async (e) => {
         try {
-            let response = await getReadUser();
-            setUsersModel(response)
+            let responseUsers = await getReadUser();
+            let responseChild = await getChildInProfile();
+            let responseJobs = await getJobInAdmin();
+            setUsersModel(responseUsers)
+            setChild(responseChild.data)
+            setJobs(responseJobs.data)
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const postAdminJobController = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await postJobInAdmin(input);
+            console.log(response)
         } catch (error) {
             console.log(error);
         }
@@ -34,7 +53,8 @@ const AdminPageController = () => {
     const postAdminPhotoController = async (e) => {
         e.preventDefault()
         try {
-            await postPhotoInAdmin(e, input);
+            const response = await postPhotoInAdmin(e, input);
+            console.log(response)
         } catch (error) {
             console.log(error);
         }
@@ -165,14 +185,86 @@ const AdminPageController = () => {
         );
 
 
+    //Component for Table
+    const ProgressOfChild = ({ progress, name, edad, image, gender }) => {
+        return (
+            <tr>
+                <td className='text-center'>
+                    <img
+                        className='imageStatus'
+                        src={image ? `${image}`
+                            :
+                            "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                </td>
+                <td className='textAdmin text-center'>{name}</td>
+                <td className='textAdmin text-center'>{edad}</td>
+                <td className='textAdmin text-center'>{gender}</td>
+                <td>
+                    <ProgressBar
+                        className="progressBar"
+                        striped variant="success"
+                        animated now={progress} />
+                </td>
+            </tr>
+        );
+    }
+    const ProgressMapChild =
+        (child.length === 0 && (
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Spinner animation="grow" />
+            </div>
+        )) || child.map((data, i) =>
+            <ProgressOfChild
+                progress={data.progress}
+                name={data.user}
+                edad={data.years}
+                gender={data.gender}
+                image={data.photo}
+                key={i}
+            />
+        );
+
+
+
+    //Component for Table
+    const JobsComponent = ({ title, name, description, inDay, inWeek }) => {
+        return (
+            <tr>
+                <td className='textAdmin text-center'>{title}</td>
+                <td className='textAdmin text-center'>{name}</td>
+                <td className='textAdmin text-center'>{description}</td>
+                <td className='textAdmin text-center'>{inDay}</td>
+                <td className='textAdmin text-center'>{inWeek}</td>
+            </tr>
+        );
+    }
+    const JobsComponentMap =
+        (jobs.length === 0 && (
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Spinner animation="grow" />
+            </div>
+        )) || jobs.map((data, i) =>
+            <JobsComponent
+                title={data.title}
+                name={data.user}
+                description={data.description}
+                inDay={data.inDay}
+                inWeek={data.inWeek}
+                key={i}
+            />
+        );
+
     return {
-        HandleChange,
+        JobsComponentMap,
         postAdminPhotoController,
+        postAdminJobController,
+        ProgressMapChild,
         ProgressProfileMap,
-        ProgressCard,
         PutBannerSubmit,
-        GetPostsImages,
         ProgressProfile,
+        GetPostsImages,
+        ProgressCard,
+        HandleChange,
         ProgressMap,
         usersModel,
         PostsMap,
