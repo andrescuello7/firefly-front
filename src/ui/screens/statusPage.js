@@ -9,15 +9,7 @@ const StatusPage = () => {
         <div className='w-100'>
             <p className='titleProgress'>Progreso Semanal</p>
             <div className='rankingPage'>
-                <Table hover size="sm" className="tableStatus">
-                    <thead>
-                        <tr>
-                            <th className='textAdmin text-center'>Foto</th>
-                            <th className='textAdmin text-center'>Nombre</th>
-                            <th className='textAdmin text-center'>Edad</th>
-                            <th className='textAdmin'>Progreso</th>
-                        </tr>
-                    </thead>
+                <Table size="sm" className="tableStatus" striped hover>
                     <tbody>
                         {ProgressMap}
                     </tbody>

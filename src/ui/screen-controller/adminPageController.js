@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import RecuestAccess from "../../data-access/requestAccess";
 import UsersModel from '../../models/usersModel';
 import { Spinner, Button, Card, ProgressBar } from 'react-bootstrap'
+import TableComponent from '../../ui/components/tableComponent';
 
 const AdminPageController = () => {
     const [input, setInput] = useState({});
     const [usersModel, setUsersModel] = useState([]);
     const [child, setChild] = useState([]);
+    const [validation, setValidation] = useState(null);
     const [jobs, setJobs] = useState([]);
-    // const { setUsersModel, usersModel } = UsersModel();
     const [images, setImages] = useState([]);
     const {
         getPhoto,
@@ -46,7 +47,9 @@ const AdminPageController = () => {
         try {
             const response = await postJobInAdmin(input);
             console.log(response)
+            setValidation(true)
         } catch (error) {
+            setValidation(false)
             console.log(error);
         }
     };
@@ -55,7 +58,9 @@ const AdminPageController = () => {
         try {
             const response = await postPhotoInAdmin(e, input);
             console.log(response)
+            setValidation(true)
         } catch (error) {
+            setValidation(false)
             console.log(error);
         }
     };
@@ -65,7 +70,9 @@ const AdminPageController = () => {
         try {
             const response = await putBannerInAdminText(e, input);
             console.log(response)
+            setValidation(true)
         } catch (error) {
+            setValidation(false)
             console.log(error);
         }
     };
@@ -97,18 +104,29 @@ const AdminPageController = () => {
         );
     }
     const ProgressCard = ({ progress, name, edad, email, image }) => {
+        const [admin, setAdmin] = useState(true)
+        const [parents, setParents] = useState(false)
         return (
             <Card className='cardFormHomeAdmin'>
-                <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <Card.Img variant="top" className='imageAdmin m-2' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                 <Card.Body>
-                    <Card.Text className='textAdmin'>Nombre: {name}</Card.Text>
-                    <Card.Text className='textAdmin'>Edad: {edad}</Card.Text>
-                    <Card.Text className='textAdmin'>Email: {email}</Card.Text>
+                    <Card.Text className='textAdmin text-center'>{name}</Card.Text>
                     <ProgressBar
                         className="progressBar"
                         striped variant="success"
-                        animated now={progress}
+                        animated now={100}
                     />
+                    <div className='mb-2 mt-2 border-top border-dark'></div>
+                    <div className='d-flex w-100'>
+                        {admin ?
+                            <button onClick={() => setAdmin(false)} className='btn btn-warning w-100'>Admin</button> :
+                            <button onClick={() => setAdmin(true)} className='btn btn-outline-warning w-100'>Admin</button>
+                        }
+                        {parents ?
+                            <button onClick={() => setParents(false)} className='btn btn-success w-100'>Joven</button> :
+                            <button onClick={() => setParents(true)} className='btn btn-danger w-100'>Padre</button>
+                        }
+                    </div>
                 </Card.Body>
             </Card>
         );
@@ -167,6 +185,7 @@ const AdminPageController = () => {
                 key={i}
             />
         );
+
     const ProgressProfileMap =
         (usersModel.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
@@ -175,6 +194,7 @@ const AdminPageController = () => {
         )) || usersModel.map((data, i) =>
             <ProgressProfile image={usersModel[i].photo} name={usersModel[i].user} locate={usersModel[i].locate} gustos={usersModel[i].likes} key={i} />
         );
+
     const ProgressMap =
         (usersModel.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
@@ -184,37 +204,13 @@ const AdminPageController = () => {
             <ProgressCard progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
         );
 
-
-    //Component for Table
-    const ProgressOfChild = ({ progress, name, edad, image, gender }) => {
-        return (
-            <tr>
-                <td className='text-center'>
-                    <img
-                        className='imageStatus'
-                        src={image ? `${image}`
-                            :
-                            "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                </td>
-                <td className='textAdmin text-center'>{name}</td>
-                <td className='textAdmin text-center'>{edad}</td>
-                <td className='textAdmin text-center'>{gender}</td>
-                <td>
-                    <ProgressBar
-                        className="progressBar"
-                        striped variant="success"
-                        animated now={progress} />
-                </td>
-            </tr>
-        );
-    }
     const ProgressMapChild =
         (child.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
                 <Spinner animation="grow" />
             </div>
         )) || child.map((data, i) =>
-            <ProgressOfChild
+            <TableComponent
                 progress={data.progress}
                 name={data.user}
                 edad={data.years}
@@ -227,26 +223,16 @@ const AdminPageController = () => {
 
 
     //Component for Table
-    const JobsComponent = ({ title, name, description, inDay, inWeek }) => {
-        return (
-            <tr>
-                <td className='textAdmin text-center'>{title}</td>
-                <td className='textAdmin text-center'>{name}</td>
-                <td className='textAdmin text-center'>{description}</td>
-                <td className='textAdmin text-center'>{inDay}</td>
-                <td className='textAdmin text-center'>{inWeek}</td>
-            </tr>
-        );
-    }
     const JobsComponentMap =
         (jobs.length === 0 && (
             <div className="d-flex justify-content-center align-items-center mt-5">
                 <Spinner animation="grow" />
             </div>
         )) || jobs.map((data, i) =>
-            <JobsComponent
+            <TableComponent
                 title={data.title}
                 name={data.user}
+                child={data.child}
                 description={data.description}
                 inDay={data.inDay}
                 inWeek={data.inWeek}
@@ -255,11 +241,13 @@ const AdminPageController = () => {
         );
 
     return {
+        validation,
+        setValidation,
         JobsComponentMap,
+        ProgressProfileMap,
         postAdminPhotoController,
         postAdminJobController,
         ProgressMapChild,
-        ProgressProfileMap,
         PutBannerSubmit,
         ProgressProfile,
         GetPostsImages,

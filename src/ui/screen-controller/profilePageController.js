@@ -1,4 +1,4 @@
-import { Spinner, ProgressBar, Card } from 'react-bootstrap';
+import { Form, Dropdown, Spinner, Modal, Button, ProgressBar, Card } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import RecuestAccess from '../../data-access/requestAccess';
 import UserModel from '../../models/userModel';
@@ -7,8 +7,8 @@ import UserModel from '../../models/userModel';
 const ProfilePageController = () => {
     const [imageChild, setImageChild] = useState('');
     const [input, setInput] = useState({});
+    const [validation, setValidation] = useState(null);
     const [child, setChild] = useState([]);
-    const [validation, setValidation] = useState(false);
     const { putUser, getUser, postChildProfile, postImage, postImageAdmin, getChildInProfile } = RecuestAccess();
     const { userModel, setUserModel } = UserModel();
 
@@ -57,16 +57,15 @@ const ProfilePageController = () => {
             console.log(error);
         }
     }
-    console.log(input)
     const postCreateChildProfile = async (e) => {
         e.preventDefault()
         try {
             let child = { ...input, photo: imageChild, progress: 0 }
-            console.log(imageChild)
-            console.log(child)
             const response = await postChildProfile(child);
             console.log(response);
+            setValidation(true)
         } catch (error) {
+            setValidation(false)
             console.log(error);
         }
     };
@@ -81,45 +80,110 @@ const ProfilePageController = () => {
     };
 
     //Component for Table
-    const ProgressOfChild = ({ progress, name, edad, image, gender }) => {
-        return (
-            <tr>
-                <td className='text-center'>
-                    <img
-                        className='imageStatus'
-                        src={image ? `${image}`
-                            :
-                            "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                </td>
-                <td className='textAdmin text-center'>{name}</td>
-                <td className='textAdmin text-center'>{edad}</td>
-                <td className='textAdmin text-center'>{gender}</td>
-                <td>
-                    <ProgressBar
-                        className="progressBar"
-                        striped variant="success"
-                        animated now={progress} />
-                </td>
-            </tr>
-        );
-    }
 
     const ProgressCard = ({ progress, name, edad, image, gender, createBy }) => {
+        const [show, setShow] = useState(false);
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
         return (
             <div>
-                {createBy === userModel.user._id ? <Card className='cardFormHomeAdmin'>
-                    <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                    <Card.Body>
-                        <Card.Text className='textAdmin'>Nombre: {name}</Card.Text>
-                        <Card.Text className='textAdmin'>Edad: {edad}</Card.Text>
-                        <Card.Text className='textAdmin'>Email: {gender}</Card.Text>
-                        <ProgressBar
-                            className="progressBar"
-                            striped variant="success"
-                            animated now={progress}
-                        />
-                    </Card.Body>
-                </Card>
+                {createBy === userModel.user._id ?
+                    <div>
+                        <Card className='cardFormHomeAdmin' onClick={handleShow}>
+                            <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                            <Card.Body>
+                                <Card.Text className='textAdmin'>Nombre: {name}</Card.Text>
+                                <Card.Text className='textAdmin'>Edad: {edad}</Card.Text>
+                                <Card.Text className='textAdmin'>Genero: {gender}</Card.Text>
+                                <ProgressBar
+                                    className="progressBar"
+                                    striped variant="success"
+                                    animated now={progress}
+                                />
+                            </Card.Body>
+                        </Card>
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Body>
+                                <Form onSubmit={PutHandleSubmit} className="FormProfile mt-2">
+                                    <div className="text-success">
+                                        <b>Datos Escenciales de Hijo</b>
+                                    </div>
+                                    <div className="FormProfileBootstrap">
+                                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                            <input
+                                                className="inputFormProfile"
+                                                onChange={(e) => HandleChange(e)}
+                                                type="text"
+                                                name="user"
+                                                placeholder='Nombre de hijo'
+                                            />
+                                        </Form.Group>
+                                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                            <Dropdown className='w-100'>
+                                                <Dropdown.Toggle
+                                                    type="text"
+                                                    name="gender"
+                                                    onChange={(e) => HandleChange(e)}
+                                                    className='inputFormProfile'
+                                                    variant="outline-success"
+                                                    id="dropdown-basic">
+                                                    Genero
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className='w-100'>
+                                                    <Dropdown.Item >Varon</Dropdown.Item>
+                                                    <Dropdown.Item >Mujer</Dropdown.Item>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                        </Form.Group>
+                                    </div>
+                                    <div className="text-success mt-5">
+                                        <b>Datos Adicionales</b>
+                                    </div>
+                                    <div className="FormProfileBootstrap">
+                                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                            <input
+                                                className="inputFormProfile"
+                                                onChange={(e) => HandleChange(e)}
+                                                type="text"
+                                                name="school"
+                                                placeholder={"Escuela"}
+                                            />
+                                        </Form.Group>
+                                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                            <input
+                                                className="inputFormProfile"
+                                                onChange={(e) => HandleChange(e)}
+                                                type="text"
+                                                name="health"
+                                                placeholder={"Poblemas de salud?"}
+                                            />
+                                        </Form.Group>
+                                    </div>
+                                    <div className="text-success mt-5">
+                                        <b>Cuenta Personal</b>
+                                    </div>
+                                    <div className="FormProfileBootstrap">
+                                        <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
+                                            <input
+                                                className="inputFormProfile"
+                                                onChange={(e) => HandleChange(e)}
+                                                type="text"
+                                                name="locate"
+                                                placeholder={"Direccion"}
+                                            />
+                                        </Form.Group>
+                                    </div>
+                                </Form>
+
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="success" className="buttonProfile" type="submit">
+                                    <b>Guardar</b>
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
                     :
                     <div></div>
                 }
@@ -127,11 +191,7 @@ const ProfilePageController = () => {
         );
     }
     const ProgressMapChild =
-        (child.length === 0 && (
-            <div className="d-flex justify-content-center align-items-center mt-5">
-                <Spinner animation="grow" />
-            </div>
-        )) || child.map((data, i) =>
+        child.map((data, i) =>
             <ProgressCard
                 progress={data.progress}
                 createBy={data.createBy}

@@ -29,13 +29,14 @@
   width: 100%;
 }
 .cardFormHomeAdmin {
-  /* border: 1px solid #04040469; */
+  border: 1px solid #04040469;
+  box-shadow: 5px 5px 20px rgb(133, 133, 133);
   margin: 1%;
   width: 300px;
 }
 .imageAdmin {
   padding: 2%;
-  width: 100%;
+  width: 95%;
   height: 280px;
   border-radius: 10px;
 }

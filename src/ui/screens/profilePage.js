@@ -1,5 +1,5 @@
 import "../../values/styles/profilePage.css";
-import { Form, Button, Modal, Nav, Dropdown } from "react-bootstrap";
+import { Form, Button, Modal, Nav, Dropdown, Card, Alert } from "react-bootstrap";
 import { useState } from "react";
 import ProfilePageController from "../screen-controller/profilePageController";
 
@@ -14,6 +14,7 @@ const ProfilePage = () => {
         HandleChange,
         PutHandleSubmit,
         postCreateChildProfile,
+        validation,
         onChangeImgChild,
         ProgressMapChild,
         onChangeImg } = ProfilePageController();
@@ -127,109 +128,15 @@ const ProfilePage = () => {
                         </Form>
                         :
                         <div className="mt-4">
-                            <button className="btn btn-dark w-100 p-2" onClick={handleShow} >
-                                <b>Crear Hijo</b>
-                            </button>
-
-                            <div>
+                            <div className="w-100 d-flex">
                                 {ProgressMapChild}
+                                <Card variant="top"
+                                 className='cardFormHomeAdmin justify-content-center text-center mt-2' onClick={handleShow}>
+                                    <b>+</b>
+                                </Card>
                             </div>
-
-                            {/* <Form onSubmit={PutHandleSubmit} className="FormProfile">
-                                <div className="text-success">
-                                    <b>Datos Escenciales de Hijo</b>
-                                </div>
-                                <div className="FormProfileBootstrap">
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <input
-                                            className="inputFormProfile"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            name="user"
-                                            placeholder='Nombre de hijo'
-                                        />
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <Dropdown className='w-100'>
-                                            <Dropdown.Toggle
-                                                type="text"
-                                                name="gender"
-                                                onChange={(e) => HandleChange(e)}
-                                                className='inputFormProfile'
-                                                variant="outline-success"
-                                                id="dropdown-basic">
-                                                Genero
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu className='w-100'>
-                                                <Dropdown.Item >Varon</Dropdown.Item>
-                                                <Dropdown.Item >Mujer</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                    </Form.Group>
-                                </div>
-                                <div className="text-success mt-5">
-                                    <b>Datos Adicionales</b>
-                                </div>
-                                <div className="FormProfileBootstrap">
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <input
-                                            className="inputFormProfile"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            name="locate"
-                                            placeholder={"Direccion"}
-                                        />
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <input
-                                            className="inputFormProfile"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            name="school"
-                                            placeholder={"Escuela"}
-                                        />
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <input
-                                            className="inputFormProfile"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            name="health"
-                                            placeholder={"Poblemas de salud?"}
-                                        />
-                                    </Form.Group>
-                                </div>
-                                <div className="text-success mt-5">
-                                    <b>Cuenta Personal</b>
-                                </div>
-                                <div className="FormProfileBootstrap">
-                                    <label className="custom-file-input m-2">
-                                        <input
-                                            id="file-input"
-                                            name="photo"
-                                            accept="image/png, image/jpeg"
-                                            type="file"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
-                                            onChange={onChangeImg}
-                                        />
-                                    </label>
-                                    <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
-                                        <input
-                                            className="inputFormProfile"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="date"
-                                            name="date"
-                                        />
-                                    </Form.Group>
-                                </div>
-                                <Button variant="success" className="buttonProfile" type="submit">
-                                    <b>Guardar</b>
-                                </Button>
-                            </Form> */}
                             <Modal show={show} onHide={handleClose}>
-                                <Modal.Header closeButton>
+                                <Modal.Header>
                                     <p>Crear Usuario de Hijo</p>
                                 </Modal.Header>
                                 <Modal.Body>
@@ -267,7 +174,7 @@ const ProfilePage = () => {
                                                 <option>Mujer</option>
                                             </Form.Control>
                                         </Form.Group>
-                                        <Form.Group className="w-100">
+                                        <Form.Group className="w-100 mb-3">
                                             <label className="w-100 custom-file-input">
                                                 <input
                                                     id="file-input"
@@ -281,11 +188,27 @@ const ProfilePage = () => {
                                             </label>
                                         </Form.Group>
                                     </Form>
+                                    {validation === true ?
+                                        <Alert variant="success" className="text-center">
+                                            <p>Operacion Exitosa</p>
+                                            <p>Creo la cuenta correctamente!!!</p>
+                                        </Alert>
+                                        : validation === false ?
+                                            <Alert variant="danger" className="text-center">
+                                                <p>Error de operacion Operacion</p>
+                                                <p>Revise los datos ingresados</p>
+                                            </Alert>
+                                            :
+                                            <div></div>
+                                    }
                                 </Modal.Body>
                                 <Modal.Footer>
-                                    <Button variant="dark" className="w-100" onClick={postCreateChildProfile}>
-                                        <b>Crear usuario</b>
-                                    </Button>
+                                    <div className="d-flex w-100">
+                                        <Button variant="secondary" className="w-100" onClick={handleClose}>Close</Button>
+                                        <Button variant="dark" className="w-100" onClick={postCreateChildProfile}>
+                                            <b>Crear usuario</b>
+                                        </Button>
+                                    </div>
                                 </Modal.Footer>
                             </Modal>
                         </div>

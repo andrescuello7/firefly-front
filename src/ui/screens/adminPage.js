@@ -2,6 +2,13 @@ import Controller from '../screen-controller/adminPageController';
 import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 import { useState } from 'react'
+import UsersAdmin from '../../ui/screens/admin/usersAdmin'
+import ImagesAdmin from '../../ui/screens/admin/imagesAdmin'
+import BannerAdmin from '../../ui/screens/admin/bannerAdmin'
+import DeleteAdmin from '../../ui/screens/admin/deleteAdmin'
+import JobsAdmin from '../../ui/screens/admin/jobsAdmin'
+import ChildAdmin from '../../ui/screens/admin/childAdmin'
+
 
 const AdminPage = () => {
     const [menuAdmin, setMenuAdmin] = useState(0)
@@ -146,194 +153,35 @@ const AdminPage = () => {
                         <div className='w-100'>
                             <p className='titleAdmin' onClick={handleShow}>Usuarios Totales</p>
                         </div>
-                        <div className='d-flex w-100 justify-content-evenly flex-wrap'>
-                            {ProgressMap}
-                        </div>
+                        <UsersAdmin />
                     </div>
                     : menuAdmin === 1 ?
                         <div>
                             <div className='w-100'>
                                 <p className='titleAdmin' onClick={handleShow}>Hacer Posteos</p>
                             </div>
-                            <div className='adminForm'>
-                                <Form
-                                    className="FormAdmin"
-                                >
-                                    <Form.Group controlId="formBasicEmail" className="formInput">
-                                        <input
-                                            className="inputFormAdmin"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            name="title"
-                                            placeholder="Titulo de Posteo"
-                                        />
-                                        <textarea
-                                            cols="47"
-                                            rows="10"
-                                            className="form-control"
-                                            onChange={(e) => HandleChange(e)}
-                                            type="text"
-                                            maxLength={250}
-                                            name="description"
-                                            placeholder="Descripcion de Posteo"
-                                        />
-                                        <label className="custom-file mt-2">
-                                            <input
-                                                id="file-input"
-                                                name="photo"
-                                                accept="image/png, image/jpeg"
-                                                type="file"
-                                                onChange={postAdminPhotoController}
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                            />
-                                        </label>
-                                    </Form.Group>
-                                    <div className="mt-2">
-                                        <Button variant="success" className="w-100" type="submit">
-                                            <b>Publicar</b>
-                                        </Button>
-                                    </div>
-                                </Form>
-                            </div>
+                            <ImagesAdmin />
                         </div>
                         : menuAdmin === 2 ?
                             <div>
                                 <div className='w-100'>
                                     <p className='titleAdmin' onClick={handleShow}>Actualizar el banner</p>
                                 </div>
-                                <div className='adminForm'>
-                                    <Form
-                                        className="FormAdmin"
-                                    >
-                                        <Form.Group
-                                            controlId="formBasicEmail"
-                                            className="formInput"
-                                        >
-                                            <input
-                                                className="inputFormAdmin"
-                                                onChange={(e) => HandleChange(e)}
-                                                type="text"
-                                                name="title"
-                                                placeholder="Titulo de Banner"
-                                            />
-                                            <textarea
-                                                cols="47"
-                                                rows="10"
-                                                className="form-control"
-                                                onChange={(e) => HandleChange(e)}
-                                                type="text"
-                                                name="description"
-                                                maxLength={250}
-                                                placeholder="Descripcion de Banner"
-                                            />
-                                        </Form.Group>
-                                        <div className="mt-2">
-                                            <Button
-                                                variant="success"
-                                                onClick={PutBannerSubmit}
-                                                className="w-100"
-                                            >
-                                                <b>Actualizar</b>
-                                            </Button>
-                                        </div>
-                                    </Form>
-                                </div>
+                                <BannerAdmin />
                             </div>
                             : menuAdmin === 3 ?
                                 <div>
                                     <div className='w-100'>
                                         <p className='titleAdmin' onClick={handleShow}>Eliminar posteos</p>
                                     </div>
-                                    <div className='d-flex w-100 flex-wrap'>
-                                        {PostsMap}
-                                    </div>
+                                    <DeleteAdmin />
                                 </div>
                                 : menuAdmin === 4 ?
                                     <div>
                                         <div className='w-100'>
-                                            <p className='titleAdmin' onClick={handleShow}>Hacer Posteos</p>
+                                            <p className='titleAdmin' onClick={handleShow}>Crear Tareas</p>
                                         </div>
-                                        <div className='adminForm'>
-                                            <Form
-                                                className="FormAdmin"
-                                            >
-                                                <Form.Group controlId="formBasicEmail" className="formInput">
-                                                    <Dropdown className='w-100 m-4'>
-                                                        <Form.Group
-                                                            name="user"
-                                                            onChange={(e) => HandleChange(e)}
-                                                            controlId="formGridState"
-                                                            className="w-100"
-                                                        >
-                                                            <Form.Control name="user" as="select" >
-                                                                <option>Andres</option>
-                                                                <option>Aryana</option>
-                                                                <option>Elias</option>
-                                                                <option>Fererico H</option>
-                                                                <option>Fererico V</option>
-                                                                <option>Jennifer</option>
-                                                                <option>Luciana</option>
-                                                                <option>Nicol</option>
-                                                                <option>Silvina</option>
-                                                                <option>Priscila</option>
-                                                                <option>Varela</option>
-                                                                <option>Viviana</option>
-                                                            </Form.Control>
-                                                        </Form.Group>
-                                                    </Dropdown>
-                                                    <div className='d-flex justify-content-between w-100'>
-                                                        <Form.Group
-                                                            name="inDay"
-                                                            onChange={(e) => HandleChange(e)}
-                                                            controlId="formGridState"
-                                                            className="w-100"
-                                                        >
-                                                            <Form.Control name="inDay" as="select" >
-                                                                <option>Coordinador</option>
-                                                                <option>Destreza</option>
-                                                                <option>Juegos</option>
-                                                                <option>Conocimiento</option>
-                                                                <option>Recreacion</option>
-                                                            </Form.Control>
-                                                        </Form.Group>
-                                                        <div className='mx-2'></div>
-                                                        <Form.Group
-                                                            name="inWeek"
-                                                            onChange={(e) => HandleChange(e)}
-                                                            controlId="formGridState"
-                                                            className="w-100"
-                                                        >
-                                                            <Form.Control name="inWeek" as="select">
-                                                                <option>Merchandising</option>
-                                                                <option>Compras</option>
-                                                                <option>Coordinador</option>
-                                                                <option>Scroum Master</option>
-                                                            </Form.Control>
-                                                        </Form.Group>
-                                                    </div>
-                                                    <input
-                                                        className="inputFormAdmin"
-                                                        onChange={(e) => HandleChange(e)}
-                                                        type="text"
-                                                        name="title"
-                                                        placeholder="Tarea"
-                                                    />
-                                                    <input
-                                                        className="inputFormAdmin"
-                                                        onChange={(e) => HandleChange(e)}
-                                                        type="text"
-                                                        name="description"
-                                                        placeholder="Descripcion"
-                                                    />
-                                                </Form.Group>
-                                                <div className="mt-4">
-                                                    <Button variant="success" onClick={postAdminJobController} className="w-100" type="submit">
-                                                        <b>Guardar Tarea</b>
-                                                    </Button>
-                                                </div>
-                                            </Form>
-                                        </div>
+                                        <JobsAdmin />
                                     </div>
                                     : menuAdmin === 5 ?
                                         <div>
@@ -341,17 +189,8 @@ const AdminPage = () => {
                                                 <p className='titleAdmin' onClick={handleShow}>Tareas Asignadas</p>
                                             </div>
                                             <div className='adminForm'>
-                                                <div className='w-100'>
+                                                <div className='tableStatus'>
                                                     <Table hover size="sm" className="w-100">
-                                                        <thead>
-                                                            <tr>
-                                                                <th className='textAdmin text-center'>Foto</th>
-                                                                <th className='textAdmin text-center'>Nombre</th>
-                                                                <th className='textAdmin text-center'>Edad</th>
-                                                                <th className='textAdmin text-center'>Genero</th>
-                                                                <th className='textAdmin'>Progreso</th>
-                                                            </tr>
-                                                        </thead>
                                                         <tbody>
                                                             {JobsComponentMap}
                                                         </tbody>
@@ -364,24 +203,7 @@ const AdminPage = () => {
                                                 <div className='w-100'>
                                                     <p className='titleAdmin' onClick={handleShow}>Chicos y chicas</p>
                                                 </div>
-                                                <div className='adminForm'>
-                                                    <div className='w-100'>
-                                                        <Table hover size="sm" className="w-100">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th className='textAdmin text-center'>Foto</th>
-                                                                    <th className='textAdmin text-center'>Nombre</th>
-                                                                    <th className='textAdmin text-center'>Edad</th>
-                                                                    <th className='textAdmin text-center'>Genero</th>
-                                                                    <th className='textAdmin'>Progreso</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                {ProgressMapChild}
-                                                            </tbody>
-                                                        </Table>
-                                                    </div>
-                                                </div>
+                                                <ChildAdmin />
                                             </div>
                                             :
                                             <div></div>

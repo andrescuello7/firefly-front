@@ -9,8 +9,8 @@
 .progressPeople {
   position: static;
 }
-.tableStatus{
-  width: 90%;
+.tableStatus {
+  width: 60%;
 }
 .titleProgress {
   width: 100%;
@@ -21,14 +21,22 @@
   color: #16c03ee7;
   text-align: center;
   font: normal normal 1000 30px Nunito;
-  font-family: 'Nunito', ExtraBoldf;
+  font-family: "Nunito", ExtraBoldf;
 }
-.imageStatus{
-  width: 60px;
-  height: 60px;
+.imageStatus {
+  /* margin: 10px 0; */
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+.borderStatus {
+  background-color: aliceblue;
+}
+.textStatus {
+  font-size: 14px;
 }
 @media (max-width: 780px) {
-  .tableStatus{
+  .tableStatus {
     width: 100%;
   }
   .rankingPage {
@@ -47,6 +55,6 @@
     text-align: center;
     font-size: 30px;
     font: normal normal 1000 22px Nunito;
-    font-family: 'Nunito', ExtraBoldf;
+    font-family: "Nunito", ExtraBoldf;
   }
 }

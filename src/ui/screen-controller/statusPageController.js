@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from "../../data-access/requestAccess";
 import UsersModel from '../../models/usersModel';
+import TableComponent from '../../ui/components/tableComponent';
 import { Spinner, Button, ProgressBar } from 'react-bootstrap'
 
 const StatusPageController = () => {
@@ -48,10 +49,11 @@ const StatusPageController = () => {
                 <Spinner animation="grow" />
             </div>
         )) || usersModel.map((data, i) =>
-            <Progress
+            <TableComponent
                 progress={data.progress}
                 name={data.user}
                 edad={data.years}
+                gender={data.gender}
                 image={data.photo}
                 key={i}
             />
