@@ -8,12 +8,8 @@ const StatusPage = () => {
     return (
         <div className='w-100'>
             <p className='titleProgress'>Progreso Semanal</p>
-            <div className='rankingPage'>
-                <Table size="sm" className="tableStatus" striped hover>
-                    <tbody>
+            <div className='w-100 d-flex justify-content-evenly flex-wrap'>
                         {ProgressMap}
-                    </tbody>
-                </Table>
             </div>
         </div>
     );
