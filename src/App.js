@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ApiRest from './values/api';
 import {
   BrowserRouter,
   Routes,
@@ -16,6 +17,7 @@ import MenuComponent from './ui/components/menuComponent';
 import NavbarOpcion from './ui/components/navbarComponent';
 
 function App() {
+  const {token} = ApiRest()
   return (
     <BrowserRouter className="App">
       <Routes>

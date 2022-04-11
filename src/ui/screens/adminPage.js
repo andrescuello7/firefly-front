@@ -1,5 +1,5 @@
 import Controller from '../screen-controller/adminPageController';
-import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import '../../values/styles/adminPage.css'
 import { useState } from 'react'
 import UsersAdmin from '../../ui/screens/admin/usersAdmin'
@@ -12,6 +12,9 @@ import ChildAdmin from '../../ui/screens/admin/childAdmin'
 
 const AdminPage = () => {
     const [menuAdmin, setMenuAdmin] = useState(0)
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const OptionsMenu = ({ icon, title, show, route, script }) => {
         return (
             <div to={route} className='menuOpcionAdmin' onClick={() => setMenuAdmin(script)}>
@@ -26,19 +29,8 @@ const AdminPage = () => {
             </div>
         );
     }
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const {
-        PostsMap,
-        ProgressMap,
-        HandleChange,
-        PutBannerSubmit,
         JobsComponentMap,
-        ProgressMapChild,
-        postAdminJobController,
-        postAdminPhotoController
     } = Controller()
     return (
         <div className='statusAdmin'>
@@ -188,14 +180,8 @@ const AdminPage = () => {
                                             <div className='w-100'>
                                                 <p className='titleAdmin' onClick={handleShow}>Tareas Asignadas</p>
                                             </div>
-                                            <div className='adminForm'>
-                                                <div className='tableStatus'>
-                                                    <Table hover size="sm" className="w-100">
-                                                        <tbody>
-                                                            {JobsComponentMap}
-                                                        </tbody>
-                                                    </Table>
-                                                </div>
+                                            <div className='d-flex justify-content-evenly flex-wrap w-100'>
+                                                {JobsComponentMap}
                                             </div>
                                         </div>
                                         : menuAdmin === 6 ?

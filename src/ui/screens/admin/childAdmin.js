@@ -1,5 +1,4 @@
 import Controller from '../../screen-controller/adminPageController';
-import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
 
 const ChildAdmin = () => {
     const {
@@ -7,12 +6,8 @@ const ChildAdmin = () => {
     } = Controller()
     return (
         <div className='adminForm'>
-            <div className='tableStatus'>
-                <Table hover size="sm" className="w-100">
-                    <tbody>
-                        {ProgressMapChild}
-                    </tbody>
-                </Table>
+            <div className='d-flex justify-content-evenly flex-wrap w-100'>
+                {ProgressMapChild}
             </div>
         </div>
     );

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import RecuestAccess from "../../data-access/requestAccess";
 import UsersModel from '../../models/usersModel';
 import TableComponent from '../../ui/components/tableComponent';
-import { Spinner, Button, ProgressBar } from 'react-bootstrap'
+import { Spinner, ProgressBar } from 'react-bootstrap'
 
 const StatusPageController = () => {
     const { setUsersModel, usersModel } = UsersModel();
@@ -29,7 +29,7 @@ const StatusPageController = () => {
                         className='imageStatus'
                         src={image ? `${image}`
                             :
-                            "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                            "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
                 </td>
                 <td className='textAdmin text-center'>{name}</td>
                 <td className='textAdmin text-center'>{edad}</td>

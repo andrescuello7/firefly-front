@@ -1,11 +1,9 @@
 import Controller from '../../screen-controller/adminPageController';
-import { Form, Alert, Button, Modal, Dropdown } from 'react-bootstrap'
-import { useState } from 'react';
+import { Form, Alert, Button } from 'react-bootstrap'
 
 const ImageAdmin = () => {
     const {
         validation,
-        setValidation,
         HandleChange,
         postAdminPhotoController
     } = Controller()

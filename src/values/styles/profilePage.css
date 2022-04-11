@@ -5,12 +5,14 @@
   justify-content: center;
   align-items: center;
 }
+
 .profile {
   width: 80%;
   display: flex;
   justify-content: start;
   flex-direction: column;
 }
+
 .imgProfile {
   border-radius: 20px;
   width: 80px;
@@ -18,13 +20,29 @@
   margin-right: 2%;
   margin-left: 0%;
 }
+
+.titleProfileJobs {
+  width: 100%;
+  height: 80px;
+  padding-left: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #16c03ee7;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: "Nunito", ExtraBoldf;
+}
+
 .FormProfile {
   margin-top: 5%;
   color: rgb(117, 116, 116);
 }
+
 .formInput {
   margin-top: 5%;
 }
+
 .titleProfile {
   width: 100%;
   text-align: left;
@@ -32,10 +50,12 @@
   font: normal normal 1000 20px Nunito;
   font-family: "Nunito", ExtraBoldf;
 }
+
 .descriptionRegister {
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
 .inputFormProfile {
   width: 100%;
   border-radius: 10px;
@@ -44,16 +64,19 @@
   padding: 10px;
   height: 60px;
 }
+
 .FormProfileBootstrap {
   margin-top: 1%;
   display: flex;
   width: 100%;
 }
+
 .buttonProfile {
   margin-top: 2%;
   width: 100%;
   height: 50px;
 }
+
 .modalProfile {
   text-align: center;
   display: flex;
@@ -64,11 +87,13 @@
   width: 100%;
   font-size: 20px;
 }
+
 @media (max-width: 780px) {
   .titleProfile {
     width: 20%;
     text-align: center;
   }
+
   .profile {
     padding-top: 0px;
     width: 100%;
@@ -76,6 +101,7 @@
     justify-content: start;
     flex-direction: column;
   }
+
   .FormProfile {
     margin-top: 10%;
     min-height: 300px;
@@ -86,6 +112,7 @@
     width: 100%;
     padding: 10px 3%;
   }
+
   .bodyProfile {
     /* margin-left: 10%; */
     padding: 5%;
@@ -93,21 +120,25 @@
     display: flex;
     justify-content: center;
   }
+
   .FormProfileBootstrap {
     display: flex;
     flex-direction: column;
   }
+
   .buttonProfile {
     margin-top: 8%;
     width: 90%;
     height: 40px;
   }
+
   .imgProfile {
     border-radius: 20px;
     width: 60px;
     height: 60px;
     margin-left: 0%;
   }
+
   .inputFormProfile {
     width: 95%;
     border-radius: 10px;
@@ -116,6 +147,7 @@
     padding: 10px;
     height: 40px;
   }
+
   .modalProfile {
     text-align: center;
     display: flex;
@@ -126,10 +158,12 @@
     width: 100%;
     font-size: 20px;
   }
+
   .modalProfileBody {
     width: 95%;
   }
 }
+
 /* Photo Css */
 .custom-file-input::before {
   width: 465px;
@@ -148,29 +182,36 @@
   align-items: center;
   content: "Photo";
 }
+
 .custom-file-input:hover::before {
   transition-duration: 0.4s;
   background: rgba(60, 64, 68, 0.247);
   color: rgb(82, 83, 83);
   border-color: rgba(12, 190, 182, 0);
 }
+
 .custom-file-input:active {
   outline: 0;
 }
+
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
 .titulo {
   display: flex;
   font-family: "Trade Winds", cursive;
 }
+
 input[type="file"] {
   display: none;
 }
+
 .titleProfilaDiv {
   display: flex;
   align-items: center;
 }
+
 @media (max-width: 780px) {
   .custom-file-input::before {
     width: 100%;

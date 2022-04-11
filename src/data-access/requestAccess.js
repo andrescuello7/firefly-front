@@ -204,6 +204,16 @@ const RecuestAccess = () => {
             console.log(error);
         }
     };
+    const deleteJobInAdmin = async (id) => {
+        try {
+            const { data } = await axios.delete(api + `home/jobs/${id}`, {
+                headers,
+            });
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return {
         putUser,
@@ -220,6 +230,7 @@ const RecuestAccess = () => {
         postImageAdmin,
         postPhotoInAdmin,
         postChildProfile,
+        deleteJobInAdmin,
         getChildInProfile,
         deletePostInAdmin,
         postBannerInAdmin,

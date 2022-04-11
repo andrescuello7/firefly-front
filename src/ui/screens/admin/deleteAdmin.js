@@ -1,5 +1,4 @@
 import Controller from '../../screen-controller/adminPageController';
-import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
 
 const DeleteAdmin = () => {
     const {

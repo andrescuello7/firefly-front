@@ -3,12 +3,27 @@ import { Navbar, Container, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import Variables from '../../values/api';
 import Controller from '../../ui/screen-controller/homePageController';
+import RequestAccess from '../../data-access/requestAccess';
 import { useState, useEffect } from "react";
 
 const NavbarComponent = () => {
     const [adminDate, setAdminDate] = useState(false);
     const { token, admin } = Variables();
     const { handleLogOut, userModel } = Controller();
+    const { getUser } = RequestAccess();
+
+    useEffect(() => {
+        AdminPageReload()
+    }, [userModel !== null])
+    
+    const AdminPageReload = async () => {
+        const response = await getUser();
+        if (response.user.admin === true) {
+            await setAdminDate(true)
+        } else {
+            await setAdminDate(false)
+        }
+    }
     return (
         <Navbar expand="lg" className="navbarBody sticky-top">
             <Container>
@@ -31,7 +46,7 @@ const NavbarComponent = () => {
                                 Estado
                             </Link>
                         </Nav.Link>
-                        {admin !== false ?
+                        {adminDate !== false ?
                             <Nav.Link>
                                 <Link className="btn btn-light navbarFont" to="/admin">
                                     Administrador

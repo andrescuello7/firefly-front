@@ -1,8 +1,5 @@
 import "../../values/styles/loginPage.css";
 import { Form, Button } from "react-bootstrap";
-import { useState } from "react";
-import axios from "axios";
-import ControllerVariables from "../../values/api";
 import Controller from "../screen-controller/loginPageController";
 
 const LoginPage = () => {

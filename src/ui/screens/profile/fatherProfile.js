@@ -1,5 +1,5 @@
 import Controller from '../../screen-controller/adminPageController';
-import { Form, Button, Modal, Nav, Dropdown, Card, Alert } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { useState } from 'react'
 
 const FatherProfile = () => {
@@ -10,7 +10,7 @@ const FatherProfile = () => {
     return (
         <div className="d-flex flex-column">
             <div className="titleProfilaDiv">
-                <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
                 <p className="titleProfile">{userModel.length !== 0 ? `${userModel.user.user}` : "Mi perfil"}</p>
             </div>
             <div>

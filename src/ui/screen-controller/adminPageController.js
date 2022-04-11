@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from "../../data-access/requestAccess";
-import UsersModel from '../../models/usersModel';
 import { Spinner, Button, Card, ProgressBar } from 'react-bootstrap'
 import TableComponent from '../../ui/components/tableComponent';
 
@@ -91,7 +90,7 @@ const AdminPageController = () => {
     const Progress = ({ progress, name, edad, email, image }) => {
         return (
             <tr>
-                <td><img className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} /></td>
+                <td><img className='imageAdmin' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} /></td>
                 <td className='textAdmin'>{name}</td>
                 <td className='textAdmin'>{email}</td>
                 <td className='textAdmin'>{edad} años</td>
@@ -125,7 +124,7 @@ const AdminPageController = () => {
         }
         return (
             <Card className='cardFormHomeAdmin'>
-                <Card.Img variant="top" className='imageAdmin m-2' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <Card.Img variant="top" className='imageAdmin m-2' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
                 <Card.Body>
                     <Card.Text className='textAdmin text-center'>{name}</Card.Text>
                     <ProgressBar
@@ -152,7 +151,7 @@ const AdminPageController = () => {
     const ProgressProfile = ({ image, name, locate, gustos }) => {
         return (
             <tr>
-                <td><img className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} /></td>
+                <td><img className='imageAdmin' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} /></td>
                 <td className='textAdmin'>{name}</td>
                 <td className='textAdmin'>{locate} años</td>
                 <td className='textAdmin'>{gustos}</td>
@@ -181,7 +180,7 @@ const AdminPageController = () => {
         };
         return (
             <div className='m-2 d-flex flex-column card bg-dark'>
-                <img variant="top" className='imageDelete' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                <img variant="top" className='imageDelete' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
                 <Button variant='outline-danger' onClick={DeleteSubmit} className='w-100'>
                     Eliminar
                 </Button>
@@ -238,6 +237,7 @@ const AdminPageController = () => {
             </div>
         )) || child.map((data, i) =>
             <TableComponent
+                id={data._id}
                 progress={data.progress}
                 name={data.user}
                 edad={data.years}
@@ -257,6 +257,7 @@ const AdminPageController = () => {
             </div>
         )) || jobs.map((data, i) =>
             <TableComponent
+                id={data._id}
                 title={data.title}
                 name={data.user}
                 child={data.child}

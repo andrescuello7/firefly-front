@@ -1,5 +1,5 @@
 import Controller from '../../screen-controller/adminPageController';
-import { Form, Table, Button, Modal, Dropdown } from 'react-bootstrap'
+import { Form, Button, Dropdown } from 'react-bootstrap'
 
 const JobsAdmin = () => {
     const {

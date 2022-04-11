@@ -1,8 +1,8 @@
 import "../../values/styles/profilePage.css";
-import { Form, Button, Modal, Nav, Dropdown, Card, Alert } from "react-bootstrap";
+import { Form, Button, Modal, Nav, Card, Alert } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import ProfilePageController from "../screen-controller/profilePageController";
-import FatherProfile from "../screens/profile/fatherProfile";
+import AdminPageController from "../screen-controller/adminPageController";
 
 const ProfilePage = () => {
     const [select, setSelect] = useState(false);
@@ -11,7 +11,6 @@ const ProfilePage = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [user, setUser] = useState([]);
     const [image, setImage] = useState('');
 
     const {
@@ -24,6 +23,7 @@ const ProfilePage = () => {
         ProgressMapChild,
         postCreateChildProfile,
     } = ProfilePageController();
+    const { JobsComponentMap } = AdminPageController();
     useEffect(() => {
         father()
     }, [userModel.length !== 0])
@@ -43,7 +43,7 @@ const ProfilePage = () => {
                 <div className="profile">
                     <div className="d-flex flex-column">
                         <div className="titleProfilaDiv">
-                            <img className="imgProfile" src={image !== '' ? `${userModel.user.photo}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
+                            <img className="imgProfile" src={image !== '' ? `${userModel.user.photo}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
                             <p className="titleProfile">{userModel.length !== 0 ? `${userModel.user.user}` : "Mi perfil"}</p>
                         </div>
                         <div>
@@ -54,7 +54,11 @@ const ProfilePage = () => {
                                 {colaborator === false ?
                                     <Nav.Item>
                                         <Nav.Link eventKey="link-1" onClick={() => setSelect(false)}>Hijos</Nav.Link>
-                                    </Nav.Item> : <div></div>}
+                                    </Nav.Item> :
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="link-1" onClick={() => setSelect(false)}>Tareas</Nav.Link>
+                                    </Nav.Item>
+                                }
                             </Nav>
                         </div>
                     </div>
@@ -235,7 +239,16 @@ const ProfilePage = () => {
                                             </div>
                                         </Modal.Footer>
                                     </Modal>
-                                </div> : <div></div>}
+                                </div> :
+                                <>
+                                    <div className='w-100'>
+                                        <p className='titleProfileJobs' onClick={handleShow}>Tareas Asignadas</p>
+                                    </div>
+                                    <div className='d-flex justify-content-evenly flex-wrap w-100'>
+                                        {JobsComponentMap}
+                                    </div>
+                                </>
+                            }
                         </div>
                     }
                 </div>
