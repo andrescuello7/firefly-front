@@ -43,11 +43,12 @@ const ProfilePageController = () => {
             let { user } = await getUser();
             const response = await putUser(user._id, input);
             console.log(response);
+            window.location.href = "/profile";
         } catch (error) {
             console.log(error);
         }
     };
-
+    
     const onChangeImgChild = async (e) => {
         e.preventDefault()
         try {
@@ -64,6 +65,7 @@ const ProfilePageController = () => {
             const response = await postChildProfile(child);
             console.log(response);
             setValidation(true)
+            window.location.href = "/profile";
         } catch (error) {
             setValidation(false)
             console.log(error);
@@ -86,9 +88,9 @@ const ProfilePageController = () => {
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
         return (
-            <div>
+            <>
                 {createBy === userModel.user._id ?
-                    <div>
+                    <>
                         <Card className='cardFormHomeAdmin' onClick={handleShow}>
                             <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
                             <Card.Body>
@@ -183,11 +185,11 @@ const ProfilePageController = () => {
                                 </Button>
                             </Modal.Footer>
                         </Modal>
-                    </div>
+                    </>
                     :
                     <div></div>
                 }
-            </div>
+            </>
         );
     }
     const ProgressMapChild =

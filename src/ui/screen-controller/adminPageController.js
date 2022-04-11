@@ -12,6 +12,7 @@ const AdminPageController = () => {
     const [jobs, setJobs] = useState([]);
     const [images, setImages] = useState([]);
     const {
+        putUser,
         getPhoto,
         getReadUser,
         getJobInAdmin,
@@ -103,9 +104,25 @@ const AdminPageController = () => {
             </tr>
         );
     }
-    const ProgressCard = ({ progress, name, edad, email, image }) => {
-        const [admin, setAdmin] = useState(true)
-        const [parents, setParents] = useState(false)
+    const ProgressCard = ({ progress, name, admin, edad, email, image, id, collaborator }) => {
+        const adminPutMethod = async () => {
+            const method = { admin: !admin };
+            try {
+                const response = await putUser(id, method);
+                console.log(response);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        const fatherPutMethod = async () => {
+            const method = { collaborator: !collaborator };
+            try {
+                const response = await putUser(id, method);
+                console.log(response);
+            } catch (error) {
+                console.log(error)
+            }
+        }
         return (
             <Card className='cardFormHomeAdmin'>
                 <Card.Img variant="top" className='imageAdmin m-2' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
@@ -119,12 +136,12 @@ const AdminPageController = () => {
                     <div className='mb-2 mt-2 border-top border-dark'></div>
                     <div className='d-flex w-100'>
                         {admin ?
-                            <button onClick={() => setAdmin(false)} className='btn btn-warning w-100'>Admin</button> :
-                            <button onClick={() => setAdmin(true)} className='btn btn-outline-warning w-100'>Admin</button>
+                            <button onClick={adminPutMethod} className='btn btn-warning w-100'>Admin</button> :
+                            <button onClick={adminPutMethod} className='btn btn-outline-warning w-100'>Admin</button>
                         }
-                        {parents ?
-                            <button onClick={() => setParents(false)} className='btn btn-success w-100'>Joven</button> :
-                            <button onClick={() => setParents(true)} className='btn btn-danger w-100'>Padre</button>
+                        {collaborator ?
+                            <button onClick={fatherPutMethod} className='btn btn-success w-100'>Joven</button> :
+                            <button onClick={fatherPutMethod} className='btn btn-danger w-100'>Padre</button>
                         }
                     </div>
                 </Card.Body>
@@ -163,9 +180,9 @@ const AdminPageController = () => {
             }
         };
         return (
-            <div className='m-2 d-flex flex-column card'>
+            <div className='m-2 d-flex flex-column card bg-dark'>
                 <img variant="top" className='imageDelete' src={image ? `${image}` : "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg"} />
-                <Button variant='danger' onClick={DeleteSubmit} className='w-100'>
+                <Button variant='outline-danger' onClick={DeleteSubmit} className='w-100'>
                     Eliminar
                 </Button>
             </div>
@@ -201,7 +218,17 @@ const AdminPageController = () => {
                 <Spinner animation="grow" />
             </div>
         )) || usersModel.map((data, i) =>
-            <ProgressCard progress={usersModel[i].years} name={usersModel[i].user} image={usersModel[i].photo} edad={usersModel[i].years} email={usersModel[i].email} key={i} />
+            <ProgressCard
+                progress={usersModel[i].years}
+                name={usersModel[i].user}
+                image={usersModel[i].photo}
+                collaborator={usersModel[i].collaborator}
+                id={usersModel[i]._id}
+                edad={usersModel[i].years}
+                admin={usersModel[i].admin}
+                email={usersModel[i].email}
+                key={i}
+            />
         );
 
     const ProgressMapChild =

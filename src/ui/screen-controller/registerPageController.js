@@ -14,8 +14,9 @@ const RegisterPageController = () => {
 
     const HandleSubmit = async (e) => {
         e.preventDefault();
+        const method = { ...input, photo: "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg" };
         try {
-            await postRegister(input);
+            await postRegister(method);
             setValidation(false)
         } catch (error) {
             console.log(error);

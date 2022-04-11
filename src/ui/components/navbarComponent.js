@@ -3,13 +3,12 @@ import { Navbar, Container, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import Variables from '../../values/api';
 import Controller from '../../ui/screen-controller/homePageController';
-import UserModel from '../../models/userModel';
+import { useState, useEffect } from "react";
 
 const NavbarComponent = () => {
+    const [adminDate, setAdminDate] = useState(false);
     const { token, admin } = Variables();
-    const { handleLogOut } = Controller();
-    const { userModel } = UserModel();
-
+    const { handleLogOut, userModel } = Controller();
     return (
         <Navbar expand="lg" className="navbarBody sticky-top">
             <Container>
@@ -32,7 +31,7 @@ const NavbarComponent = () => {
                                 Estado
                             </Link>
                         </Nav.Link>
-                        {admin !== null ?
+                        {admin !== false ?
                             <Nav.Link>
                                 <Link className="btn btn-light navbarFont" to="/admin">
                                     Administrador
