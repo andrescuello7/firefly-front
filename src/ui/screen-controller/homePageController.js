@@ -3,15 +3,17 @@ import RecuestAccess from '../../data-access/requestAccess';
 import UserModel from '../../models/userModel';
 import { Spinner } from 'react-bootstrap'
 import PostComponent from '../components/postComponent';
+import JovenComponent from '../components/postJovenComponent';
 
 const HomePageController = () => {
-    const { getUser, getPhoto, getBanner } = RecuestAccess();
+    const { getUser, getPhoto, getBanner, getReadUser } = RecuestAccess();
     const { setUserModel, userModel } = UserModel();
 
     const [menu, setMenu] = useState(true);
     const [img, setImg] = useState(true);
     const [images, setImages] = useState([]);
     const [banner, setBanner] = useState([]);
+    const [users, setUsers] = useState([]);
 
     const handleLogOut = () => {
         localStorage.removeItem("token");
@@ -23,6 +25,7 @@ const HomePageController = () => {
         getUserMethod()
         getPhotoController()
         getBannerMethod()
+        getBannerUserMethod()
     }, [userModel.length === 0])
 
     const getUserMethod = async (e) => {
@@ -55,6 +58,15 @@ const HomePageController = () => {
         }
     };
 
+    const getBannerUserMethod = async (e) => {
+        try {
+            let response = await getReadUser();
+            setUsers(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const burgerButton = () => {
         setMenu(!menu)
         setImg(!img)
@@ -71,6 +83,23 @@ const HomePageController = () => {
                 image={data.photo}
                 title={data.title}
                 description={data.description}
+            />
+        );
+
+    const photoContribuitorHomeMap =
+        (users.length === 0 && (
+            <div>
+                <Spinner animation="grow" />
+            </div>
+        )) || users.map((data, i) =>
+            <JovenComponent
+                key={i}
+                image={data.photo}
+                joven={data.collaborator}
+                name={data.user}
+                id={data._id}
+                likes={data.likes}
+                dateTime={data.CreateAdd}
             />
         );
     const BannerComponent = ({ title, description, image }) => {
@@ -101,12 +130,13 @@ const HomePageController = () => {
 
 
     return {
-        getBannerMethod,
+        photoContribuitorHomeMap,
         getPhotoController,
-        handleLogOut,
         BannerComponent,
-        burgerButton,
+        getBannerMethod,
         photoHomeMap,
+        handleLogOut,
+        burgerButton,
         banner,
         menu,
         img,

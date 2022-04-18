@@ -1,0 +1,44 @@
+.aboutBodyText {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.borderAbout {
+  height: 100px;
+  border-right: solid 3px #198754;
+}
+.titleAbout {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Nunito", ExtraBoldf;
+}
+.descriptionAbout {
+  font-size: 22px;
+  font-family: "Nunito", ExtraBoldf;
+  color: gray;
+}
+.aboutPresent {
+  margin-top: 2%;
+  display: flex;
+  width: 70%;
+}
+.aboutPresent2 {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 70%;
+}
+.aboutPresent3 {
+  text-align: left;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  width: 70%;
+}
+.textAboutUs {
+  margin-top: 4%;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: "Nunito", ExtraBoldf;
+}

@@ -22,7 +22,7 @@ const LoginPage = () => {
                         onChange={(e) => HandleChange(e)}
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="Contrasena"
                     />
                     <Button className="w-100 inputFormButton" type="submit">
                         <b>iniciar sesion</b>

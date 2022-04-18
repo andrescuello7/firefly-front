@@ -1,21 +1,17 @@
 .FondoDeForm {
   width: 100%;
   min-height: 100vh;
-  background: url(../images/luciernagaFondo.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: local;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login {
   height: 70vh;
-  border-radius: 20px;
-  width: 50vh;
+  width: 90vh;
   padding: 0%;
-  background-color: #f3f1eeda;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 10px rgb(237, 237, 237);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -42,7 +38,7 @@
   margin: 2% 0%;
   width: 100%;
   background-color: #ffffff00;
-  background-image: linear-gradient(to right, #16C03E , #00000027);
+  background-image: linear-gradient(to right, #16C03E , #ffffff27);
   border: 2px solid #16C03E;
   border: none;
   background-color: none;

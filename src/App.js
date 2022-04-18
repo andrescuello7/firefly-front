@@ -12,12 +12,14 @@ import LoginPage from './ui/screens/loginPage';
 import RegisterPage from './ui/screens/registerPage';
 import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
+import PagosPage from './ui/screens/pagosPage';
 import AdminPage from './ui/screens/adminPage';
 import MenuComponent from './ui/components/menuComponent';
 import NavbarOpcion from './ui/components/navbarComponent';
+import NavbarLoginComponent from './ui/components/navbarLoginComponent';
 
 function App() {
-  const {token} = ApiRest()
+  const { token } = ApiRest()
   return (
     <BrowserRouter className="App">
       <Routes>
@@ -45,11 +47,27 @@ function App() {
             <StatusPage />
           </div>
         } />
+        <Route path="/pagos" element={
+          <div>
+            <NavbarOpcion />
+            <PagosPage />
+          </div>
+        } />
         <Route path="/admin" element={
           <AdminPage />
         } />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={
+          <div>
+            <NavbarLoginComponent />
+            <LoginPage />
+          </div>
+        } />
+        <Route path="/register" element={
+          <div>
+            <NavbarLoginComponent />
+            <RegisterPage />
+          </div>
+        } />
       </Routes>
     </BrowserRouter>
   );

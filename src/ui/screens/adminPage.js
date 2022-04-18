@@ -9,7 +9,6 @@ import DeleteAdmin from '../../ui/screens/admin/deleteAdmin'
 import JobsAdmin from '../../ui/screens/admin/jobsAdmin'
 import ChildAdmin from '../../ui/screens/admin/childAdmin'
 
-
 const AdminPage = () => {
     const [menuAdmin, setMenuAdmin] = useState(0)
     const [show, setShow] = useState(false);

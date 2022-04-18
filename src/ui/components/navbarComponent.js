@@ -46,6 +46,11 @@ const NavbarComponent = () => {
                                 Estado
                             </Link>
                         </Nav.Link>
+                        <Nav.Link>
+                            <Link className="btn btn-light navbarFont" to="/pagos">
+                                Pagos
+                            </Link>
+                        </Nav.Link>
                         {adminDate !== false ?
                             <Nav.Link>
                                 <Link className="btn btn-light navbarFont" to="/admin">

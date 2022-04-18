@@ -1,0 +1,25 @@
+.pagosPageCss{
+    padding: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.FormPageCss{
+    width: 50%;
+    background-color: #19191909;
+    padding: 4%;
+}
+
+@media (max-width: 780px) {
+    .pagosPageCss{
+        padding: 4%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .FormPageCss{
+        width: 90%;
+        background-color: #19191909;
+        padding: 4%;
+    }
+}
