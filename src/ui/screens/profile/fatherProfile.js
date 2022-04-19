@@ -10,7 +10,7 @@ const FatherProfile = () => {
     return (
         <div className="d-flex flex-column">
             <div className="titleProfilaDiv">
-                <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
+                <img className="imgProfile" src={userModel.length !== 0 ? `${userModel.user.photo}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
                 <p className="titleProfile">{userModel.length !== 0 ? `${userModel.user.user}` : "Mi perfil"}</p>
             </div>
             <div>

@@ -10,9 +10,9 @@ const JovenComponent = ({ image, joven, name, id, likes, dateTime }) => {
                     <div className="cardCollaborador">
                         <div className="d-flex">
                             <img className="cardPostUsersComponent" src={image} />
-                            <div className='ml-3 mt-4'>
+                            {/* <div className='ml-3 mt-4'>
                                 <p className='mx-3'>{name}</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

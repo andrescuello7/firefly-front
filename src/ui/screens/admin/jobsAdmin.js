@@ -91,7 +91,7 @@ const JobsAdmin = () => {
                             <option>Elena Lara</option>
                             <option>Facundo Benedek</option>
                             <option>Elena Sale</option>
-                            <option>Ignacio Veccary</option>
+                            <option>Ignacio Beccari</option>
                             <option>Jeremias Sale</option>
                             <option>Mateo Ibanez</option>
                             <option>Mateo Burgo</option>

@@ -191,7 +191,7 @@
   }
   .cardImage {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 10px;
     width: 100%;
   }

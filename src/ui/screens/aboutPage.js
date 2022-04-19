@@ -37,7 +37,7 @@ const AboutPage = () => {
                         Somos un grupo de jovenes comprometidos con la obra que el señor quiere comenzar con los niños proyectando a Cristo mediante el servicio genuino de llevar su proposito eterno.
                     </div>
                 </div>
-                <div className="cardImage">
+                <div className="cardImageCollaborador">
                     {photoContribuitorHomeMap}
                 </div>
             </div>

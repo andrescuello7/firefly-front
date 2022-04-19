@@ -90,7 +90,7 @@ const AdminPageController = () => {
     const Progress = ({ progress, name, edad, email, image }) => {
         return (
             <tr>
-                <td><img className='imageAdmin' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} /></td>
+                <td><img className='imageAdmin' src={image ? `${image}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} /></td>
                 <td className='textAdmin'>{name}</td>
                 <td className='textAdmin'>{email}</td>
                 <td className='textAdmin'>{edad} años</td>
@@ -123,35 +123,29 @@ const AdminPageController = () => {
             }
         }
         return (
-            <Card className='cardFormHomeAdmin'>
-                <Card.Img variant="top" className='imageAdmin m-2' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
-                <Card.Body>
-                    <Card.Text className='textAdmin text-center'>{name}</Card.Text>
-                    <ProgressBar
-                        className="progressBar"
-                        striped variant="success"
-                        animated now={100}
-                    />
-                    <div className='mb-2 mt-2 border-top border-dark'></div>
+            <div className='cardFormHomeAdmin'>
+                <div className='text-center w-100'><p>{name}</p></div>
+                <img className='imageAdmin m-2' src={image ? `${image}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
+                <div>
                     <div className='d-flex w-100'>
                         {admin ?
-                            <button onClick={adminPutMethod} className='btn btn-warning w-100'>Admin</button> :
-                            <button onClick={adminPutMethod} className='btn btn-outline-warning w-100'>Admin</button>
+                            <button onClick={adminPutMethod} className='btn btn-warning text-light mx-2 w-100'>Admin</button> :
+                            <button onClick={adminPutMethod} className='btn btn-outline-warning border-2 border-warning mx-2 w-100'>Admin</button>
                         }
                         {collaborator ?
-                            <button onClick={fatherPutMethod} className='btn btn-success w-100'>Joven</button> :
-                            <button onClick={fatherPutMethod} className='btn btn-danger w-100'>Padre</button>
+                            <button onClick={fatherPutMethod} className='btn btn-success mx-2 w-100'>Joven</button> :
+                            <button onClick={fatherPutMethod} className='btn btn-danger mx-2 w-100'>Padre</button>
                         }
                     </div>
-                </Card.Body>
-            </Card>
+                </div>
+            </div>
         );
     }
     //Component for Table Profile
     const ProgressProfile = ({ image, name, locate, gustos }) => {
         return (
             <tr>
-                <td><img className='imageAdmin' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} /></td>
+                <td><img className='imageAdmin' src={image ? `${image}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} /></td>
                 <td className='textAdmin'>{name}</td>
                 <td className='textAdmin'>{locate} años</td>
                 <td className='textAdmin'>{gustos}</td>
@@ -180,7 +174,7 @@ const AdminPageController = () => {
         };
         return (
             <div className='m-2 d-flex flex-column card bg-dark'>
-                <img variant="top" className='imageDelete' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
+                <img variant="top" className='imageDelete' src={image ? `${image}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
                 <button onClick={DeleteSubmit} className='btn btn-outline-dark text-light w-100'>
                     Eliminar
                 </button>

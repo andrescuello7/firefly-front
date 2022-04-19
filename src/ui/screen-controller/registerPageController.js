@@ -14,7 +14,7 @@ const RegisterPageController = () => {
 
     const HandleSubmit = async (e) => {
         e.preventDefault();
-        const method = { ...input, photo: "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg" };
+        const method = { ...input, photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" };
         try {
             await postRegister(method);
             setValidation(false)

@@ -30,7 +30,7 @@ const TableComponentSecond = ({ progress, name, edad, image, gender, description
                     className='imageStatus'
                     src={image ? `${image}`
                         :
-                        "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
+                        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
             </td>
             <td className='textStatus'>{name ? `${name}` : <div></div>}</td>
             <td className='textStatus'>{child ? `${child}` : <div></div>}</td>

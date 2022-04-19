@@ -92,7 +92,7 @@ const ProfilePageController = () => {
                 {createBy === userModel.user._id ?
                     <>
                         <Card className='cardFormHomeAdmin' onClick={handleShow}>
-                            <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
+                            <Card.Img variant="top" className='imageAdmin' src={image ? `${image}` : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
                             <Card.Body>
                                 <Card.Text className='textAdmin'>Nombre: {name}</Card.Text>
                                 <Card.Text className='textAdmin'>Edad: {edad}</Card.Text>
