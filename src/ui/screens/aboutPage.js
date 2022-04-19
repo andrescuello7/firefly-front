@@ -6,35 +6,35 @@ const AboutPage = () => {
     return (
         <div>
             <div className='aboutBodyText'>
-                {/* <div className="aboutPresent3">
-                    <div className='textAboutUs'>Nosotros somos | About Us</div>
-                    <div className='w-50 mb-4 border-bottom border-3 border-success'></div>
-                </div>
-                <div className='aboutPresent'>
-                    <div className='titleAbout mx-4'>Let's go beyond hosting</div>
-                    <div className='borderAbout'></div>
-                    <div className='descriptionAbout mx-4'>Clever Cloud is a Platform as a Service, aiming at helping companies to ship way faster their web services in the cloud, with a pay-as-you-go pricing model. No infrastructure to manage, no system to update and no orchestrator to troubleshoot.</div>
-                </div>
-                <div className='aboutPresent2'>
-                    <div className='titleAbout mx-4'>Let's go beyond hosting</div>
-                    <div className='borderAbout'></div>
-                    <div className='descriptionAbout mx-4'>Clever Cloud is a Platform as a Service, aiming at helping companies to ship way faster their web services in the cloud, with a pay-as-you-go pricing model. No infrastructure to manage, no system to update and no orchestrator to troubleshoot.</div>
-                </div> */}
                 <div className="aboutPresent3">
                     <div className="textAboutUs">Comunicaciones y avisos</div>
                     <div className='w-50 mb-4 border-bottom border-3 border-success'></div>
                     <div className="descriptionAbout">
-                    En esta parte se va a mostrar las comunicaciones o notificaciones para que los padres tengan en cuenta.
+                        En esta parte se va a mostrar las comunicaciones o notificaciones para que los padres tengan en cuenta.
                     </div>
                 </div>
                 <div className="cardImage">
                     {photoHomeMap}
                 </div>
                 <div className="aboutPresent3">
-                    <div className="textAboutUs">Contribuidores</div>
+                    <div className='textAboutUs'>Nosotros somos | About Us</div>
+                    <div className='w-50 mb-4 border-bottom border-3 border-success'></div>
+                </div>
+                <div className='aboutPresent'>
+                    <div className='titleAbout mx-4'>Nosotros Somos</div>
+                    <div className='borderAbout'></div>
+                    <div className='descriptionAbout mx-4'>Jovenes que desarrollan un programa educativo no formal para niños en edad escolar entre los 4 a los 12 años, orientado a desarrollar un sistema de valores que permita a los niños la construccion de tareas en equipo considerando habilidades, aptitudes y competencias.</div>
+                </div>
+                <div className='aboutPresent2'>
+                    <div className='titleAbout mx-4'>Como lo hacemos</div>
+                    <div className='borderAbout'></div>
+                    <div className='descriptionAbout mx-4'>Proveyendo principios espirituales no religiosos tales como libertad, verdad, misericordia, generosidad, perdon, compañerismo y amor, viateles para el desarrollo de la vida en comunidad, amando a Dios, a su projimo y al entorno que los redea.</div>
+                </div>
+                <div className="aboutPresent3">
+                    <div className="textAboutUs">Equipantes</div>
                     <div className='w-50 mb-4 border-bottom border-3 border-success'></div>
                     <div className="descriptionAbout">
-                    Clever Cloud is a Platform as a Service, aiming at helping companies to ship way faster their web services in the cloud, with a pay-as-you-go pricing model. No infrastructure to manage, no system to update and no orchestrator to troubleshoot.
+                        Somos un grupo de jovenes comprometidos con la obra que el señor quiere comenzar con los niños proyectando a Cristo mediante el servicio genuino de llevar su proposito eterno.
                     </div>
                 </div>
                 <div className="cardImage">

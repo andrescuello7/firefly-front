@@ -181,9 +181,9 @@ const AdminPageController = () => {
         return (
             <div className='m-2 d-flex flex-column card bg-dark'>
                 <img variant="top" className='imageDelete' src={image ? `${image}` : "https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320510.jpg"} />
-                <Button variant='outline-danger' onClick={DeleteSubmit} className='w-100'>
+                <button onClick={DeleteSubmit} className='btn btn-outline-dark text-light w-100'>
                     Eliminar
-                </Button>
+                </button>
             </div>
         );
     }
