@@ -28,6 +28,7 @@ const JobsAdmin = () => {
                                 <option>Fererico V</option>
                                 <option>Jennifer</option>
                                 <option>Luciana</option>
+                                <option>Milagros</option>
                                 <option>Nicol</option>
                                 <option>Silvina</option>
                                 <option>Priscila</option>
@@ -45,11 +46,16 @@ const JobsAdmin = () => {
                         >
                             <Form.Control className='inputFormAdmin' name="inDay" as="select" >
                                 <option>Tarea de Sabado</option>
-                                <option>Coordinador</option>
-                                <option>Destreza</option>
+                                <option>Ornamentacion</option>
                                 <option>Juegos</option>
+                                <option>Destreza</option>
+                                <option>Desayuno / Merienda</option>
                                 <option>Conocimiento</option>
-                                <option>Recreacion</option>
+                                <option>Materiales didacticos</option>
+                                <option>Premios</option>
+                                <option>Anfintrion</option>
+                                <option>Deportes</option>
+                                <option>Audiovisual</option>
                             </Form.Control>
                         </Form.Group>
                         <div className='mx-2'></div>
@@ -61,10 +67,12 @@ const JobsAdmin = () => {
                         >
                             <Form.Control className='inputFormAdmin' name="inWeek" as="select">
                                 <option>Tarea de Semana</option>
-                                <option>Merchandising</option>
                                 <option>Compras</option>
-                                <option>Coordinador</option>
-                                <option>Scroum Master</option>
+                                <option>Premios</option>
+                                <option>Redes</option>
+                                <option>Ornamentacion</option>
+                                <option>Organizar juegos</option>
+                                <option>---------</option>
                             </Form.Control>
                         </Form.Group>
                     </div>
@@ -76,19 +84,23 @@ const JobsAdmin = () => {
                     >
                         <Form.Control className='inputFormAdmin' name="child" as="select" >
                             <option>Nino Encargado</option>
-                            <option>Alexia</option>
+                            {/* <option>Alexia</option> */}
                             <option>Caleb Sale</option>
-                            <option>Clohe</option>
-                            <option>Damaris</option>
-                            <option>Elena</option>
+                            <option>Clohe Bazan</option>
+                            <option>Damaris Ibanez</option>
+                            <option>Elena Lara</option>
+                            <option>Facundo Benedek</option>
                             <option>Elena Sale</option>
-                            <option>Facundo</option>
-                            <option>Ignacio</option>
+                            <option>Ignacio Veccary</option>
                             <option>Jeremias Sale</option>
-                            <option>Mateo Rubio</option>
+                            <option>Mateo Ibanez</option>
                             <option>Mateo Burgo</option>
                             <option>Micaela Burgo</option>
                             <option>Sol Rodriguez</option>
+                            <option>Valentino Robles</option>
+                            <option>Nathan Robles</option>
+                            <option>Tiziano Robles</option>
+                            <option>Axel Robles</option>
                         </Form.Control>
                     </Form.Group>
                     <input
