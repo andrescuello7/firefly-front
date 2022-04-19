@@ -44,8 +44,17 @@ const AdminPageController = () => {
     };
     const postAdminJobController = async (e) => {
         e.preventDefault()
+        const chico = 'https://img.freepik.com/vector-gratis/perfil-hombre-dibujos-animados_18591-58482.jpg?w=2000';
+        const chica = 'https://img.freepik.com/vector-gratis/dibujos-animados-perfil-mujer_18591-58475.jpg';
+        let people = chico;
+        if (input.user === "Andres" || input.user === "Elias" || input.user === "Fererico H" || input.user === "Fererico V" || input.user === "Andres" || input.user === "Varela") {
+            people = chico;
+        } else {
+            people = chica;
+        }
         try {
-            const response = await postJobInAdmin(input);
+            const inputMethod = { ...input, photo: people };
+            const response = await postJobInAdmin(inputMethod);
             console.log(response)
             setValidation(true)
         } catch (error) {
@@ -258,6 +267,7 @@ const AdminPageController = () => {
                 description={data.description}
                 inDay={data.inDay}
                 inWeek={data.inWeek}
+                image={data.photo}
                 key={i}
             />
         );

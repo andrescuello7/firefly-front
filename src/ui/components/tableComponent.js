@@ -9,8 +9,8 @@ const TableComponent = ({ progress, name, edad, image, gender, description, titl
     const DeleteMethod = async (e) => {
         e.preventDefault()
         try {
-            const response = await deleteJobInAdmin(id);
-            window.location.href = "/profile";
+            await deleteJobInAdmin(id);
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
