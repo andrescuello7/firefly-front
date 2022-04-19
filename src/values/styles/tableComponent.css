@@ -26,7 +26,7 @@
 .buttonJob {
     display: flex;
     justify-content: center;
-    width: 200px;
+    width: 100%;
     height: 30px;
 }
 

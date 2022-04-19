@@ -190,6 +190,8 @@
     flex-direction: column;
   }
   .cardImage {
+    display: flex;
+    justify-content: space-between;
     padding-top: 10px;
     width: 100%;
   }
