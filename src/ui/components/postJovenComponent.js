@@ -6,7 +6,7 @@ const JovenComponent = ({ image, joven, name, id, likes, dateTime }) => {
     return (
         <div>
             {joven ?
-                <div className='m-4'>
+                <div className='m-2'>
                     <div className="cardCollaborador">
                         <div className="d-flex">
                             <img className="cardPostUsersComponent" src={image} />
