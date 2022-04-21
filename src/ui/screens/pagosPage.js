@@ -10,35 +10,56 @@ const PagosPage = () => {
             <p className='titleProgress'>Pagos y Facturas</p>
             <div className="pagosPageCss">
                 <Form className="FormPageCss">
-                    <p className='titleRegister'>Datos de Facturacion</p>
+                    <b className=''>Datos de Facturacion</b>
                     <Form.Group controlId="formBasicEmail" className="formInput">
                         <div className="d-flex w-100">
-                            <input
-                                className="inputFormRegister"
-                                // onChange={(e) => HandleChange(e)}
-                                type="number"
-                                name="user"
-                                placeholder="Numero de tarjeta"
-                            />
+                            <div className="w-100">
+                                <p>Numero de tarjeta</p>
+                                <input
+                                    className="form-control"
+                                    // onChange={(e) => HandleChange(e)}
+                                    type="number"
+                                    name=""
+                                    placeholder=""
+                                />
+                            </div>
                             <div className="m-2"></div>
-                            <input
-                                className="inputFormRegister"
-                                // onChange={(e) => HandleChange(e)}
-                                type="number"
-                                name="password"
-                                placeholder="Codigo de seguridad"
-                            />
+                            <div className="w-100">
+                                <p>Fecha de vencimiento</p>
+                                <input
+                                    className="form-control"
+                                    // onChange={(e) => HandleChange(e)}
+                                    type="date"
+                                    name=""
+                                />
+                            </div>
                         </div>
-                        <input
-                            className="inputFormRegister"
-                            // onChange={(e) => HandleChange(e)}
-                            type="email"
-                            name="email"
-                            placeholder="Nombre de titular"
-                        />
-                        <Button className="w-100 mt-5 btn btn-success" type="submit">
+                        <div className="mt-4 d-flex w-100">
+                            <div className="w-100">
+                                <p>Nombre de titular</p>
+                                <input
+                                    className="form-control"
+                                    // onChange={(e) => HandleChange(e)}
+                                    type="text"
+                                    name=""
+                                    placeholder=""
+                                />
+                            </div>
+                            <div className="m-2"></div>
+                            <div className="w-100">
+                                <p>Codigo de Seguridad</p>
+                                <input
+                                    className="form-control"
+                                    // onChange={(e) => HandleChange(e)}
+                                    type="number"
+                                    name=""
+                                    placeholder="CVV"
+                                />
+                            </div>
+                        </div>
+                        <button className="w-100 mt-5 btn btn-success" type="submit">
                             <b>Pagar</b>
-                        </Button>
+                        </button>
                     </Form.Group>
                     {/* {validation === true && (
                         <div className="ml-2 text-danger">

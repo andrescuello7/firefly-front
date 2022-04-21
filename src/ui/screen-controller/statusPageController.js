@@ -50,6 +50,7 @@ const StatusPageController = () => {
             </div>
         )) || usersModel.map((data, i) =>
             <TableComponent
+                response={data}
                 progress={data.progress}
                 name={data.user}
                 edad={data.years}

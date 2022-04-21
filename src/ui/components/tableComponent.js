@@ -2,7 +2,7 @@ import { ProgressBar } from 'react-bootstrap'
 import RecuestAccess from '../../data-access/requestAccess'
 import '../../values/styles/tableComponent.css'
 
-const TableComponent = ({ progress, name, edad, image, gender, description, title, child, inDay, inWeek, id }) => {
+const TableComponent = ({ response, progress, name, edad, image, gender, description, title, child, inDay, inWeek, id }) => {
     const {
         deleteJobInAdmin
     } = RecuestAccess();
@@ -24,6 +24,14 @@ const TableComponent = ({ progress, name, edad, image, gender, description, titl
         //     console.log(error)
         // }
     }
+    const progressDate = (progressNumber) => {
+        const star =
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="m-2 text-warning bi bi-star-fill" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>;
+
+        return star;
+    }
     return (
         <div className='cardTableView mt-3'>
             <div className='w-100 d-flex justify-content-center'>
@@ -34,30 +42,19 @@ const TableComponent = ({ progress, name, edad, image, gender, description, titl
                         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
             </div>
             <div className='tableButton'>
-                <div className='textTable text-center pt-2'>{name ? <div><b>{name}</b> / {child}</div> : <div></div>}</div>
-                {/* <div className='d-flex w-100'>
-                    <div className='textTable'>{inWeek ? <div><b>Tareas: </b>{inWeek}</div> : <div></div>}</div>
-                    <div className='textTable'>{inDay ? <div><b>/ </b>{inDay}</div> : <div></div>}</div>
-                </div> */}
-                {/* <div className='textTable'>{child ? <div><b>Chico: </b>{child}</div> : <div></div>}</div> */}
+                <div className='textTable text-center pt-2'>{name ? <div><b>{name}</b> | {child}</div> : <div></div>}</div>
                 <div className='textTable'>{inWeek ? <div><b>Tareas de Semana: </b>{inWeek}</div> : <div></div>}</div>
                 <div className='textTable'>{inDay ? <div><b>Tareas de Sabado: </b>{inDay}</div> : <div></div>}</div>
                 <div className='textTable'>{edad ? <div><b>Edad: </b>{edad}</div> : <div></div>}</div>
                 <div className='textTable'>{gender ? <div><b>Genero: </b>{gender}</div> : <div></div>}</div>
                 <div className='textTable'>{title ? <div><b>Especificacion: </b>{title}</div> : <div></div>}</div>
                 <div className='textTable'>{description ? <div><b>Descripcion: </b>{description}</div> : <div></div>}</div>
-                <div>
-                    {progress >= 0 ?
-                        <ProgressBar
-                            className="progressBar m-2"
-                            variant="success"
-                            now={progress}
-                            animated
-                        /> :
-                        <div>
-                        </div>
-                    }
-                </div>
+                {progress ? <div>
+                    {progressDate(progress)}
+                </div> :
+                    <div>
+                    </div>
+                }
                 <div className='w-100'>{inWeek ?
                     <div className='d-flex'>
                         <button className='btn btn-outline-success border-2 border-success buttonJob' onClick={CheckMethod}>

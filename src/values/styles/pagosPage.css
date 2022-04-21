@@ -6,7 +6,9 @@
 }
 .FormPageCss{
     width: 50%;
-    background-color: #19191909;
+    /* background-color: #bdb3b310; */
+    /* border-radius: 10px; */
+    box-shadow: 1px 1px 30px 5px rgba(0, 0, 0, 0.096);
     padding: 4%;
 }
 
