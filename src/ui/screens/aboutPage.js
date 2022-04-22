@@ -28,7 +28,7 @@ const AboutPage = () => {
                 <div className='aboutPresent2'>
                     <div className='titleAbout mx-4'>Como lo hacemos</div>
                     <div className='borderAbout'></div>
-                    <div className='descriptionAbout mx-4'>Proveyendo principios espirituales no religiosos tales como libertad, verdad, misericordia, generosidad, perdon, compañerismo y amor, viateles para el desarrollo de la vida en comunidad, amando a Dios, a su projimo y al entorno que los redea.</div>
+                    <div className='descriptionAbout mx-4'>Proveyendo principios espirituales no religiosos tales como libertad, verdad, misericordia, generosidad, perdon, compañerismo y amor, vitales para el desarrollo de la vida en comunidad, amando a Dios, a su projimo y al entorno que los rodea.</div>
                 </div>
                 <div className="aboutPresent3">
                     <div className="textAboutUs">Equipantes</div>
