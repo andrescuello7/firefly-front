@@ -1,10 +1,9 @@
+import '../../values/styles/aboutPage.css'
+
 const FutterComponent = () => {
     return (
-        <div>
-            <hr />
-            <div className="text-center">
-                <p>© Copyright 2022 RollingCode School - All Rights Reserved</p>
-            </div>
+        <div className="futterComponent">
+            <p>© Copyright 2022 Rolling Code School - All Rights Reserved</p>
         </div>
     );
 }

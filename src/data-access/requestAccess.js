@@ -91,15 +91,15 @@ const RecuestAccess = () => {
             console.log(error);
         }
     };
-    const getJobInAdmin = async (input) => {
+    const getJobInAdmin = async () => {
         const response = await axios.get(api +
             'home/jobs', { headers, }
         )
         return response;
     };
-    const getChildInProfile = async (input) => {
+    const getChildInProfile = async () => {
         const response = await axios.get(api +
-            'user/child', { headers, }
+            'user/child', { headers }
         )
         return response;
     };

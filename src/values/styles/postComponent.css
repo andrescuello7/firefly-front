@@ -86,8 +86,8 @@
 
 .cardPostUsersComponent {
   margin: 3%;
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   border-radius: 20px;
 }
 
@@ -101,7 +101,10 @@
 }
 .cardImageCollaborador {
   padding-top: 20px;
-  width: 80%;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import RecuestAccess from '../../data-access/requestAccess';
 import UserModel from '../../models/userModel';
-import { Spinner } from 'react-bootstrap'
+import { Spinner, ProgressBar } from 'react-bootstrap'
 import PostComponent from '../components/postComponent';
 import JovenComponent from '../components/postJovenComponent';
 
 const HomePageController = () => {
-    const { getUser, getPhoto, getBanner, getReadUser } = RecuestAccess();
+    const { getUser, getPhoto, getBanner, getReadUser, getChildInProfile } = RecuestAccess();
     const { setUserModel, userModel } = UserModel();
 
     const [menu, setMenu] = useState(true);
     const [img, setImg] = useState(true);
     const [images, setImages] = useState([]);
     const [banner, setBanner] = useState([]);
+    const [child, setChild] = useState([]);
     const [users, setUsers] = useState([]);
 
     const handleLogOut = () => {
@@ -23,8 +24,9 @@ const HomePageController = () => {
 
     useEffect(() => {
         getUserMethod()
-        getPhotoController()
+        getChildInHome()
         getBannerMethod()
+        getPhotoController()
         getBannerUserMethod()
     }, [userModel.length === 0])
 
@@ -58,6 +60,14 @@ const HomePageController = () => {
         }
     };
 
+    const getChildInHome = async (e) => {
+        try {
+            let response = await getChildInProfile();
+            setChild(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const getBannerUserMethod = async (e) => {
         try {
             let response = await getReadUser();
@@ -72,6 +82,16 @@ const HomePageController = () => {
         setImg(!img)
     }
 
+
+    const ChildsView = ({ name, progress, image }) => {
+        return (
+            <tr>
+                <td className='p-3'><img className='aboutUsBoxRightDirectionTableImage' src={image ? `${image}` : 'https://preview.keenthemes.com/start-react/media/svg/logo/colored/kanba.svg'} /></td>
+                <td className='p-3'>{name ? `${name}` : 'Nombre'}</td>
+                <td className='w-25 p-3'>{progress ? <ProgressBar now={progress} /> : <ProgressBar now={5} />}</td>
+            </tr>
+        )
+    }
     const photoHomeMap =
         (images.length === 0 && (
             <div>
@@ -102,6 +122,22 @@ const HomePageController = () => {
                 dateTime={data.CreateAdd}
             />
         );
+
+    const childProgressViewMap =
+        (child.length === 0 && (
+            <div>
+                <Spinner animation="grow" />
+            </div>
+        )) ||
+        child.map((data, i) =>
+            <ChildsView
+                key={i}
+                image={data.photo}
+                name={data.user}
+                progress={data.progress}
+            />
+        );
+
     const BannerComponent = ({ title, description, image }) => {
         return (
             <div className="homePageAbout">
@@ -127,10 +163,9 @@ const HomePageController = () => {
                 <img className="imagesHomeAbout" src={image !== null ? image : "https://animationexplainers.com/wp-content/uploads/2021/07/p10-bg2.png"} />
             </div>)
     }
-
-
     return {
         photoContribuitorHomeMap,
+        childProgressViewMap,
         getPhotoController,
         BannerComponent,
         getBannerMethod,

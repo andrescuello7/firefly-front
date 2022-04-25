@@ -1,0 +1,103 @@
+.aboutUs {
+  min-height: 90vh;
+  background-color: rgb(242, 245, 248);
+}
+
+.aboutUsBox {
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.aboutUsBoxLeft {
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  min-height: 400px;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 20px rgb(231, 224, 224);
+}
+
+.aboutUsBoxLeftImg {
+  width: 100%;
+}
+
+.aboutUsBoxRight {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  min-height: 400px;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 20px rgb(231, 224, 224);
+}
+
+.aboutUsBoxRightComponents{
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  min-height: 400px;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 20px rgb(231, 224, 224);
+  display: flex;
+  align-items: center;
+}
+.aboutUsBoxRightDirection {
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+}
+.aboutUsBoxRightDirectionTable{
+  height: 400px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.aboutUsBoxRightDirectionTableImage{
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+}
+.aboutPresentComponent{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width: 780px) {
+  .aboutUsBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .aboutUsBoxLeft {
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    min-height: 300px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 20px rgb(231, 224, 224);
+  }
+
+  .aboutUsBoxRight {
+    margin-top: 5%;
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    min-height: 400px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 20px rgb(231, 224, 224);
+  }
+
+  .aboutUsBoxRightDirection {
+    display: flex;
+    padding: 2% 2% 0% 2%;
+    text-align: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .aboutUsBoxRightComponents {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    min-height: 400px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 20px rgb(231, 224, 224);
+  }
+
+}

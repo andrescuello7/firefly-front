@@ -49,7 +49,11 @@
   font-weight: 500;
   font-family: "Nunito", ExtraBoldf;
 }
-
+.futterComponent{
+  padding: 1%;
+  background-color: rgb(242, 245, 248);
+  text-align: center;
+}
 @media (max-width: 780px) {
   .textAboutUs {
     margin-top: 10%;

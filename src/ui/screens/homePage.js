@@ -1,6 +1,8 @@
 import "../../values/styles/homePage.css";
 import Controller from '../screen-controller/homePageController';
-import AboutPage from '../screens/aboutPage';
+// import AboutPage from '../screens/aboutPage';
+import AboutPage from '../screens/aboutPageTwoVersion';
+import FutterComponent from '../components/futterComponent';
 
 const HomePage = () => {
     const { photoHomeMap, BannerComponent, banner } = Controller();
@@ -19,6 +21,7 @@ const HomePage = () => {
                 </div>
             </div>
             <AboutPage />
+            <FutterComponent />
         </div>
     );
 }
