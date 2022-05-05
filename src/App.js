@@ -18,6 +18,7 @@ import MenuComponent from './ui/components/menuComponent';
 import NavbarOpcion from './ui/components/navbarComponent';
 import NavbarLoginComponent from './ui/components/navbarLoginComponent';
 
+//main App
 function App() {
   const { token } = ApiRest()
   return (
