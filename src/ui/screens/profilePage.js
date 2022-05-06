@@ -22,6 +22,7 @@ const ProfilePage = () => {
         onChangeImgChild,
         ProgressMapChild,
         postCreateChildProfile,
+        validationChild,
     } = ProfilePageController();
     const { JobsComponentMap } = AdminPageController();
     useEffect(() => {
@@ -233,7 +234,7 @@ const ProfilePage = () => {
                                         </Modal.Body>
                                         <Modal.Footer>
                                             <div className="d-flex w-100">
-                                                <Button variant="dark" className="w-100" onClick={postCreateChildProfile}>
+                                                <Button variant="dark" className="w-100" disabled={validationChild} onClick={postCreateChildProfile}>
                                                     <b>Crear usuario</b>
                                                 </Button>
                                             </div>

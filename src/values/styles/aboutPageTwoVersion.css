@@ -91,7 +91,8 @@
     flex-direction: column;
   }
   .aboutUsBoxRightComponents {
-    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     margin-bottom: 10%;
     background-color: rgb(255, 255, 255);
     width: 90%;

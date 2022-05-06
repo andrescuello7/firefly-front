@@ -83,11 +83,19 @@ const HomePageController = () => {
     }
 
 
-    const ChildsView = ({ name, progress, image }) => {
+    const ChildsView = ({ name, progress, image, genero }) => {
+        const chico = 'https://img.freepik.com/vector-gratis/perfil-hombre-dibujos-animados_18591-58482.jpg?w=2000';
+        const chica = 'https://img.freepik.com/vector-gratis/dibujos-animados-perfil-mujer_18591-58475.jpg';
+        let gender;
+        if (genero == "Mujer") {
+            gender = chica;
+        } else {
+            gender = chico;
+        }
         return (
             <tr>
-                <td className='p-3'><img className='aboutUsBoxRightDirectionTableImage' src={image ? `${image}` : 'https://preview.keenthemes.com/start-react/media/svg/logo/colored/kanba.svg'} /></td>
-                <td className='p-3'>{name ? `${name}` : 'Nombre'}</td>
+                <td className='p-3'><img className='aboutUsBoxRightDirectionTableImage' src={image ? `${image}` : `${gender}`} /></td>
+                <td className='p-3 nameChild'>{name ? `${name}` : 'Nombre'}</td>
                 <td className='w-25 p-3'>{progress ? <ProgressBar now={progress} /> : <ProgressBar now={5} />}</td>
             </tr>
         )
@@ -132,6 +140,7 @@ const HomePageController = () => {
         child.map((data, i) =>
             <ChildsView
                 key={i}
+                genero={data.gender}
                 image={data.photo}
                 name={data.user}
                 progress={data.progress}

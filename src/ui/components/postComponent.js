@@ -12,14 +12,18 @@ const PostComponent = ({ image, title, description }) => {
         <div className='m-4'>
             <div className="cardPostComponent">
                 <img className="imagePostComponent" src={image} onClick={handleShow} />
+                <div className='m-4 text-center'>
+                    <p className='titlePostComponent'>{title}</p>
+                    <p className='descriptionPostComponent'>{description}</p>
+                </div>
             </div>
-            <Modal className='modalPostComponent' show={show} onHide={handleClose}>
+            {/* <Modal className='modalPostComponent' show={show} onHide={handleClose}>
                 <img className='imageModalPostComponent' src={image} />
                 <div className='m-4 text-center'>
                     <p className='titlePostComponent'>{title}</p>
                     <p className='descriptionPostComponent'>{description}</p>
                 </div>
-            </Modal>
+            </Modal> */}
         </div>
     );
 }

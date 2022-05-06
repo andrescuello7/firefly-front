@@ -11,6 +11,7 @@ const ProfilePageController = () => {
     const [child, setChild] = useState([]);
     const { putUser, getUser, postChildProfile, postImage, postImageAdmin, getChildInProfile } = RecuestAccess();
     const { userModel, setUserModel } = UserModel();
+    const [validationChild, setValidationChild] = useState(true);
 
     useEffect(async () => {
         let response = await getUser()
@@ -48,12 +49,13 @@ const ProfilePageController = () => {
             console.log(error);
         }
     };
-    
+
     const onChangeImgChild = async (e) => {
         e.preventDefault()
         try {
             const response = await postImageAdmin(e);
             setImageChild(response);
+            setValidationChild(false)
         } catch (error) {
             console.log(error);
         }
@@ -211,6 +213,7 @@ const ProfilePageController = () => {
         HandleChange,
         setValidation,
         PutHandleSubmit,
+        validationChild,
         onChangeImgChild,
         ProgressMapChild,
         postCreateChildProfile

@@ -3,7 +3,8 @@ import '../../values/styles/aboutPage.css'
 const FutterComponent = () => {
     return (
         <div className="futterComponent">
-            <p>© Copyright 2022 Rolling Code School - All Rights Reserved</p>
+            <p></p>
+            {/* <p>© Copyright 2022 Rolling Code School - All Rights Reserved</p> */}
         </div>
     );
 }

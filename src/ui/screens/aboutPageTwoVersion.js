@@ -10,41 +10,14 @@ const aboutPageTwoVersion = () => {
         <div className="aboutUs">
             {/* <MenuExample /> */}
             <div className="aboutUsBox">
-                <div className="aboutUsBoxLeft">
-                    <div className='w-100 pt-4 text-center'>
-                        <b>Aprende a Aprender</b>
-                    </div>
-                    <img className="aboutUsBoxLeftImg" src="https://preview.keenthemes.com/start-react/media/illustrations/terms-2.png" />
-                </div>
-                <div className="aboutUsBoxRight">
-                    <div className="aboutUsBoxRightDirection">
-                        <div className='mb-4'>
-                            <b>Tabla de Posiciones</b>
-                        </div>
-                        <div className="aboutUsBoxRightDirectionButtons mb-4">
-                            <button className="btn btn-outline-secondary mx-2"><b>Dia</b></button>
-                            <button className="btn btn-outline-secondary mx-2"><b>Semana</b></button>
-                            <button className="btn btn-outline-secondary mx-2"><b>Mes</b></button>
-                        </div>
-                    </div>
-                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
-                        <Table responsive="sm">
-                            <tbody>
-                                {childProgressViewMap}
-                            </tbody>
-                        </Table>
-                    </div>
-                </div>
-            </div>
-            <div className="aboutUsBox">
-                <div className="aboutUsBoxLeft">
+                {/* <div className="aboutUsBoxLeft">
                     <div className='w-100 pt-4 text-center'>
                         <b>Hermanos Mayores</b>
                     </div>
                     <div className="cardImageCollaborador">
                         {photoContribuitorHomeMap}
                     </div>
-                </div>
+                </div> */}
                 <div className="aboutUsBoxRightComponents">
                     <div className='aboutPresentComponent'>
                         <div className='aboutPresent'>
@@ -57,6 +30,50 @@ const aboutPageTwoVersion = () => {
                             <div className='borderAbout'></div>
                             <div className='descriptionAbout mx-4'>Proveyendo principios espirituales no religiosos tales como libertad, verdad, misericordia, generosidad, perdon, compañerismo y amor, vitales para el desarrollo de la vida en comunidad, amando a Dios, a su projimo y al entorno que los rodea.</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="aboutUsBox">
+                {/* <div className="aboutUsBoxLeft">
+                    <div className='w-100 pt-4 text-center'>
+                        <b>Aprende a Aprender</b>
+                    </div>
+                    <img className="aboutUsBoxLeftImg" src="https://preview.keenthemes.com/start-react/media/illustrations/terms-2.png" />
+                </div> */}
+                <div className="aboutUsBoxRight">
+                    <div className="aboutUsBoxRightDirection">
+                        <div className='mb-4 w-100 d-flex justify-content-center'>
+                            <b>Cuaderno de comunicaciones</b>
+                        </div>
+                    </div>
+                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
+                        <Table responsive="sm">
+                            <tbody>
+                                {photoHomeMap}
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+            </div>
+            <div className="aboutUsBox">
+                {/* <div className="aboutUsBoxLeft">
+                    <div className='w-100 pt-4 text-center'>
+                        <b>Aprende a Aprender</b>
+                    </div>
+                    <img className="aboutUsBoxLeftImg" src="https://preview.keenthemes.com/start-react/media/illustrations/terms-2.png" />
+                </div> */}
+                <div className="aboutUsBoxRight">
+                    <div className="aboutUsBoxRightDirection">
+                        <div className='mb-4'>
+                            <b>Tabla de Posiciones</b>
+                        </div>
+                    </div>
+                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
+                        <Table responsive="sm">
+                            <tbody>
+                                {childProgressViewMap}
+                            </tbody>
+                        </Table>
                     </div>
                 </div>
             </div>

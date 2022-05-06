@@ -54,18 +54,17 @@
   background-color: rgb(242, 245, 248);
   text-align: center;
 }
+.nameChild {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Nunito", ExtraBoldf;
+}
 @media (max-width: 780px) {
   .textAboutUs {
     margin-top: 10%;
     font-size: 20px;
     font-weight: 500;
     font-family: "Nunito", ExtraBoldf;
-  }
-
-  .descriptionAbout {
-    font-size: 15px;
-    font-family: "Nunito", ExtraBoldf;
-    color: gray;
   }
 
   .borderAbout {
@@ -88,9 +87,20 @@
     flex-direction: column;
   }
   .titleAbout {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
     font-family: "Nunito", ExtraBoldf;
+  }
+  .nameChild {
+    font-size: 10px;
+    font-weight: 600;
+    font-family: "Nunito", ExtraBoldf;
+  }
+
+  .descriptionAbout {
+    font-size: 14px;
+    font-family: "Nunito", ExtraBoldf;
+    color: gray;
   }
   .aboutPresent2 {
     margin-top: 2%;
