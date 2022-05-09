@@ -35,7 +35,7 @@ const ProfilePage = () => {
             await setImage(userModel.user.photo)
         } else {
             await setColaborator(false)
-            await setJoven("Father")
+            await setJoven("Padre")
         }
     }
     return (
@@ -78,7 +78,7 @@ const ProfilePage = () => {
                                         placeholder={userModel.length !== 0 ? `${userModel.user.user}` : "Nombre"}
                                     />
                                 </Form.Group>
-                                <Form.Group
+                                {/* <Form.Group
                                     name="collaborator"
                                     onChange={(e) => HandleChange(e)}
                                     controlId="formGridState"
@@ -88,7 +88,7 @@ const ProfilePage = () => {
                                         <option value={false}>Padre</option>
                                         <option value={true}>Joven</option>
                                     </Form.Control>
-                                </Form.Group>
+                                </Form.Group> */}
                             </div>
                             <div className="text-success mt-5">
                                 <b>Datos Adicionales</b>
@@ -100,14 +100,14 @@ const ProfilePage = () => {
                                         onChange={(e) => HandleChange(e)}
                                         type="text"
                                         name="school"
-                                        placeholder={"escuela"}
+                                        placeholder={"Escuela/ Lugar de trabajo"}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicEmail" className="w-100 m-2 ">
                                     <button
                                         name="move"
                                         onChange={(e) => HandleChange(e)}
-                                        className="btn btn-outline-success w-100 p-3 inputFormProfile"
+                                        className="btn btn-success w-100 p-3 inputFormProfile"
                                     >
                                         Tiene Movilidad
                                     </button>
@@ -144,7 +144,7 @@ const ProfilePage = () => {
                                         onChange={(e) => HandleChange(e)}
                                         type="password"
                                         // name="password"
-                                        placeholder="contrasena"
+                                        placeholder="Contraseña"
                                     />
                                 </Form.Group>
                             </div>

@@ -61,6 +61,17 @@
   font-weight: 600;
   font-family: "Nunito", ExtraBoldf;
 }
+.TituloMenuDate {
+  padding-left: 4%;
+  padding-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d6ddd8e7;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: "Nunito", ExtraBoldf;
+}
 .menuAdmin {
   background-color: #0e4f1dde;
   display: flex;

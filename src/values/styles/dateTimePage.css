@@ -1,58 +1,86 @@
-.dateTime {
+.imageCardDate {
+  border-radius: 1rem 1rem 0px 0px;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
+}
+
+.mesCardFecha {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.diaCardFecha {
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50px;
+  background-color: rgba(55, 161, 248, 0.751);
+  color: white;
+  font-size: 15px;
 }
-.dateTimePicker {
-  border: 1px solid rgba(70, 68, 68, 0.363);
-  border-radius: 10px;
-  padding: 10%;
-  background-color: rgb(252, 252, 252);
-  font-size: 20px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  height: 300px;
+
+.cardFechaButton {
+  padding-left: 10px;
+  border: solid rgb(213, 208, 208) 1px;
+  border-radius: 0px 0px 1rem 1rem;
+  height: 200px;
+}
+
+.cardDate {
+  margin: 2%;
+  box-shadow: 5px 5px 10px rgb(235, 232, 232);
+  width: 350px;
+}
+
+.cardViewPage {
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
 }
-.MuiInputBase-input {
-  font-size: 40px;
-  text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-.titleDate {
-  font-size: 20px;
-  color: rgb(79, 49, 209);
-}
+
 @media (max-width: 780px) {
-  .dateTime {
-    margin-top: 20%;
-    margin-left: 15%;
-    width: 100%;
-    /* min-height: 0vh; */
+  .cardDate {
+    margin: 2%;
+    box-shadow: 5px 5px 10px rgb(235, 232, 232);
+    width: 150px;
+  }
+
+  .cardFechaButton {
+    padding-left: 0px;
+    border: solid rgb(213, 208, 208) 1px;
+    border-radius: 0px 0px 1rem 1rem;
+    height: 120px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
   }
-  .dateTimePicker {
-    border: 1px solid rgba(70, 68, 68, 0.363);
-    padding: 10%;
-    background-color: rgb(252, 252, 252);
-    font-size: 20px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    height: 200px;
+
+  .mesCardFecha {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .diaCardFecha {
+    width: 40px;
+    height: 40px;
     display: flex;
-  }
-  .MuiInputBase-input {
-    font-size: 10px;
-    text-align: center;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
-  .titleDate {
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgba(55, 161, 248, 0.751);
+    color: white;
     font-size: 15px;
-    color: rgb(79, 49, 209);
+  }
+
+  .cardViewPage {
+    width: 100%;
+    display: flex;
   }
 }

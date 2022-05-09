@@ -1,10 +1,7 @@
-import Controller from '../screen-controller/statusPageController';
 import '../../values/styles/pagosPage.css'
-import { Form, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 const PagosPage = () => {
-    //Component for Table
-    // const { ProgressMap } = Controller();
     return (
         <div className='w-100'>
             <p className='titleProgress'>Pagos y Facturas</p>

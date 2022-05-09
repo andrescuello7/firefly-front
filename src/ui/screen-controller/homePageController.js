@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import RecuestAccess from '../../data-access/requestAccess';
 import UserModel from '../../models/userModel';
 import { Spinner, ProgressBar } from 'react-bootstrap'
-import PostComponent from '../components/postComponent';
+import PostComponent from '../components/postHomeComponent';
 import JovenComponent from '../components/postJovenComponent';
 
 const HomePageController = () => {

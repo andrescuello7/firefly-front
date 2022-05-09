@@ -13,8 +13,7 @@ import DateTimePage from './ui/screens/dateTimePage';
 import StatusPage from './ui/screens/statusPage';
 import PagosPage from './ui/screens/pagosPage';
 import AdminPage from './ui/screens/adminPage';
-import MenuComponent from './ui/components/menuComponent';
-import NavbarOpcion from './ui/components/navbarComponent';
+import NavbarOpcion from './ui/components/navbarHomeComponent';
 import NavbarLoginComponent from './ui/components/navbarLoginComponent';
 
 //main App
