@@ -6,38 +6,6 @@ const aboutPageExtencion = () => {
     const { photoHomeMap, childProgressViewMap } = Controller();
     return (
         <div className="aboutUs">
-        <div className="aboutUsBox">
-            <div className="aboutUsBoxRight">
-                <div className="aboutUsBoxRightDirection">
-                    <div className='mb-4'>
-                        <b>Tabla de Posiciones</b>
-                    </div>
-                </div>
-                <div className='mx-4 aboutUsBoxRightDirectionTable'>
-                    <Table responsive="sm">
-                        <tbody>
-                            {childProgressViewMap}
-                        </tbody>
-                    </Table>
-                </div>
-            </div>
-        </div>
-            <div className="aboutUsBox">
-                <div className="aboutUsBoxRight">
-                    <div className="aboutUsBoxRightDirection">
-                        <div className='mb-4 w-100 d-flex justify-content-center'>
-                            <b>Cuaderno de comunicaciones</b>
-                        </div>
-                    </div>
-                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
-                        <Table responsive="sm">
-                            <tbody>
-                                {photoHomeMap}
-                            </tbody>
-                        </Table>
-                    </div>
-                </div>
-            </div>
             <div className="aboutUsBox">
                 <div className="aboutUsBoxRightComponents">
                     <div className='aboutPresentComponent'>
@@ -51,6 +19,38 @@ const aboutPageExtencion = () => {
                             <div className='borderAbout'></div>
                             <div className='descriptionAbout mx-4'>Proveyendo principios espirituales no religiosos tales como libertad, verdad, misericordia, generosidad, perdon, compañerismo y amor, vitales para el desarrollo de la vida en comunidad, amando a Dios, a su projimo y al entorno que los rodea.</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="aboutUsBox">
+                <div className="aboutUsBoxRight">
+                    <div className="aboutUsBoxRightDirection">
+                        <div className='mb-4'>
+                            <b>Tabla de Posiciones</b>
+                        </div>
+                    </div>
+                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
+                        <Table responsive="sm">
+                            <tbody>
+                                {childProgressViewMap}
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+            </div>
+            <div className="aboutUsBox">
+                <div className="aboutUsBoxRight">
+                    <div className="aboutUsBoxRightDirection">
+                        <div className='mb-4 w-100 d-flex justify-content-center'>
+                            <b>Cuaderno de comunicaciones</b>
+                        </div>
+                    </div>
+                    <div className='mx-4 aboutUsBoxRightDirectionTable'>
+                        <Table responsive="sm">
+                            <tbody>
+                                {photoHomeMap}
+                            </tbody>
+                        </Table>
                     </div>
                 </div>
             </div>

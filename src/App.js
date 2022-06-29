@@ -10,7 +10,7 @@ import ProfilePage from './ui/screens/profilePage';
 import LoginPage from './ui/screens/loginPage';
 import RegisterPage from './ui/screens/registerPage';
 import DateTimePage from './ui/screens/dateTimePage';
-import StatusPage from './ui/screens/statusPage';
+import GaleryPage from './ui/screens/galeryPage';
 import PagosPage from './ui/screens/pagosPage';
 import AdminPage from './ui/screens/adminPage';
 import NavbarOpcion from './ui/components/navbarHomeComponent';
@@ -42,7 +42,7 @@ function App() {
         <Route path="/status" element={
           <div>
             <NavbarOpcion />
-            <StatusPage />
+            <GaleryPage />
           </div>
         } />
         <Route path="/pagos" element={

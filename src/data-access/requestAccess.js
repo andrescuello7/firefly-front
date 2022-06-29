@@ -11,11 +11,13 @@ const RecuestAccess = () => {
         localStorage.setItem("token", data);
         window.location.href = "/";
     };
+
     const postLogin = async (input) => {
         const { data } = await axios.post(api + "auth", input);
         localStorage.setItem("token", data);
         window.location.href = "/";
     };
+
     const postImage = async (e, user) => {
         const pic = e.target.files[0];
         const formData = new FormData();
@@ -29,6 +31,21 @@ const RecuestAccess = () => {
         });
         return response;
     };
+
+    const postImagesGalery = async (e) => {
+        const pic = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", pic);
+        formData.append("upload_preset", "wkuf5yo4");
+        const { data } = await axios.post(cloudinary, formData)
+        const response = await axios.post(api + `home/images/`, {
+            photo: data.url,
+        }, {
+            headers,
+        });
+        return response;
+    };
+
     const postImageAdmin = async (e) => {
         const pic = e.target.files[0];
         const formData = new FormData();
@@ -37,6 +54,7 @@ const RecuestAccess = () => {
         const { data } = await axios.post(cloudinary, formData)
         return data.url;
     };
+
     const postPhotoInAdmin = async (e, input) => {
         const url = await postImageAdmin(e);
         const response = await axios.post(api +
@@ -52,12 +70,14 @@ const RecuestAccess = () => {
         )
         return response;
     };
+
     const postJobInAdmin = async (input) => {
         const response = await axios.post(api +
             'home/jobs', input, { headers, }
         )
         return response;
     };
+
     const postBannerInAdmin = async (input) => {
         const response = await axios.put(api +
             'home/banner/' + idBanner,
@@ -91,18 +111,31 @@ const RecuestAccess = () => {
             console.log(error);
         }
     };
+    const getImagesGalery = async (e) => {
+        try {
+            const { data } = await axios.get(api + "home/images", {
+                headers,
+            });
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const getJobInAdmin = async () => {
         const response = await axios.get(api +
             'home/jobs', { headers, }
         )
         return response;
     };
+
     const getChildInProfile = async () => {
         const response = await axios.get(api +
             'user/child', { headers }
         )
         return response;
     };
+
     const getUser = async (e) => {
         if (token !== null) {
             try {
@@ -118,6 +151,7 @@ const RecuestAccess = () => {
             window.location.href = "/login";
         }
     };
+
     const getPhoto = async (e) => {
         try {
             const { data } = await axios.get(api + "home", {
@@ -128,6 +162,7 @@ const RecuestAccess = () => {
             console.log(error);
         }
     };
+
     const getBanner = async (e) => {
         try {
             const { data } = await axios.get(api + "home/banner", {
@@ -152,6 +187,7 @@ const RecuestAccess = () => {
             console.log(error);
         }
     };
+
     const putBannerInAdminText = async (e, input) => {
         try {
             const response = await axios.put(api +
@@ -216,25 +252,27 @@ const RecuestAccess = () => {
     };
 
     return {
-        putUser,
         getUser,
         getPhoto,
         getBanner,
+        getReadUser,
+        getJobInAdmin,
+        getImagesGalery,
+        getChildInProfile,
         postLogin,
         postImage,
-        getReadUser,
         postRegister,
-        putUserPhoto,
-        getJobInAdmin,
         postJobInAdmin,
         postImageAdmin,
         postPhotoInAdmin,
+        postImagesGalery,
         postChildProfile,
-        deleteJobInAdmin,
-        getChildInProfile,
-        deletePostInAdmin,
         postBannerInAdmin,
+        putUser,
+        putUserPhoto,
         putBannerInAdminText,
+        deleteJobInAdmin,
+        deletePostInAdmin,
     }
 }
 export default RecuestAccess;

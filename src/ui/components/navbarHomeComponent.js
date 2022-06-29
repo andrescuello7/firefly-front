@@ -15,7 +15,7 @@ const NavbarComponent = () => {
     useEffect(() => {
         AdminPageReload()
     }, [userModel !== null])
-    
+
     const AdminPageReload = async () => {
         const response = await getUser();
         if (response.user.admin === true) {
@@ -42,16 +42,11 @@ const NavbarComponent = () => {
                             </Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className="btn btn-light navbarFont" to="/time">
-                                Eventos
-                            </Link>
-                        </Nav.Link>
-                        {/* <Nav.Link>
                             <Link className="btn btn-light navbarFont" to="/status">
-                                Estado
+                                Galeria
                             </Link>
                         </Nav.Link>
-                        <Nav.Link>
+                        {  /*<Nav.Link>
                             <Link className="btn btn-light navbarFont" to="/pagos">
                                 Pagos
                             </Link>
@@ -65,10 +60,15 @@ const NavbarComponent = () => {
                             :
                             <div></div>
                         }
+                        <Nav.Link>
+                            <Link className="btn btn-light navbarFont" to="/time">
+                                Eventos
+                            </Link>
+                        </Nav.Link>
                         {token !== null ?
                             <Nav.Link>
                                 <Link onClick={handleLogOut} className="navbarFont btn btn-success w-100" to="/login">
-                                    Cerrar Sesion
+                                    <b>Cerrar Sesion</b>
                                 </Link>
                             </Nav.Link>
                             :

@@ -36,6 +36,7 @@ const ProfilePage = () => {
         } else {
             await setColaborator(false)
             await setJoven("Padre")
+            await setImage(userModel.user.photo)
         }
     }
     return (

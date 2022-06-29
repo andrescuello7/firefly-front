@@ -94,7 +94,7 @@ const HomePageController = () => {
         }
         return (
             <tr>
-                <td className='p-3'><img className='aboutUsBoxRightDirectionTableImage' src={image ? `${image}` : `${gender}`} /></td>
+                <td className='p-3'><img className='aboutUsBoxRightDirectionTableImage' src={`${gender}`} /></td>
                 <td className='p-3 nameChild'>{name ? `${name}` : 'Nombre'}</td>
                 <td className='w-25 p-3'>{progress ? <ProgressBar now={progress} /> : <ProgressBar now={5} />}</td>
             </tr>
@@ -151,23 +151,13 @@ const HomePageController = () => {
         return (
             <div className="homePageAbout">
                 <div className="w-100 d-flex flex-column mx-2">
-                    {title !== null ?
-                        <b className="titleHomeAbout">
-                            {title}
-                        </b>
-                        :
-                        <p className="titleHomeAbout">
-                            Desarrolle más rápidamente.
-                            Desarrolle de forma más inteligente.
-                        </p>}
-                    {description !== null ?
-                        <p className="descriptionHomeAbout">
-                            {description}
-                        </p>
-                        :
-                        <p className="descriptionHomeAbout">
-                            Lleve sus ideas al mercado más rápidamente con una plataforma de datos para aplicaciones basada en la base de datos moderna líder. Admita casos de uso transaccionales, de búsqueda, analíticos y móviles mientras utiliza una interfaz de consulta común y el modelo de datos que encanta a los desarrolladores.
-                        </p>}
+                    <p className="titleHomeAbout">
+                        Bienvenido a Luciernaga
+                    </p>
+                    <div className='mt-4'></div>
+                    <p className="descriptionHomeAbout">
+                        Jovenes que desarrollan un programa educativo no formal para niños en edad escolar entre los 4 a los 12 años, orientado a desarrollar un sistema de valores que permita a los niños la construccion de tareas en equipo considerando habilidades
+                    </p>
                 </div>
                 <img className="imagesHomeAbout" src={image !== null ? image : "https://animationexplainers.com/wp-content/uploads/2021/07/p10-bg2.png"} />
             </div>)

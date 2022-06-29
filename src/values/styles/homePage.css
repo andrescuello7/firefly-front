@@ -136,7 +136,18 @@
   font-size: 15px;
   color: gray;
 }
+.imagePostComponents{
+  width: 100%;
+  height: 225px;
+  border-right: 1px solid rgb(220, 230, 227);
+  border-radius: 5px;
+}
 @media (max-width: 780px) {
+  .imagePostComponents {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+  }
   .body {
     width: 100%;
   }
@@ -197,7 +208,7 @@
   }
 
   .displayButtonBanner {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
   }
