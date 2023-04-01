@@ -1,7 +1,7 @@
 const Variables = () => {
     //api-rest
     // const api = "http://localhost:4000/api/";
-    const api = "https://firefly-church.herokuapp.com/api/";
+    const api = "https://firefly-server-production-a6e1.up.railway.app/api/";
     const cloudinary = "https://api.cloudinary.com/v1_1/five-drive/upload";
     const idBanner = "62485b0ae119f42257d2ab3b";
     
